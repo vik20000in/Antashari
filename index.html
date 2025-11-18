@@ -2,218 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antakshari: Sur Sanchalak (Host Mode)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>🎵 Antakshari - Word Challenge</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <!-- MAIN DISPLAY (Visible to Audience) -->
-    <section class="main-display" id="main-display">
-      <div class="display-content">
-        <!-- Current Required Letter -->
-        <div class="letter-section">
-          <h2>Next Letter</h2>
-          <div id="required-letter" class="required-letter">क</div>
-        </div>
-
-        <!-- Timer Display -->
-        <div class="timer-section">
-          <div id="timer-display" class="timer-display">60</div>
-          <p class="timer-label">Seconds</p>
-        </div>
-
-        <!-- Last Valid Song Info -->
-        <div class="last-song-section">
-          <h3>Last Song</h3>
-          <div id="last-song-info" class="last-song-info">
-            <p class="song-title">Start</p>
-            <p class="song-line">No songs yet</p>
-          </div>
-        </div>
-
-        <!-- Round Mode Indicator -->
-        <div class="round-mode-section">
-          <h3>Round Mode</h3>
-          <div id="round-mode-display" class="round-mode-display">Classic Akshar-Gyan</div>
-        </div>
-
-        <!-- Theme/Challenge for Special Rounds -->
-        <div id="special-challenge-section" class="special-challenge-section" style="display: none;">
-          <h3>Special Challenge</h3>
-          <div id="special-challenge-display" class="special-challenge-display"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOST CONTROL PANEL (Hidden from Audience) -->
-    <section class="host-control-panel" id="host-control-panel">
-      <div class="control-panel-header">
-        <h1>🎙️ Host Control Panel</h1>
-        <button id="toggle-panel-btn" class="toggle-btn">Hide</button>
-      </div>
-
-      <!-- Song Verification Section -->
-      <div class="control-section">
-        <h2>Song Verification</h2>
-        <div class="verification-group">
-          <label for="host-input">Enter first two words of the song:</label>
-          <input 
-            type="text" 
-            id="host-input" 
-            placeholder="E.g., 'Akele Akele' or 'Kal Ho'"
-            autocomplete="off"
-          >
-          <button id="verify-btn" class="btn btn-primary">Verify</button>
-        </div>
-
-        <!-- Verification Results -->
-        <div id="verification-result" class="verification-result" style="display: none;">
-          <div class="result-content">
-            <p id="result-message"></p>
-            <div id="result-details"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Game State Section -->
-      <div class="control-section">
-        <h2>Game Status</h2>
-        <div class="game-state-info">
-          <p><strong>Current Letter:</strong> <span id="current-letter-display">क</span></p>
-          <p><strong>Songs Played:</strong> <span id="songs-played-count">0</span></p>
-          <p><strong>Total Songs in Database:</strong> <span id="total-songs-count">0</span></p>
-        </div>
-      </div>
-
-      <!-- Timer Controls Section -->
-      <div class="control-section">
-        <h2>Timer Controls</h2>
-        <div class="timer-controls">
-          <button id="start-timer-btn" class="btn btn-success">Start Timer (60s)</button>
-          <button id="pause-timer-btn" class="btn btn-warning" style="display: none;">Pause</button>
-          <button id="reset-timer-btn" class="btn btn-danger">Reset</button>
-          
-          <div class="timer-settings">
-            <label for="timer-duration">Timer Duration (Seconds):</label>
-            <input type="number" id="timer-duration" value="60" min="10" max="300">
-            <button id="set-timer-duration-btn" class="btn btn-info">Set</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Buttons Section -->
-      <div class="control-section">
-        <h2>Action</h2>
-        <div class="action-buttons">
-          <button id="confirm-next-btn" class="btn btn-success" style="display: none;">
-            Confirm & Next Letter →
+  <div class="app-container">
+    
+    <!-- SCREEN 1: HOME/MENU -->
+    <div id="homeScreen" class="screen active">
+      <div class="screen-content">
+        <div class="logo">🎵 ANTAKSHARI 🎵</div>
+        <p class="tagline">The Song Word Game!</p>
+        
+        <div class="menu-buttons">
+          <button class="btn btn-large btn-primary" onclick="startGame('word')">
+            🎯 Word Challenge
           </button>
-          <button id="skip-song-btn" class="btn btn-warning">Skip / Pass</button>
+          <button class="btn btn-large btn-primary" onclick="startGame('actor')">
+            🎬 Actor Challenge
+          </button>
+          <button class="btn btn-large btn-primary" onclick="startGame('classic')">
+            🔤 Classic Antakshari
+          </button>
+          <button class="btn btn-large btn-primary" onclick="startGame('theme')">
+            🎨 Theme Challenge
+          </button>
+          <button class="btn btn-large btn-primary" onclick="startGame('speed')">
+            ⚡ Speed Round
+          </button>
         </div>
-      </div>
-
-      <!-- Manual Letter Override Section -->
-      <div class="control-section">
-        <h2>Letter Override</h2>
-        <div class="manual-letter-group">
-          <label for="manual-letter-input">Set Letter Manually:</label>
-          <input 
-            type="text" 
-            id="manual-letter-input" 
-            placeholder="E.g., 'क' or 'ख'"
-            maxlength="1"
-          >
-          <button id="set-manual-letter-btn" class="btn btn-secondary">Set Letter</button>
-        </div>
-      </div>
-
-      <!-- Round Mode Selection -->
-      <div class="control-section">
-        <h2>Round Modes</h2>
-        <div class="round-selection">
-          <button id="mode-classic-btn" class="btn btn-mode active">1. Akshar-Gyan</button>
-          <button id="mode-theme-btn" class="btn btn-mode">2. Bhaav-Ras (Theme)</button>
-          <button id="mode-word-btn" class="btn btn-mode">3. Shabd-Bandh (Word)</button>
-          <button id="mode-rapid-btn" class="btn btn-mode">4. Sitaron Ke Naam (Rapid)</button>
-          <button id="mode-duet-btn" class="btn btn-mode">5. Jodi-Daar (Duet)</button>
-        </div>
-
-        <!-- Theme Input for Bhaav-Ras -->
-        <div id="theme-input-group" class="round-specific-input" style="display: none;">
-          <label for="theme-input">Set Theme:</label>
-          <input 
-            type="text" 
-            id="theme-input" 
-            placeholder="E.g., 'Rain', 'Kishore Kumar', 'Friendship'"
-          >
-          <button id="set-theme-btn" class="btn btn-secondary">Show Theme</button>
-        </div>
-
-        <!-- Word Input for Shabd-Bandh -->
-        <div id="word-input-group" class="round-specific-input" style="display: none;">
-          <label for="word-input">Choose Difficult Word:</label>
-          <select id="word-input" class="word-select">
-            <option value="">-- Suggestions --</option>
-            <option value="पर्दा">पर्दा (Parda)</option>
-            <option value="दास्तान">दास्तान (Dastaan)</option>
-            <option value="मुसाफिर">मुसाफिर (Musafir)</option>
-            <option value="फ़रक़">फ़रक़ (Farq)</option>
-            <option value="जीवन">जीवन (Jeevan)</option>
-            <option value="बाज़ी">बाज़ी (Bazi)</option>
-            <option value="दिलचस्पी">दिलचस्पी (Dilchaspi)</option>
-            <option value="शैतान">शैतान (Shaitan)</option>
-          </select>
-          <button id="set-word-btn" class="btn btn-secondary">Show Word</button>
-        </div>
-
-        <!-- Actor Input for Sitaron Ke Naam -->
-        <div id="actor-input-group" class="round-specific-input" style="display: none;">
-          <label for="actor-input">Choose Actor:</label>
-          <select id="actor-input" class="actor-select">
-            <option value="">-- Select Actor --</option>
-            <option value="राज कपूर">राज कपूर (Raj Kapoor)</option>
-            <option value="राजेश खन्ना">राजेश खन्ना (Rajesh Khanna)</option>
-            <option value="अमिताभ बच्चन">अमिताभ बच्चन (Amitabh Bachchan)</option>
-            <option value="शाहरुख खान">शाहरुख खान (Shah Rukh Khan)</option>
-            <option value="आमिर खान">आमिर खान (Aamir Khan)</option>
-            <option value="अक्षय कुमार">अक्षय कुमार (Akshay Kumar)</option>
-            <option value="सलमान खान">सलमान खान (Salman Khan)</option>
-            <option value="रानी मुखर्जी">रानी मुखर्जी (Rani Mukerji)</option>
-            <option value="दीपिका पादुकोण">दीपिका पादुकोण (Deepika Padukone)</option>
-          </select>
-          <button id="set-actor-btn" class="btn btn-secondary">Show Actor</button>
-        </div>
-      </div>
-
-      <!-- Recent Songs Played -->
-      <div class="control-section">
-        <h2>Recent Songs</h2>
-        <div id="songs-played-list" class="songs-played-list">
-          <p class="empty-message">No songs played yet</p>
-        </div>
-      </div>
-
-      <!-- Game Control Section -->
-      <div class="control-section">
-        <h2>Game Control</h2>
-        <div class="game-control-buttons">
-          <button id="reset-game-btn" class="btn btn-danger">Reset Game</button>
-          <button id="show-stats-btn" class="btn btn-info">Show Statistics</button>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Modal for Stats -->
-  <div id="stats-modal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <h2>Game Statistics</h2>
-      <div id="stats-content">
-        <p>Loading...</p>
       </div>
     </div>
+
+    <!-- SCREEN 2: GAME PLAY -->
+    <div id="gameScreen" class="screen">
+      <div class="screen-content">
+        
+        <!-- Header with back button -->
+        <div class="game-header">
+          <button class="btn btn-back" onclick="goHome()">← Back</button>
+          <h1 id="gameModeTitle">Word Challenge</h1>
+          <div class="score">Score: <span id="score">0</span></div>
+        </div>
+
+        <!-- Challenge Display -->
+        <div id="challengeDisplay" class="challenge-display">
+          <div id="challengeText" class="challenge-text">Loading...</div>
+          <div id="challengeHint" class="challenge-hint"></div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section">
+          <input 
+            id="songInput" 
+            type="text" 
+            class="song-input" 
+            placeholder="Type song title..."
+            onkeypress="handleEnter(event)"
+          >
+          <button class="btn btn-primary btn-check" onclick="checkAnswer()">
+            Check Answer
+          </button>
+        </div>
+
+        <!-- Result Display -->
+        <div id="resultSection" class="result-section" style="display: none;">
+          <div id="resultMessage" class="result-message"></div>
+          <div id="resultDetails" class="result-details"></div>
+          <button class="btn btn-primary btn-next" onclick="nextChallenge()">
+            Next Challenge
+          </button>
+        </div>
+
+        <!-- Song Info (shown after correct answer) -->
+        <div id="songInfoDisplay" class="song-info-display" style="display: none;">
+          <p class="song-title" id="displayedSongTitle"></p>
+          <p class="song-line" id="displayedSongLine"></p>
+          <p class="song-actor" id="displayedSongActor"></p>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
   <script src="songsData.js"></script>

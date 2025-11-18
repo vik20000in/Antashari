@@ -1,482 +1,291 @@
-// ============ ANTAKSHARI HOST GAME LOGIC ============
+// ===== ANTAKSHARI GAME ENGINE - PHASE 1 =====
+// Starting with Word Challenge Mode
+// Will add more modes incrementally
 
 class AntakshariGame {
   constructor() {
-    // Game State
-    this.requiredLetter = 'क';
-    this.songsPlayed = [];
-    this.timerInterval = null;
-    this.timeRemaining = 60;
-    this.isTimerRunning = false;
-    this.currentRoundMode = 'classic';
-    this.specialChallenge = '';
-    this.lastVerifiedSong = null;
-
-    // Initialize
-    this.initializeUI();
-    this.setupEventListeners();
-    this.updateGameState();
+    this.currentMode = null;
+    this.score = 0;
+    this.usedSongs = new Set();
+    this.currentChallenge = null;
+    this.answerRevealed = false;
   }
 
-  // ============ INITIALIZATION ============
-  initializeUI() {
-    // Set initial values
-    document.getElementById('required-letter').textContent = this.requiredLetter;
-    document.getElementById('current-letter-display').textContent = this.requiredLetter;
-    document.getElementById('total-songs-count').textContent = songsData.length;
+  startMode(mode) {
+    this.currentMode = mode;
+    this.score = 0;
+    this.usedSongs.clear();
+    this.answerRevealed = false;
+    
+    // Update UI
+    this.showGameScreen();
+    this.updateModeTitle(mode);
+    this.nextChallenge();
   }
 
-  setupEventListeners() {
-    // Verification
-    document.getElementById('verify-btn').addEventListener('click', () => this.verifySong());
-    document.getElementById('host-input').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') this.verifySong();
-    });
-
-    // Timer
-    document.getElementById('start-timer-btn').addEventListener('click', () => this.startTimer());
-    document.getElementById('pause-timer-btn').addEventListener('click', () => this.pauseTimer());
-    document.getElementById('reset-timer-btn').addEventListener('click', () => this.resetTimer());
-    document.getElementById('set-timer-duration-btn').addEventListener('click', () => this.setTimerDuration());
-
-    // Actions
-    document.getElementById('confirm-next-btn').addEventListener('click', () => this.confirmAndNext());
-    document.getElementById('skip-song-btn').addEventListener('click', () => this.skipSong());
-
-    // Letter Override
-    document.getElementById('set-manual-letter-btn').addEventListener('click', () => this.setManualLetter());
-    document.getElementById('manual-letter-input').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') this.setManualLetter();
-    });
-
-    // Round Modes
-    document.getElementById('mode-classic-btn').addEventListener('click', () => this.setRoundMode('classic'));
-    document.getElementById('mode-theme-btn').addEventListener('click', () => this.setRoundMode('theme'));
-    document.getElementById('mode-word-btn').addEventListener('click', () => this.setRoundMode('word'));
-    document.getElementById('mode-rapid-btn').addEventListener('click', () => this.setRoundMode('rapid'));
-    document.getElementById('mode-duet-btn').addEventListener('click', () => this.setRoundMode('duet'));
-
-    // Theme/Word/Actor inputs
-    document.getElementById('set-theme-btn').addEventListener('click', () => this.displayTheme());
-    document.getElementById('set-word-btn').addEventListener('click', () => this.displayWord());
-    document.getElementById('set-actor-btn').addEventListener('click', () => this.displayActor());
-
-    // Game Control
-    document.getElementById('reset-game-btn').addEventListener('click', () => this.resetGame());
-    document.getElementById('show-stats-btn').addEventListener('click', () => this.showStats());
-
-    // Panel Toggle
-    document.getElementById('toggle-panel-btn').addEventListener('click', () => this.togglePanel());
-
-    // Modal
-    document.querySelector('.close-modal').addEventListener('click', () => this.closeModal());
+  updateModeTitle(mode) {
+    const titles = {
+      'word': '🎯 Word Challenge',
+      'actor': '🎬 Actor Challenge',
+      'classic': '🔤 Classic Antakshari',
+      'theme': '🎨 Theme Challenge',
+      'speed': '⚡ Speed Round'
+    };
+    document.getElementById('gameModeTitle').textContent = titles[mode] || mode;
   }
 
-  // ============ SONG VERIFICATION ============
-  verifySong() {
-    const input = document.getElementById('host-input').value.trim();
-    const resultDiv = document.getElementById('verification-result');
-    const resultMessage = document.getElementById('result-message');
-    const resultDetails = document.getElementById('result-details');
+  showGameScreen() {
+    document.getElementById('homeScreen').classList.remove('active');
+    document.getElementById('gameScreen').classList.add('active');
+  }
+
+  nextChallenge() {
+    // Clear previous result
+    document.getElementById('resultSection').style.display = 'none';
+    document.getElementById('songInfoDisplay').style.display = 'none';
+    document.getElementById('songInput').value = '';
+    document.getElementById('songInput').focus();
+    this.answerRevealed = false;
+
+    // Generate new challenge based on mode
+    if (this.currentMode === 'word') {
+      this.generateWordChallenge();
+    } else if (this.currentMode === 'actor') {
+      this.generateActorChallenge();
+    } else if (this.currentMode === 'classic') {
+      this.generateClassicChallenge();
+    } else if (this.currentMode === 'theme') {
+      this.generateThemeChallenge();
+    } else if (this.currentMode === 'speed') {
+      this.generateSpeedChallenge();
+    }
+  }
+
+  // ===== MODE 1: WORD CHALLENGE =====
+  generateWordChallenge() {
+    let song;
+    do {
+      song = this.getRandomSong();
+    } while (this.usedSongs.has(song.id));
+
+    this.currentChallenge = {
+      song: song,
+      type: 'word',
+      word: this.getRandomWord(song.firstLine),
+    };
+
+    this.displayChallenge();
+  }
+
+  getRandomWord(sentence) {
+    const words = sentence.split(' ').filter(w => w.length > 2);
+    return words[Math.floor(Math.random() * words.length)];
+  }
+
+  displayChallenge() {
+    const { type, word } = this.currentChallenge;
+    const challengeText = document.getElementById('challengeText');
+    const challengeHint = document.getElementById('challengeHint');
+
+    if (type === 'word') {
+      challengeText.textContent = `Find a song with the word:\n"${word}"`;
+      challengeHint.textContent = 'Type any song that contains this word...';
+    } else if (type === 'actor') {
+      challengeText.textContent = `Find a song by:\n${this.currentChallenge.actor}`;
+      challengeHint.textContent = 'This actor/actress sang many famous songs!';
+    } else if (type === 'classic') {
+      challengeText.textContent = `Find a song starting with:\n${this.currentChallenge.letter}`;
+      challengeHint.textContent = 'The song title should start with this letter...';
+    } else if (type === 'theme') {
+      challengeText.textContent = `Find a song from the theme:\n${this.currentChallenge.theme}`;
+      challengeHint.textContent = 'Pick any song from this theme!';
+    } else if (type === 'speed') {
+      challengeText.textContent = `Quick! Find this song:\n${this.currentChallenge.hintText}`;
+      challengeHint.textContent = '⏱️ Speed mode - You have limited time!';
+    }
+  }
+
+  checkAnswer() {
+    const input = document.getElementById('songInput').value.toLowerCase().trim();
 
     if (!input) {
-      resultMessage.textContent = '⚠️ Please enter the song words';
-      resultDiv.style.display = 'block';
+      this.showResult(false, 'Please type a song name!');
       return;
     }
 
-    // Search for song
-    const foundSong = this.searchSong(input);
+    const challenge = this.currentChallenge;
+    const song = challenge.song;
+    const songTitle = song.title.toLowerCase();
+    const similarSongs = songsData.filter(s => 
+      s.title.toLowerCase().includes(input) || input.includes(s.title.toLowerCase().substring(0, 3))
+    );
 
-    if (!foundSong) {
-      resultMessage.textContent = '❌ Song not found';
-      resultDetails.innerHTML = '<p>This song is not in the database.</p>';
-      resultDiv.style.display = 'block';
-      return;
-    }
+    // Check if answer matches the challenge requirement
+    let isCorrect = false;
+    let matchedSong = null;
 
-    // Check letter match
-    const startsWithRequiredLetter = foundSong.title.toLowerCase().startsWith(this.requiredLetter.toLowerCase()) ||
-                                      this.isHindiCharacterMatch(foundSong.title[0], this.requiredLetter);
-
-    if (!startsWithRequiredLetter) {
-      resultMessage.textContent = '❌ Letter does not match';
-      resultDetails.innerHTML = `
-        <div class="result-details-item">
-          <strong>Song:</strong> ${foundSong.title}
-        </div>
-        <div class="result-details-item">
-          <strong>First Line:</strong> ${foundSong.firstLine}
-        </div>
-        <div class="result-details-item">
-          <strong>Required Letter:</strong> ${this.requiredLetter} | <strong>Actual:</strong> ${foundSong.title[0]}
-        </div>
-      `;
-      resultDiv.style.display = 'block';
-      return;
-    }
-
-    // Check if already played
-    if (this.isSongAlreadyPlayed(foundSong.id)) {
-      resultMessage.textContent = '❌ Song already played';
-      resultDetails.innerHTML = `
-        <div class="result-details-item">
-          <strong>Song:</strong> ${foundSong.title}
-        </div>
-      `;
-      resultDiv.style.display = 'block';
-      return;
-    }
-
-    // Check for duet round constraint
-    if (this.currentRoundMode === 'duet') {
-      if (foundSong.singerType !== 'Duet') {
-        resultMessage.textContent = '❌ This is not a duet song';
-        resultDetails.innerHTML = `
-          <div class="result-details-item">
-            <strong>Song:</strong> ${foundSong.title}
-          </div>
-          <div class="result-details-item">
-            <strong>Type:</strong> ${foundSong.singerType}
-          </div>
-        `;
-        resultDiv.style.display = 'block';
-        return;
-      }
-    }
-
-    // Valid song!
-    this.lastVerifiedSong = foundSong;
-    resultMessage.textContent = '✅ Valid Song!';
-    resultDetails.innerHTML = `
-      <div class="result-details-item">
-        <strong>Song:</strong> ${foundSong.title}
-      </div>
-      <div class="result-details-item">
-        <strong>First Line:</strong> ${foundSong.firstLine}
-      </div>
-      <div class="result-details-item">
-        <strong>Last Word:</strong> ${foundSong.lastWord}
-      </div>
-      <div class="result-details-item">
-        <strong>Next Letter:</strong> ${foundSong.lastConsonant}
-      </div>
-      ${foundSong.singerType ? `<div class="result-details-item"><strong>Type:</strong> ${foundSong.singerType}</div>` : ''}
-    `;
-
-    resultDiv.style.display = 'block';
-
-    // Show confirm button
-    document.getElementById('confirm-next-btn').style.display = 'block';
-    
-    // Stop timer
-    this.pauseTimer();
-  }
-
-  searchSong(input) {
-    const searchLower = input.toLowerCase();
-    return songsData.find(song => {
-      const titleWords = song.title.toLowerCase().split(' ');
-      const firstLineWords = song.firstLine.toLowerCase().split(' ');
+    if (challenge.type === 'word') {
+      // Check if any song with the word contains the input
+      const correctSongs = songsData.filter(s => 
+        s.firstLine.toLowerCase().includes(challenge.word.toLowerCase()) &&
+        (s.title.toLowerCase().includes(input) || input.includes(s.title.toLowerCase().substring(0, 3)))
+      );
       
-      // Check if input matches first one or two words
-      if (titleWords[0].includes(searchLower) || titleWords[0].startsWith(searchLower.split(' ')[0])) {
-        return true;
+      if (correctSongs.length > 0) {
+        matchedSong = correctSongs[0];
+        isCorrect = true;
       }
-      if (titleWords.length > 1 && (titleWords[0] + ' ' + titleWords[1]).includes(searchLower)) {
-        return true;
-      }
-      if (firstLineWords[0].includes(searchLower)) {
-        return true;
-      }
-      
-      return false;
-    });
-  }
-
-  isHindiCharacterMatch(char1, char2) {
-    // Simple comparison for Hindi characters
-    return char1.toLowerCase() === char2.toLowerCase();
-  }
-
-  isSongAlreadyPlayed(songId) {
-    return this.songsPlayed.some(s => s.id === songId);
-  }
-
-  // ============ TIMER FUNCTIONS ============
-  startTimer() {
-    if (this.isTimerRunning) return;
-
-    this.isTimerRunning = true;
-    document.getElementById('start-timer-btn').style.display = 'none';
-    document.getElementById('pause-timer-btn').style.display = 'block';
-
-    this.timerInterval = setInterval(() => {
-      this.timeRemaining--;
-      document.getElementById('timer-display').textContent = this.timeRemaining;
-
-      if (this.timeRemaining <= 0) {
-        this.pauseTimer();
-        this.showTimerExpiredMessage();
-      }
-    }, 1000);
-  }
-
-  pauseTimer() {
-    this.isTimerRunning = false;
-    clearInterval(this.timerInterval);
-    document.getElementById('start-timer-btn').style.display = 'block';
-    document.getElementById('pause-timer-btn').style.display = 'none';
-  }
-
-  resetTimer() {
-    this.pauseTimer();
-    this.timeRemaining = parseInt(document.getElementById('timer-duration').value) || 60;
-    document.getElementById('timer-display').textContent = this.timeRemaining;
-    document.getElementById('verification-result').style.display = 'none';
-    document.getElementById('confirm-next-btn').style.display = 'none';
-    this.lastVerifiedSong = null;
-  }
-
-  setTimerDuration() {
-    const newDuration = parseInt(document.getElementById('timer-duration').value);
-    if (newDuration && newDuration > 0) {
-      this.timeRemaining = newDuration;
-      document.getElementById('timer-display').textContent = this.timeRemaining;
     }
-  }
 
-  showTimerExpiredMessage() {
-    const resultDiv = document.getElementById('verification-result');
-    resultDiv.style.display = 'block';
-    document.getElementById('result-message').textContent = '⏰ Time Expired!';
-    document.getElementById('result-details').innerHTML = '<p>Timer expired. Next team\'s turn.</p>';
-  }
-
-  // ============ GAME ACTIONS ============
-  confirmAndNext() {
-    if (!this.lastVerifiedSong) return;
-
-    const song = this.lastVerifiedSong;
-    
-    // Add to played songs
-    this.songsPlayed.push({
-      id: song.id,
-      title: song.title,
-      timestamp: new Date().toLocaleTimeString('hi-IN')
-    });
-
-    // Update last song info
-    document.getElementById('last-song-info').innerHTML = `
-      <p class="song-title">${song.title}</p>
-      <p class="song-line">${song.firstLine}</p>
-    `;
-
-    // Update required letter
-    this.requiredLetter = song.lastConsonant;
-    document.getElementById('required-letter').textContent = this.requiredLetter;
-    document.getElementById('current-letter-display').textContent = this.requiredLetter;
-
-    // Update UI
-    document.getElementById('host-input').value = '';
-    document.getElementById('verification-result').style.display = 'none';
-    document.getElementById('confirm-next-btn').style.display = 'none';
-
-    // Reset timer
-    this.resetTimer();
-    this.updateGameState();
-  }
-
-  skipSong() {
-    document.getElementById('host-input').value = '';
-    document.getElementById('verification-result').style.display = 'none';
-    document.getElementById('confirm-next-btn').style.display = 'none';
-    this.resetTimer();
-    this.lastVerifiedSong = null;
-  }
-
-  setManualLetter() {
-    const input = document.getElementById('manual-letter-input').value.trim();
-    if (input && input.length === 1) {
-      this.requiredLetter = input;
-      document.getElementById('required-letter').textContent = this.requiredLetter;
-      document.getElementById('current-letter-display').textContent = this.requiredLetter;
-      document.getElementById('manual-letter-input').value = '';
-      this.showNotification('Letter updated: ' + this.requiredLetter);
-    }
-  }
-
-  // ============ ROUND MODES ============
-  setRoundMode(mode) {
-    this.currentRoundMode = mode;
-
-    // Update button states
-    document.querySelectorAll('.btn-mode').forEach(btn => btn.classList.remove('active'));
-    document.getElementById('mode-' + mode + '-btn').classList.add('active');
-
-    // Hide all special inputs
-    document.getElementById('theme-input-group').style.display = 'none';
-    document.getElementById('word-input-group').style.display = 'none';
-    document.getElementById('actor-input-group').style.display = 'none';
-    document.getElementById('special-challenge-section').style.display = 'none';
-
-    // Show relevant inputs and update display
-    switch (mode) {
-      case 'classic':
-        document.getElementById('round-mode-display').textContent = '1️⃣ Classic Akshar-Gyan';
-        this.specialChallenge = '';
-        break;
-      case 'theme':
-        document.getElementById('round-mode-display').textContent = '2️⃣ Bhaav-Ras (Theme Round)';
-        document.getElementById('theme-input-group').style.display = 'flex';
-        break;
-      case 'word':
-        document.getElementById('round-mode-display').textContent = '3️⃣ Shabd-Bandh (Word Challenge)';
-        document.getElementById('word-input-group').style.display = 'flex';
-        break;
-      case 'rapid':
-        document.getElementById('round-mode-display').textContent = '4️⃣ Sitaron Ke Naam (Rapid Fire)';
-        document.getElementById('actor-input-group').style.display = 'flex';
-        break;
-      case 'duet':
-        document.getElementById('round-mode-display').textContent = '5️⃣ Jodi-Daar (Duet Round)';
-        break;
-    }
-  }
-
-  displayTheme() {
-    const theme = document.getElementById('theme-input').value.trim();
-    if (theme) {
-      this.specialChallenge = theme;
-      document.getElementById('special-challenge-display').textContent = theme;
-      document.getElementById('special-challenge-section').style.display = 'block';
-      this.showNotification('Theme: ' + theme);
-    }
-  }
-
-  displayWord() {
-    const word = document.getElementById('word-input').value;
-    if (word) {
-      this.specialChallenge = word;
-      document.getElementById('special-challenge-display').textContent = 'Word: ' + word;
-      document.getElementById('special-challenge-section').style.display = 'block';
-      this.showNotification('Challenge word: ' + word);
-    }
-  }
-
-  displayActor() {
-    const actor = document.getElementById('actor-input').value;
-    if (actor) {
-      this.specialChallenge = actor;
-      document.getElementById('special-challenge-display').textContent = actor + ' Songs';
-      document.getElementById('special-challenge-section').style.display = 'block';
-      this.showNotification('Actor: ' + actor);
-    }
-  }
-
-  // ============ GAME CONTROL ============
-  resetGame() {
-    if (confirm('Are you sure you want to reset the entire game?')) {
-      this.songsPlayed = [];
-      this.requiredLetter = 'क';
-      this.lastVerifiedSong = null;
-      this.currentRoundMode = 'classic';
-      this.specialChallenge = '';
-
-      // Reset UI
-      this.resetTimer();
-      document.getElementById('required-letter').textContent = this.requiredLetter;
-      document.getElementById('current-letter-display').textContent = this.requiredLetter;
-      document.getElementById('last-song-info').innerHTML = '<p class="song-title">Start</p><p class="song-line">No songs yet</p>';
-      document.getElementById('host-input').value = '';
-      document.getElementById('verification-result').style.display = 'none';
-      document.getElementById('confirm-next-btn').style.display = 'none';
-      document.getElementById('special-challenge-section').style.display = 'none';
-      document.getElementById('round-mode-display').textContent = 'Classic Akshar-Gyan';
-
-      this.updateGameState();
-      this.showNotification('Game reset!');
-    }
-  }
-
-  showStats() {
-    const modal = document.getElementById('stats-modal');
-    const statsContent = document.getElementById('stats-content');
-
-    const availableSongs = songsData.length - this.songsPlayed.length;
-    const playedPercentage = ((this.songsPlayed.length / songsData.length) * 100).toFixed(1);
-
-    let html = `
-      <h3>📊 Game Statistics</h3>
-      <p><strong>Total Songs in Database:</strong> ${songsData.length}</p>
-      <p><strong>Songs Played:</strong> ${this.songsPlayed.length}</p>
-      <p><strong>Remaining Available Songs:</strong> ${availableSongs}</p>
-      <p><strong>Percentage Played:</strong> ${playedPercentage}%</p>
-      <p><strong>Current Letter:</strong> ${this.requiredLetter}</p>
-      <p><strong>Current Round Mode:</strong> ${this.currentRoundMode.toUpperCase()}</p>
-      <hr>
-      <h3>🎵 Recent Songs</h3>
-    `;
-
-    if (this.songsPlayed.length > 0) {
-      html += '<ol>';
-      [...this.songsPlayed].reverse().slice(0, 10).forEach(song => {
-        html += `<li>${song.title} (${song.timestamp})</li>`;
-      });
-      html += '</ol>';
+    if (isCorrect && matchedSong) {
+      this.score += 10;
+      this.usedSongs.add(matchedSong.id);
+      this.displayResult(true, matchedSong);
     } else {
-      html += '<p>No songs played yet</p>';
+      this.displayResult(false, null);
+    }
+  }
+
+  displayResult(isCorrect, song) {
+    const resultSection = document.getElementById('resultSection');
+    const resultMessage = document.getElementById('resultMessage');
+    const resultDetails = document.getElementById('resultDetails');
+
+    resultSection.style.display = 'block';
+    document.getElementById('songInfoDisplay').style.display = 'none';
+
+    if (isCorrect) {
+      resultMessage.textContent = '✅ Correct!';
+      resultMessage.className = 'result-message correct';
+      resultDetails.innerHTML = `<strong>Great job!</strong> You found a song with the word "${this.currentChallenge.word}"`;
+      
+      // Show song info
+      document.getElementById('songInfoDisplay').style.display = 'block';
+      document.getElementById('displayedSongTitle').textContent = `🎵 ${song.title}`;
+      document.getElementById('displayedSongLine').textContent = `"${song.firstLine}"`;
+      document.getElementById('displayedSongActor').textContent = `🎤 ${song.actor}`;
+    } else {
+      resultMessage.textContent = '❌ Not quite!';
+      resultMessage.className = 'result-message incorrect';
+      const correct = this.currentChallenge.song;
+      resultDetails.innerHTML = `<strong>The answer was:</strong> ${correct.title}<br>Keep trying! You got this! 💪`;
     }
 
-    statsContent.innerHTML = html;
-    modal.style.display = 'flex';
+    // Update score
+    document.getElementById('score').textContent = this.score;
   }
 
-  closeModal() {
-    document.getElementById('stats-modal').style.display = 'none';
+  // ===== MODE 2: ACTOR CHALLENGE (Placeholder) =====
+  generateActorChallenge() {
+    let song;
+    do {
+      song = this.getRandomSong();
+    } while (this.usedSongs.has(song.id));
+
+    const actors = ['राज कपूर', 'राजेश खन्ना', 'अमिताभ बच्चन', 'शाहरुख खान'];
+    const actor = actors[Math.floor(Math.random() * actors.length)];
+
+    this.currentChallenge = {
+      song: song,
+      type: 'actor',
+      actor: actor,
+    };
+
+    this.displayChallenge();
   }
 
-  togglePanel() {
-    const panel = document.getElementById('host-control-panel');
-    const btn = document.getElementById('toggle-panel-btn');
-    const isHidden = panel.style.display === 'none';
+  // ===== MODE 3: CLASSIC ANTAKSHARI (Placeholder) =====
+  generateClassicChallenge() {
+    let song;
+    do {
+      song = this.getRandomSong();
+    } while (this.usedSongs.has(song.id));
 
-    panel.style.display = isHidden ? 'block' : 'none';
-    btn.textContent = isHidden ? 'Hide' : 'Show';
+    const letters = 'क ख ग घ च छ ज झ ट ठ ड ढ त थ द ध न प फ ब भ म य र ल व श ष स ह'.split(' ');
+    const letter = letters[Math.floor(Math.random() * letters.length)];
+
+    this.currentChallenge = {
+      song: song,
+      type: 'classic',
+      letter: letter,
+    };
+
+    this.displayChallenge();
   }
 
-  // ============ UI UPDATE ============
-  updateGameState() {
-    document.getElementById('songs-played-count').textContent = this.songsPlayed.length;
-    this.updateSongsPlayedList();
+  // ===== MODE 4: THEME CHALLENGE (Placeholder) =====
+  generateThemeChallenge() {
+    let song;
+    do {
+      song = this.getRandomSong();
+    } while (this.usedSongs.has(song.id));
+
+    this.currentChallenge = {
+      song: song,
+      type: 'theme',
+      theme: song.themes[0] || 'Love',
+    };
+
+    this.displayChallenge();
   }
 
-  updateSongsPlayedList() {
-    const list = document.getElementById('songs-played-list');
-    
-    if (this.songsPlayed.length === 0) {
-      list.innerHTML = '<p class="empty-message">No songs played yet</p>';
-      return;
-    }
+  // ===== MODE 5: SPEED ROUND (Placeholder) =====
+  generateSpeedChallenge() {
+    let song;
+    do {
+      song = this.getRandomSong();
+    } while (this.usedSongs.has(song.id));
 
-    list.innerHTML = '';
-    [...this.songsPlayed].reverse().slice(0, 5).forEach(song => {
-      const item = document.createElement('div');
-      item.className = 'song-item';
-      item.innerHTML = `<strong>${song.title}</strong> <span style="font-size: 0.8rem; color: #95a5a6;">${song.timestamp}</span>`;
-      list.appendChild(item);
-    });
+    const hintTexts = [
+      `A song from "${song.movie}"`,
+      `By actor ${song.actor}`,
+      `Starts with letter "${song.title.charAt(0)}"`,
+    ];
+
+    this.currentChallenge = {
+      song: song,
+      type: 'speed',
+      hintText: hintTexts[Math.floor(Math.random() * hintTexts.length)],
+    };
+
+    this.displayChallenge();
   }
 
-  showNotification(message) {
-    // Simple console notification (could be enhanced with UI toast)
-    console.log('Notification:', message);
+  // ===== UTILITY FUNCTIONS =====
+  getRandomSong() {
+    return songsData[Math.floor(Math.random() * songsData.length)];
   }
 }
 
-// ============ INITIALIZE GAME ON PAGE LOAD ============
-document.addEventListener('DOMContentLoaded', () => {
-  window.game = new AntakshariGame();
-  console.log('Antakshari Game Initialized!');
-  console.log('Songs in Database:', songsData.length);
-});
+// ===== UI FUNCTIONS =====
+let game;
+
+function init() {
+  game = new AntakshariGame();
+}
+
+function startGame(mode) {
+  game.startMode(mode);
+}
+
+function goHome() {
+  document.getElementById('gameScreen').classList.remove('active');
+  document.getElementById('homeScreen').classList.add('active');
+}
+
+function nextChallenge() {
+  game.nextChallenge();
+}
+
+function checkAnswer() {
+  game.checkAnswer();
+}
+
+function handleEnter(event) {
+  if (event.key === 'Enter') {
+    checkAnswer();
+  }
+}
+
+// ===== INITIALIZE ON PAGE LOAD =====
+document.addEventListener('DOMContentLoaded', init);
