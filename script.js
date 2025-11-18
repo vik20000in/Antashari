@@ -156,15 +156,17 @@ class AntakshariGame {
       tuneControls.style.display = 'block';
       document.getElementById('hostSongName').textContent = this.currentChallenge.song.title;
       
-      // Load audio player
+      // Load audio player - use source element method
       const audioPlayer = document.getElementById('audioPlayer');
+      const audioSource = document.getElementById('audioSource');
+      
       if (this.currentChallenge.tuneConfig && this.currentChallenge.tuneConfig.audioUrl) {
-        audioPlayer.src = this.currentChallenge.tuneConfig.audioUrl;
+        audioSource.src = this.currentChallenge.tuneConfig.audioUrl;
+        audioPlayer.load(); // Force reload of audio element
         console.log('🎵 Loaded tune:', this.currentChallenge.song.title, 'URL:', this.currentChallenge.tuneConfig.audioUrl);
-        audioPlayer.pause(); // Don't auto-play, wait for user to click button
       } else {
         console.error('❌ No tune config found for song:', this.currentChallenge.song.title);
-        audioPlayer.src = '';
+        audioSource.src = '';
       }
       
       // Hide buttons
@@ -426,17 +428,19 @@ class AntakshariGame {
     }
 
     const audioPlayer = document.getElementById('audioPlayer');
-    if (!audioPlayer) {
+    const audioSource = document.getElementById('audioSource');
+    
+    if (!audioPlayer || !audioSource) {
       alert('❌ Audio player element not found!');
       return;
     }
     
-    if (!audioPlayer.src) {
+    if (!audioSource.src) {
       alert('❌ No audio URL loaded. Please wait and try again.');
       return;
     }
 
-    console.log('🎵 Attempting to play:', audioPlayer.src);
+    console.log('🎵 Attempting to play:', audioSource.src);
     
     // Reset and play
     audioPlayer.currentTime = 0;
