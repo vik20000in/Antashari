@@ -114,42 +114,74 @@ class AntakshariGame {
     }
 
     const challenge = this.currentChallenge;
-    const song = challenge.song;
-    const songTitle = song.title.toLowerCase();
-    const similarSongs = songsData.filter(s => 
-      s.title.toLowerCase().includes(input) || input.includes(s.title.toLowerCase().substring(0, 3))
-    );
+    const correctSong = challenge.song;
+    
+    // Find matching songs from database
+    const matchingSongs = songsData.filter(s => {
+      const titleMatch = s.title.toLowerCase().includes(input) || 
+                        input.includes(s.title.toLowerCase().substring(0, 3));
+      return titleMatch;
+    });
 
-    // Check if answer matches the challenge requirement
     let isCorrect = false;
     let matchedSong = null;
 
-    if (challenge.type === 'word') {
-      // Check if any song with the word contains the input
-      const correctSongs = songsData.filter(s => 
-        s.firstLine.toLowerCase().includes(challenge.word.toLowerCase()) &&
-        (s.title.toLowerCase().includes(input) || input.includes(s.title.toLowerCase().substring(0, 3)))
-      );
+    if (matchingSongs.length > 0) {
+      matchedSong = matchingSongs[0];
       
-      if (correctSongs.length > 0) {
-        matchedSong = correctSongs[0];
-        isCorrect = true;
+      // Verify the answer matches the challenge requirement
+      switch(challenge.type) {
+        case 'word':
+          // Song must contain the challenge word
+          if (correctSong.firstLine.toLowerCase().includes(challenge.word.toLowerCase())) {
+            isCorrect = true;
+          }
+          break;
+          
+        case 'actor':
+          // Song must be by the challenge actor
+          if (matchedSong.actor === correctSong.actor) {
+            isCorrect = true;
+          }
+          break;
+          
+        case 'classic':
+          // Song must start with the challenge letter
+          if (matchedSong.title.charAt(0).toLowerCase() === challenge.letter.toLowerCase()) {
+            isCorrect = true;
+          }
+          break;
+          
+        case 'theme':
+          // Song must be in the challenge theme
+          if (matchedSong.themes && matchedSong.themes.includes(challenge.theme)) {
+            isCorrect = true;
+          }
+          break;
+          
+        case 'speed':
+          // Any song works in speed mode (basic version)
+          isCorrect = true;
+          break;
       }
     }
 
-    if (isCorrect && matchedSong) {
+    if (isCorrect && matchedSong && !this.usedSongs.has(matchedSong.id)) {
       this.score += 10;
       this.usedSongs.add(matchedSong.id);
       this.displayResult(true, matchedSong);
+    } else if (isCorrect && this.usedSongs.has(matchedSong.id)) {
+      this.displayResult(false, null, 'already-played');
     } else {
       this.displayResult(false, null);
     }
   }
 
-  displayResult(isCorrect, song) {
+  displayResult(isCorrect, song, errorType = null) {
     const resultSection = document.getElementById('resultSection');
     const resultMessage = document.getElementById('resultMessage');
     const resultDetails = document.getElementById('resultDetails');
+    const challenge = this.currentChallenge;
 
     resultSection.style.display = 'block';
     document.getElementById('songInfoDisplay').style.display = 'none';
@@ -157,7 +189,20 @@ class AntakshariGame {
     if (isCorrect) {
       resultMessage.textContent = '✅ Correct!';
       resultMessage.className = 'result-message correct';
-      resultDetails.innerHTML = `<strong>Great job!</strong> You found a song with the word "${this.currentChallenge.word}"`;
+      
+      // Different message based on challenge type
+      let message = 'Great job! 🎉';
+      if (challenge.type === 'word') {
+        message = `Found a song with the word "${challenge.word}"!`;
+      } else if (challenge.type === 'actor') {
+        message = `Found a song by ${challenge.actor}!`;
+      } else if (challenge.type === 'classic') {
+        message = `Found a song starting with "${challenge.letter}"!`;
+      } else if (challenge.type === 'theme') {
+        message = `Found a song from theme "${challenge.theme}"!`;
+      }
+      
+      resultDetails.innerHTML = `<strong>${message}</strong>`;
       
       // Show song info
       document.getElementById('songInfoDisplay').style.display = 'block';
@@ -167,42 +212,57 @@ class AntakshariGame {
     } else {
       resultMessage.textContent = '❌ Not quite!';
       resultMessage.className = 'result-message incorrect';
-      const correct = this.currentChallenge.song;
-      resultDetails.innerHTML = `<strong>The answer was:</strong> ${correct.title}<br>Keep trying! You got this! 💪`;
+      
+      let errorMsg = '';
+      if (errorType === 'already-played') {
+        errorMsg = '<strong>You already played this song!</strong><br>Try a different one!';
+      } else {
+        const correct = this.currentChallenge.song;
+        let detail = '';
+        if (challenge.type === 'word') {
+          detail = `needs the word "${challenge.word}"`;
+        } else if (challenge.type === 'actor') {
+          detail = `should be by ${challenge.actor}`;
+        } else if (challenge.type === 'classic') {
+          detail = `should start with "${challenge.letter}"`;
+        } else if (challenge.type === 'theme') {
+          detail = `should be from "${challenge.theme}"`;
+        }
+        errorMsg = `<strong>The answer was:</strong> ${correct.title}<br><small>(${detail})</small>`;
+      }
+      resultDetails.innerHTML = errorMsg;
     }
 
     // Update score
     document.getElementById('score').textContent = this.score;
   }
 
-  // ===== MODE 2: ACTOR CHALLENGE (Placeholder) =====
+  // ===== MODE 2: ACTOR CHALLENGE =====
   generateActorChallenge() {
+    // Get random song first
     let song;
     do {
       song = this.getRandomSong();
     } while (this.usedSongs.has(song.id));
 
-    const actors = ['राज कपूर', 'राजेश खन्ना', 'अमिताभ बच्चन', 'शाहरुख खान'];
-    const actor = actors[Math.floor(Math.random() * actors.length)];
-
     this.currentChallenge = {
       song: song,
       type: 'actor',
-      actor: actor,
+      actor: song.actor,
     };
 
     this.displayChallenge();
   }
 
-  // ===== MODE 3: CLASSIC ANTAKSHARI (Placeholder) =====
+  // ===== MODE 3: CLASSIC ANTAKSHARI =====
   generateClassicChallenge() {
     let song;
     do {
       song = this.getRandomSong();
     } while (this.usedSongs.has(song.id));
 
-    const letters = 'क ख ग घ च छ ज झ ट ठ ड ढ त थ द ध न प फ ब भ म य र ल व श ष स ह'.split(' ');
-    const letter = letters[Math.floor(Math.random() * letters.length)];
+    // Get first character (Devanagari consonant)
+    const letter = song.title.charAt(0);
 
     this.currentChallenge = {
       song: song,
@@ -213,39 +273,45 @@ class AntakshariGame {
     this.displayChallenge();
   }
 
-  // ===== MODE 4: THEME CHALLENGE (Placeholder) =====
+  // ===== MODE 4: THEME CHALLENGE =====
   generateThemeChallenge() {
     let song;
     do {
       song = this.getRandomSong();
     } while (this.usedSongs.has(song.id));
 
+    // Use first theme from the song
+    const theme = song.themes && song.themes.length > 0 ? song.themes[0] : 'Love';
+
     this.currentChallenge = {
       song: song,
       type: 'theme',
-      theme: song.themes[0] || 'Love',
+      theme: theme,
     };
 
     this.displayChallenge();
   }
 
-  // ===== MODE 5: SPEED ROUND (Placeholder) =====
+  // ===== MODE 5: SPEED ROUND =====
   generateSpeedChallenge() {
     let song;
     do {
       song = this.getRandomSong();
     } while (this.usedSongs.has(song.id));
 
-    const hintTexts = [
-      `A song from "${song.movie}"`,
-      `By actor ${song.actor}`,
-      `Starts with letter "${song.title.charAt(0)}"`,
+    const hintTypes = [
+      `From movie: "${song.movie}"`,
+      `Sung by: ${song.actor}`,
+      `Starts with letter: "${song.title.charAt(0)}"`,
+      `Theme: ${song.themes && song.themes.length > 0 ? song.themes[0] : 'Bollywood'}`
     ];
+
+    const hintText = hintTypes[Math.floor(Math.random() * hintTypes.length)];
 
     this.currentChallenge = {
       song: song,
       type: 'speed',
-      hintText: hintTexts[Math.floor(Math.random() * hintTexts.length)],
+      hintText: hintText,
     };
 
     this.displayChallenge();
