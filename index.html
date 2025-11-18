@@ -63,29 +63,26 @@
             <p id="hostSongName" class="song-name-display"></p>
           </div>
           
-          <!-- YouTube Player Container -->
-          <div id="youtubePlayerContainer" class="youtube-player-container">
-            <iframe 
-              id="youtubePlayer"
+          <!-- Audio Player Container -->
+          <div id="audioPlayerContainer" class="audio-player-container">
+            <audio 
+              id="audioPlayer"
               width="100%" 
-              height="240" 
-              src="" 
-              frameborder="0" 
-              allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              sandbox="allow-same-origin allow-scripts allow-presentation"
-              allowfullscreen>
-            </iframe>
+              controls
+              style="width: 100%; margin: 10px 0;">
+              Your browser does not support the audio element.
+            </audio>
           </div>
           
           <button id="playTuneBtn" class="btn btn-primary btn-large" onclick="playTune()">
-            ▶️ Play Tune on YouTube
+            ▶️ Play Tune
           </button>
           
           <button id="nextTuneBtn" class="btn btn-primary btn-large" onclick="nextChallenge()">
             ⏭️ Next Tune
           </button>
           
-          <p class="tune-hint">Click to play the song in YouTube. Tell users to listen!</p>
+          <p class="tune-hint">Click to play the song. Tell users to listen!</p>
         </div>
 
         <!-- Action Section (context-aware) -->
@@ -132,7 +129,7 @@
   </div>
 
   <script src="songsData.js"></script>
-  <script src="tuneConfig.js"></script>
+  <script src="musicConfig.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

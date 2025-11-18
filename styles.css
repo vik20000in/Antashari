@@ -295,13 +295,29 @@ body {
   margin-top: 10px;
 }
 
-/* ===== YOUTUBE PLAYER CONTAINER ===== */
+/* ===== AUDIO PLAYER CONTAINER ===== */
+.audio-player-container {
+  width: 100%;
+  margin: 15px 0;
+  padding: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.audio-player-container audio {
+  width: 100% !important;
+  outline: none;
+}
+
+/* ===== YOUTUBE PLAYER CONTAINER (DEPRECATED) ===== */
 .youtube-player-container {
   width: 100%;
   margin-bottom: 20px;
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: none;
 }
 
 .youtube-player-container iframe {

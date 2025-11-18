@@ -156,15 +156,13 @@ class AntakshariGame {
       tuneControls.style.display = 'block';
       document.getElementById('hostSongName').textContent = this.currentChallenge.song.title;
       
-      // Load YouTube player
+      // Load audio player
+      const audioPlayer = document.getElementById('audioPlayer');
       if (this.currentChallenge.tuneConfig) {
-        const embedUrl = getYouTubeEmbedUrl(
-          this.currentChallenge.tuneConfig.youtubeId,
-          this.currentChallenge.tuneConfig.startTime
-        );
-        document.getElementById('youtubePlayer').src = embedUrl;
+        audioPlayer.src = this.currentChallenge.tuneConfig.audioUrl;
+        audioPlayer.pause(); // Don't auto-play, wait for user to click button
       } else {
-        document.getElementById('youtubePlayer').src = 'about:blank';
+        audioPlayer.src = '';
       }
       
       // Hide buttons
@@ -390,15 +388,15 @@ class AntakshariGame {
 
   // ===== MODE 3: TUNE CHALLENGE =====
   generateTuneChallenge() {
-    // Get all songs that have tune configurations
-    const tuneSongIds = [5, 14, 26, 31]; // IDs with YouTube tunes
+    // Get all songs that have music configurations
+    const tuneSongIds = [5, 14, 26, 31]; // IDs with royalty-free music
     const availableSongs = songsData.filter(song => tuneSongIds.includes(song.id));
     
     // Pick a random song from available tunes
     let song = availableSongs[Math.floor(Math.random() * availableSongs.length)];
 
-    // Try to get YouTube configuration for this song
-    const tuneConfig = getTuneForSong(song.id);
+    // Try to get music configuration for this song
+    const tuneConfig = getMusicForSong(song.id);
 
     this.currentChallenge = {
       song: song,
@@ -425,12 +423,11 @@ class AntakshariGame {
       return;
     }
 
-    // Update the iframe to enable autoplay
-    const playerIframe = document.getElementById('youtubePlayer');
-    if (playerIframe.src && playerIframe.src !== 'about:blank') {
-      // Enable autoplay by replacing the src with autoplay=1
-      const currentSrc = playerIframe.src.replace('autoplay=0', 'autoplay=1');
-      playerIframe.src = currentSrc;
+    // Play the audio
+    const audioPlayer = document.getElementById('audioPlayer');
+    if (audioPlayer.src) {
+      audioPlayer.currentTime = 0; // Start from beginning
+      audioPlayer.play();
       
       // Show notification
       const playBtn = document.getElementById('playTuneBtn');
