@@ -27,6 +27,7 @@ class AntakshariGame {
     const titles = {
       'word': '🎯 Word Challenge',
       'actor': '🎬 Actor Challenge',
+      'tune': '🎵 Tune Challenge',
       'classic': '🔤 Classic Antakshari',
       'theme': '🎨 Theme Challenge',
       'speed': '⚡ Speed Round'
@@ -43,6 +44,7 @@ class AntakshariGame {
     // Clear previous result
     document.getElementById('resultSection').style.display = 'none';
     document.getElementById('songInfoDisplay').style.display = 'none';
+    document.getElementById('tuneHostControls').style.display = 'none';
     
     // Clear input if it exists
     const songInput = document.getElementById('songInput');
@@ -58,6 +60,8 @@ class AntakshariGame {
       this.generateWordChallenge();
     } else if (this.currentMode === 'actor') {
       this.generateActorChallenge();
+    } else if (this.currentMode === 'tune') {
+      this.generateTuneChallenge();
     } else if (this.currentMode === 'classic') {
       this.generateClassicChallenge();
     } else if (this.currentMode === 'theme') {
@@ -104,6 +108,7 @@ class AntakshariGame {
     // Hide result and song info
     document.getElementById('resultSection').style.display = 'none';
     document.getElementById('songInfoDisplay').style.display = 'none';
+    document.getElementById('tuneHostControls').style.display = 'none';
 
     if (type === 'word') {
       // Word Challenge: Show word in both languages, no input needed
@@ -138,6 +143,21 @@ class AntakshariGame {
       
       // Show next word button, hide input
       nextWordBtn.style.display = 'block';
+      inputSection.style.display = 'none';
+      
+    } else if (type === 'tune') {
+      // Tune Challenge: Host can see song name, users hear the tune
+      challengeText.textContent = 'Listen to the tune...';
+      challengeSubtext.style.display = 'none';
+      challengeHint.textContent = '🎵 Host will play a tune from a song!';
+      
+      // Show tune host controls (host only)
+      const tuneControls = document.getElementById('tuneHostControls');
+      tuneControls.style.display = 'block';
+      document.getElementById('hostSongName').textContent = this.currentChallenge.song.title;
+      
+      // Hide buttons
+      nextWordBtn.style.display = 'none';
       inputSection.style.display = 'none';
       
     } else if (type === 'classic') {
@@ -357,7 +377,57 @@ class AntakshariGame {
     this.displayChallenge();
   }
 
-  // ===== MODE 3: CLASSIC ANTAKSHARI =====
+  // ===== MODE 3: TUNE CHALLENGE =====
+  generateTuneChallenge() {
+    let song;
+    do {
+      song = this.getRandomSong();
+    } while (this.usedSongs.has(song.id));
+
+    this.currentChallenge = {
+      song: song,
+      type: 'tune',
+      tuneUrl: this.generateTuneUrl(song), // We'll use a placeholder for now
+    };
+
+    this.displayChallenge();
+  }
+
+  generateTuneUrl(song) {
+    // In a real app, this would return a URL to an audio file
+    // For now, we'll simulate it with a data-uri or external audio
+    // You can replace this with actual audio URLs from a service
+    
+    // Placeholder: using a Web Audio API to generate a simple tone
+    // In production, you'd host actual song clips
+    return `tune-${song.id}`;
+  }
+
+  playTune() {
+    const song = this.currentChallenge.song;
+    
+    // Simple notification that tune "played" (visual feedback)
+    const playBtn = document.getElementById('playTuneBtn');
+    const originalText = playBtn.textContent;
+    playBtn.textContent = '🎵 Playing...';
+    playBtn.disabled = true;
+    
+    // Simulate tune playing for 3 seconds
+    setTimeout(() => {
+      playBtn.textContent = originalText;
+      playBtn.disabled = false;
+      this.showNotification(`Tune from "${song.title}" finished playing!`);
+    }, 3000);
+    
+    // TODO: Add actual audio playback here
+    // Example: const audio = new Audio(this.currentChallenge.tuneUrl);
+    // audio.play();
+  }
+
+  showNotification(message) {
+    // Simple notification display
+    alert(message);
+  }
   generateClassicChallenge() {
     let song;
     do {

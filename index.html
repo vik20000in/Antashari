@@ -22,6 +22,9 @@
           <button class="btn btn-large btn-primary" onclick="startGame('actor')">
             🎬 Actor Challenge
           </button>
+          <button class="btn btn-large btn-primary" onclick="startGame('tune')">
+            🎵 Tune Challenge
+          </button>
           <button class="btn btn-large btn-primary" onclick="startGame('classic')">
             🔤 Classic Antakshari
           </button>
@@ -51,6 +54,17 @@
           <div id="challengeText" class="challenge-text">Loading...</div>
           <div id="challengeSubtext" class="challenge-subtext"></div>
           <div id="challengeHint" class="challenge-hint"></div>
+        </div>
+
+        <!-- Host Controls for Tune Challenge -->
+        <div id="tuneHostControls" class="tune-host-controls" style="display: none;">
+          <div class="host-song-name">
+            <p class="label">🎵 Song Name (Host Only):</p>
+            <p id="hostSongName" class="song-name-display"></p>
+          </div>
+          <button id="playTuneBtn" class="btn btn-primary btn-large" onclick="playTune()">
+            ▶️ Play Tune
+          </button>
         </div>
 
         <!-- Action Section (context-aware) -->
