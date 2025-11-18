@@ -423,23 +423,26 @@ class AntakshariGame {
       return;
     }
 
-    // Open YouTube video in a new tab
-    const youtubeUrl = getYouTubePlayUrl(
-      challenge.tuneConfig.youtubeId,
-      challenge.tuneConfig.startTime
-    );
-    window.open(youtubeUrl, 'youtube_player', 'width=800,height=600');
+    // Update the iframe to enable autoplay
+    const playerIframe = document.getElementById('youtubePlayer');
+    if (playerIframe.src && playerIframe.src !== 'about:blank') {
+      // Enable autoplay by replacing the src with autoplay=1
+      const currentSrc = playerIframe.src.replace('autoplay=0', 'autoplay=1');
+      playerIframe.src = currentSrc;
+      
+      // Show notification
+      const playBtn = document.getElementById('playTuneBtn');
+      const originalText = playBtn.textContent;
+      playBtn.textContent = '🎵 Now Playing...';
+      playBtn.disabled = true;
 
-    // Also show notification
-    const playBtn = document.getElementById('playTuneBtn');
-    const originalText = playBtn.textContent;
-    playBtn.textContent = '✅ Opening YouTube...';
-    playBtn.disabled = true;
-
-    setTimeout(() => {
-      playBtn.textContent = originalText;
-      playBtn.disabled = false;
-    }, 2000);
+      setTimeout(() => {
+        playBtn.textContent = originalText;
+        playBtn.disabled = false;
+      }, 3000);
+    } else {
+      alert('❌ Tune not loaded yet. Please wait a moment.');
+    }
   }
 
   showNotification(message) {
@@ -543,6 +546,10 @@ function nextChallenge() {
 
 function checkAnswer() {
   game.checkAnswer();
+}
+
+function playTune() {
+  game.playTune();
 }
 
 function handleEnter(event) {

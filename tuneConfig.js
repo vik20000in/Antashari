@@ -84,10 +84,11 @@ const tuneConfiguration = {
   }
 };
 
-// Get YouTube embed URL with autoplay disabled (for safety)
+// Get YouTube embed URL with autoplay support
 function getYouTubeEmbedUrl(videoId, startTime = 0) {
-  // Using nocookie domain for better privacy and compatibility
-  return `https://www.youtube-nocookie.com/embed/${videoId}?start=${startTime}&autoplay=0&controls=1&modestbranding=1&rel=0`;
+  // Using regular youtube.com domain with autoplay enabled
+  // sandbox="allow-same-origin allow-scripts allow-presentation" is required in HTML for autoplay to work
+  return `https://www.youtube.com/embed/${videoId}?start=${startTime}&autoplay=1&controls=1&modestbranding=1&rel=0`;
 }
 
 // Get YouTube direct play URL
