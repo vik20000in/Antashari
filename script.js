@@ -80,7 +80,7 @@ class AntakshariGame {
     const resultDetails = document.getElementById('result-details');
 
     if (!input) {
-      resultMessage.textContent = '⚠️ कृपया गीत के शब्द दर्ज करें';
+      resultMessage.textContent = '⚠️ Please enter the song words';
       resultDiv.style.display = 'block';
       return;
     }
@@ -89,8 +89,8 @@ class AntakshariGame {
     const foundSong = this.searchSong(input);
 
     if (!foundSong) {
-      resultMessage.textContent = '❌ गीत नहीं मिला';
-      resultDetails.innerHTML = '<p>डेटाबेस में यह गीत मौजूद नहीं है।</p>';
+      resultMessage.textContent = '❌ Song not found';
+      resultDetails.innerHTML = '<p>This song is not in the database.</p>';
       resultDiv.style.display = 'block';
       return;
     }
@@ -100,16 +100,16 @@ class AntakshariGame {
                                       this.isHindiCharacterMatch(foundSong.title[0], this.requiredLetter);
 
     if (!startsWithRequiredLetter) {
-      resultMessage.textContent = '❌ अक्षर का मेल नहीं है';
+      resultMessage.textContent = '❌ Letter does not match';
       resultDetails.innerHTML = `
         <div class="result-details-item">
-          <strong>गीत:</strong> ${foundSong.title}
+          <strong>Song:</strong> ${foundSong.title}
         </div>
         <div class="result-details-item">
-          <strong>शुरुआत:</strong> ${foundSong.firstLine}
+          <strong>First Line:</strong> ${foundSong.firstLine}
         </div>
         <div class="result-details-item">
-          <strong>आवश्यक अक्षर:</strong> ${this.requiredLetter} | <strong>वास्तविक:</strong> ${foundSong.title[0]}
+          <strong>Required Letter:</strong> ${this.requiredLetter} | <strong>Actual:</strong> ${foundSong.title[0]}
         </div>
       `;
       resultDiv.style.display = 'block';
@@ -118,10 +118,10 @@ class AntakshariGame {
 
     // Check if already played
     if (this.isSongAlreadyPlayed(foundSong.id)) {
-      resultMessage.textContent = '❌ गीत पहले ही खेला जा चुका है';
+      resultMessage.textContent = '❌ Song already played';
       resultDetails.innerHTML = `
         <div class="result-details-item">
-          <strong>गीत:</strong> ${foundSong.title}
+          <strong>Song:</strong> ${foundSong.title}
         </div>
       `;
       resultDiv.style.display = 'block';
@@ -131,13 +131,13 @@ class AntakshariGame {
     // Check for duet round constraint
     if (this.currentRoundMode === 'duet') {
       if (foundSong.singerType !== 'Duet') {
-        resultMessage.textContent = '❌ यह एक युगल गीत नहीं है';
+        resultMessage.textContent = '❌ This is not a duet song';
         resultDetails.innerHTML = `
           <div class="result-details-item">
-            <strong>गीत:</strong> ${foundSong.title}
+            <strong>Song:</strong> ${foundSong.title}
           </div>
           <div class="result-details-item">
-            <strong>प्रकार:</strong> ${foundSong.singerType}
+            <strong>Type:</strong> ${foundSong.singerType}
           </div>
         `;
         resultDiv.style.display = 'block';
@@ -147,21 +147,21 @@ class AntakshariGame {
 
     // Valid song!
     this.lastVerifiedSong = foundSong;
-    resultMessage.textContent = '✅ वैध गीत!';
+    resultMessage.textContent = '✅ Valid Song!';
     resultDetails.innerHTML = `
       <div class="result-details-item">
-        <strong>गीत:</strong> ${foundSong.title}
+        <strong>Song:</strong> ${foundSong.title}
       </div>
       <div class="result-details-item">
-        <strong>पहली पंक्ति:</strong> ${foundSong.firstLine}
+        <strong>First Line:</strong> ${foundSong.firstLine}
       </div>
       <div class="result-details-item">
-        <strong>अंतिम शब्द:</strong> ${foundSong.lastWord}
+        <strong>Last Word:</strong> ${foundSong.lastWord}
       </div>
       <div class="result-details-item">
-        <strong>अगला अक्षर:</strong> ${foundSong.lastConsonant}
+        <strong>Next Letter:</strong> ${foundSong.lastConsonant}
       </div>
-      ${foundSong.singerType ? `<div class="result-details-item"><strong>प्रकार:</strong> ${foundSong.singerType}</div>` : ''}
+      ${foundSong.singerType ? `<div class="result-details-item"><strong>Type:</strong> ${foundSong.singerType}</div>` : ''}
     `;
 
     resultDiv.style.display = 'block';
@@ -249,8 +249,8 @@ class AntakshariGame {
   showTimerExpiredMessage() {
     const resultDiv = document.getElementById('verification-result');
     resultDiv.style.display = 'block';
-    document.getElementById('result-message').textContent = '⏰ समय समाप्त!';
-    document.getElementById('result-details').innerHTML = '<p>टाइमर समाप्त हो गया। अगली टीम का बारी है।</p>';
+    document.getElementById('result-message').textContent = '⏰ Time Expired!';
+    document.getElementById('result-details').innerHTML = '<p>Timer expired. Next team\'s turn.</p>';
   }
 
   // ============ GAME ACTIONS ============
@@ -302,7 +302,7 @@ class AntakshariGame {
       document.getElementById('required-letter').textContent = this.requiredLetter;
       document.getElementById('current-letter-display').textContent = this.requiredLetter;
       document.getElementById('manual-letter-input').value = '';
-      this.showNotification('अक्षर अपडेट किया गया: ' + this.requiredLetter);
+      this.showNotification('Letter updated: ' + this.requiredLetter);
     }
   }
 
@@ -350,7 +350,7 @@ class AntakshariGame {
       this.specialChallenge = theme;
       document.getElementById('special-challenge-display').textContent = theme;
       document.getElementById('special-challenge-section').style.display = 'block';
-      this.showNotification('विषय: ' + theme);
+      this.showNotification('Theme: ' + theme);
     }
   }
 
@@ -358,9 +358,9 @@ class AntakshariGame {
     const word = document.getElementById('word-input').value;
     if (word) {
       this.specialChallenge = word;
-      document.getElementById('special-challenge-display').textContent = 'शब्द: ' + word;
+      document.getElementById('special-challenge-display').textContent = 'Word: ' + word;
       document.getElementById('special-challenge-section').style.display = 'block';
-      this.showNotification('चुनौती शब्द: ' + word);
+      this.showNotification('Challenge word: ' + word);
     }
   }
 
@@ -368,15 +368,15 @@ class AntakshariGame {
     const actor = document.getElementById('actor-input').value;
     if (actor) {
       this.specialChallenge = actor;
-      document.getElementById('special-challenge-display').textContent = actor + ' के गीत';
+      document.getElementById('special-challenge-display').textContent = actor + ' Songs';
       document.getElementById('special-challenge-section').style.display = 'block';
-      this.showNotification('अभिनेता: ' + actor);
+      this.showNotification('Actor: ' + actor);
     }
   }
 
   // ============ GAME CONTROL ============
   resetGame() {
-    if (confirm('क्या आप पूरा खेल रीसेट करना चाहते हैं?')) {
+    if (confirm('Are you sure you want to reset the entire game?')) {
       this.songsPlayed = [];
       this.requiredLetter = 'क';
       this.lastVerifiedSong = null;
@@ -387,7 +387,7 @@ class AntakshariGame {
       this.resetTimer();
       document.getElementById('required-letter').textContent = this.requiredLetter;
       document.getElementById('current-letter-display').textContent = this.requiredLetter;
-      document.getElementById('last-song-info').innerHTML = '<p class="song-title">शुरुआत</p><p class="song-line">कोई गीत नहीं</p>';
+      document.getElementById('last-song-info').innerHTML = '<p class="song-title">Start</p><p class="song-line">No songs yet</p>';
       document.getElementById('host-input').value = '';
       document.getElementById('verification-result').style.display = 'none';
       document.getElementById('confirm-next-btn').style.display = 'none';
@@ -395,7 +395,7 @@ class AntakshariGame {
       document.getElementById('round-mode-display').textContent = 'Classic Akshar-Gyan';
 
       this.updateGameState();
-      this.showNotification('खेल रीसेट किया गया!');
+      this.showNotification('Game reset!');
     }
   }
 
@@ -407,15 +407,15 @@ class AntakshariGame {
     const playedPercentage = ((this.songsPlayed.length / songsData.length) * 100).toFixed(1);
 
     let html = `
-      <h3>📊 खेल के आंकड़े</h3>
-      <p><strong>कुल गीत डेटाबेस में:</strong> ${songsData.length}</p>
-      <p><strong>खेले गए गीत:</strong> ${this.songsPlayed.length}</p>
-      <p><strong>शेष उपलब्ध गीत:</strong> ${availableSongs}</p>
-      <p><strong>प्रतिशत खेले गए:</strong> ${playedPercentage}%</p>
-      <p><strong>वर्तमान अक्षर:</strong> ${this.requiredLetter}</p>
-      <p><strong>वर्तमान Round Mode:</strong> ${this.currentRoundMode.toUpperCase()}</p>
+      <h3>📊 Game Statistics</h3>
+      <p><strong>Total Songs in Database:</strong> ${songsData.length}</p>
+      <p><strong>Songs Played:</strong> ${this.songsPlayed.length}</p>
+      <p><strong>Remaining Available Songs:</strong> ${availableSongs}</p>
+      <p><strong>Percentage Played:</strong> ${playedPercentage}%</p>
+      <p><strong>Current Letter:</strong> ${this.requiredLetter}</p>
+      <p><strong>Current Round Mode:</strong> ${this.currentRoundMode.toUpperCase()}</p>
       <hr>
-      <h3>🎵 हाल ही के गीत</h3>
+      <h3>🎵 Recent Songs</h3>
     `;
 
     if (this.songsPlayed.length > 0) {
@@ -425,7 +425,7 @@ class AntakshariGame {
       });
       html += '</ol>';
     } else {
-      html += '<p>कोई गीत खेला नहीं गया</p>';
+      html += '<p>No songs played yet</p>';
     }
 
     statsContent.innerHTML = html;
@@ -442,7 +442,7 @@ class AntakshariGame {
     const isHidden = panel.style.display === 'none';
 
     panel.style.display = isHidden ? 'block' : 'none';
-    btn.textContent = isHidden ? 'छुपाएं' : 'दिखाएं';
+    btn.textContent = isHidden ? 'Hide' : 'Show';
   }
 
   // ============ UI UPDATE ============
@@ -455,7 +455,7 @@ class AntakshariGame {
     const list = document.getElementById('songs-played-list');
     
     if (this.songsPlayed.length === 0) {
-      list.innerHTML = '<p class="empty-message">अभी कोई गीत नहीं खेला गया</p>';
+      list.innerHTML = '<p class="empty-message">No songs played yet</p>';
       return;
     }
 
