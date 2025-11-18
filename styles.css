@@ -286,6 +286,21 @@ body {
   padding: 16px;
 }
 
+/* ===== YOUTUBE PLAYER CONTAINER ===== */
+.youtube-player-container {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.youtube-player-container iframe {
+  display: block;
+  border-radius: var(--border-radius);
+  background: #000;
+}
+
 /* ===== RESULT SECTION ===== */
 .result-section {
   background: white;

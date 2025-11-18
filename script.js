@@ -156,6 +156,17 @@ class AntakshariGame {
       tuneControls.style.display = 'block';
       document.getElementById('hostSongName').textContent = this.currentChallenge.song.title;
       
+      // Load YouTube player
+      if (this.currentChallenge.tuneConfig) {
+        const embedUrl = getYouTubeEmbedUrl(
+          this.currentChallenge.tuneConfig.youtubeId,
+          this.currentChallenge.tuneConfig.startTime
+        );
+        document.getElementById('youtubePlayer').src = embedUrl;
+      } else {
+        document.getElementById('youtubePlayer').src = 'about:blank';
+      }
+      
       // Hide buttons
       nextWordBtn.style.display = 'none';
       inputSection.style.display = 'none';
@@ -384,49 +395,64 @@ class AntakshariGame {
       song = this.getRandomSong();
     } while (this.usedSongs.has(song.id));
 
+    // Try to get YouTube configuration for this song
+    const tuneConfig = getTuneForSong(song.id);
+
     this.currentChallenge = {
       song: song,
       type: 'tune',
-      tuneUrl: this.generateTuneUrl(song), // We'll use a placeholder for now
+      tuneConfig: tuneConfig,
     };
 
     this.displayChallenge();
   }
 
   generateTuneUrl(song) {
-    // In a real app, this would return a URL to an audio file
-    // For now, we'll simulate it with a data-uri or external audio
-    // You can replace this with actual audio URLs from a service
-    
-    // Placeholder: using a Web Audio API to generate a simple tone
-    // In production, you'd host actual song clips
-    return `tune-${song.id}`;
+    // Get tune config for this song
+    const tuneConfig = getTuneForSong(song.id);
+    if (tuneConfig) {
+      return getYouTubeEmbedUrl(tuneConfig.youtubeId, tuneConfig.startTime);
+    }
+    return null;
   }
 
   playTune() {
-    const song = this.currentChallenge.song;
-    
-    // Simple notification that tune "played" (visual feedback)
+    const challenge = this.currentChallenge;
+    if (!challenge.tuneConfig) {
+      alert('❌ Sorry, tune not available for this song yet!');
+      return;
+    }
+
     const playBtn = document.getElementById('playTuneBtn');
     const originalText = playBtn.textContent;
     playBtn.textContent = '🎵 Playing...';
     playBtn.disabled = true;
+
+    // Get the YouTube iframe
+    const iframe = document.getElementById('youtubePlayer');
     
-    // Simulate tune playing for 3 seconds
+    // Calculate duration (in seconds) - typically 90 seconds for tune challenge
+    const duration = challenge.tuneConfig.duration || 90;
+
+    // The YouTube player will handle playback
+    // Re-enable button after duration
     setTimeout(() => {
       playBtn.textContent = originalText;
       playBtn.disabled = false;
-      this.showNotification(`Tune from "${song.title}" finished playing!`);
-    }, 3000);
-    
-    // TODO: Add actual audio playback here
-    // Example: const audio = new Audio(this.currentChallenge.tuneUrl);
-    // audio.play();
+      this.showNotification(`Tune from "${challenge.song.title}" finished!`);
+    }, duration * 1000);
   }
 
   showNotification(message) {
-    // Simple notification display
-    alert(message);
+    // Simple notification display (can be enhanced)
+    const resultSection = document.getElementById('resultSection');
+    const resultMessage = document.getElementById('resultMessage');
+    const resultDetails = document.getElementById('resultDetails');
+
+    resultSection.style.display = 'block';
+    resultMessage.textContent = '🎵 Tune Played!';
+    resultMessage.className = 'result-message';
+    resultDetails.textContent = message;
   }
   generateClassicChallenge() {
     let song;
