@@ -4,7 +4,8 @@
 
 const tuneConfiguration = {
   // Kal Ho Naa Ho (Shah Rukh Khan, Sonu Nigam)
-  1: {
+  // ID 14 in songsData
+  14: {
     title: 'Kal Ho Naa Ho',
     youtubeId: 'uAYoLcKPbzU',
     startTime: 0,
@@ -12,7 +13,8 @@ const tuneConfiguration = {
   },
 
   // Awaara Hoon (Raj Kapoor, Rafi)
-  2: {
+  // ID 5 in songsData
+  5: {
     title: 'Awaara Hoon',
     youtubeId: 'VvQ_Ky5ixwo',
     startTime: 0,
@@ -20,7 +22,8 @@ const tuneConfiguration = {
   },
 
   // Jo Jeeta Wohi Sikandar (Aamir Khan)
-  3: {
+  // ID 31 in songsData
+  31: {
     title: 'Jo Jeeta Wohi Sikandar',
     youtubeId: 'Z7dFLjEBsqI',
     startTime: 0,
@@ -28,57 +31,10 @@ const tuneConfiguration = {
   },
 
   // Chaiya Chaiya (Shah Rukh Khan)
-  4: {
+  // ID 26 in songsData
+  26: {
     title: 'Chaiya Chaiya',
     youtubeId: '0XqMcVHgvOc',
-    startTime: 0,
-    duration: 90
-  },
-
-  // Yeh Dil Na Hota Badvaa Hua (Rajesh Khanna)
-  5: {
-    title: 'Yeh Dil Na Hota Badvaa Hua',
-    youtubeId: 'HYWMuYqM83A',
-    startTime: 0,
-    duration: 90
-  },
-
-  // Dishoom Dishoom (Amitabh Bachchan)
-  6: {
-    title: 'Dishoom Dishoom',
-    youtubeId: 'xMi3dZFiKVE',
-    startTime: 0,
-    duration: 90
-  },
-
-  // Main Hoon Don (Amitabh Bachchan)
-  7: {
-    title: 'Main Hoon Don',
-    youtubeId: 'aQ06Gw7qqzo',
-    startTime: 0,
-    duration: 90
-  },
-
-  // Yeh Jawani Hai Deewani (Ranbir Kapoor)
-  8: {
-    title: 'Yeh Jawani Hai Deewani',
-    youtubeId: 'EYz0VqmKLqQ',
-    startTime: 0,
-    duration: 90
-  },
-
-  // Dil Cheez Baat Karo (Raj Kapoor)
-  9: {
-    title: 'Dil Cheez Baat Karo',
-    youtubeId: 'GpJzX9jJrKk',
-    startTime: 0,
-    duration: 90
-  },
-
-  // Lag Ja Gale (Lata & Mukesh)
-  10: {
-    title: 'Lag Ja Gale',
-    youtubeId: 'bM8YrxdYvEI',
     startTime: 0,
     duration: 90
   }
