@@ -43,8 +43,14 @@ class AntakshariGame {
     // Clear previous result
     document.getElementById('resultSection').style.display = 'none';
     document.getElementById('songInfoDisplay').style.display = 'none';
-    document.getElementById('songInput').value = '';
-    document.getElementById('songInput').focus();
+    
+    // Clear input if it exists
+    const songInput = document.getElementById('songInput');
+    if (songInput) {
+      songInput.value = '';
+      songInput.focus();
+    }
+    
     this.answerRevealed = false;
 
     // Generate new challenge based on mode
@@ -68,10 +74,15 @@ class AntakshariGame {
       song = this.getRandomSong();
     } while (this.usedSongs.has(song.id));
 
+    // Extract a word from the song's first line
+    const words = song.firstLine.split(' ').filter(w => w.length > 2);
+    const word = words[Math.floor(Math.random() * words.length)];
+
     this.currentChallenge = {
       song: song,
       type: 'word',
-      word: this.getRandomWord(song.firstLine),
+      word: word,
+      wordHindi: word, // In Hindi - will display as is
     };
 
     this.displayChallenge();
@@ -85,24 +96,88 @@ class AntakshariGame {
   displayChallenge() {
     const { type, word } = this.currentChallenge;
     const challengeText = document.getElementById('challengeText');
+    const challengeSubtext = document.getElementById('challengeSubtext');
     const challengeHint = document.getElementById('challengeHint');
+    const nextWordBtn = document.getElementById('nextWordBtn');
+    const inputSection = document.getElementById('inputSection');
+
+    // Hide result and song info
+    document.getElementById('resultSection').style.display = 'none';
+    document.getElementById('songInfoDisplay').style.display = 'none';
 
     if (type === 'word') {
-      challengeText.textContent = `Find a song with the word:\n"${word}"`;
-      challengeHint.textContent = 'Type any song that contains this word...';
+      // Word Challenge: Show word in both languages, no input needed
+      challengeText.textContent = `"${word}"`;
+      
+      // Try to get English translation (for now, show the Hindi word)
+      // In a real app, you'd have a translation dictionary
+      const englishWord = this.getEnglishTranslation(word);
+      challengeSubtext.textContent = `(${englishWord})`;
+      challengeSubtext.style.display = 'block';
+      
+      challengeHint.textContent = '🎤 Sing a song that contains this word!';
+      
+      // Show next word button, hide input
+      nextWordBtn.style.display = 'block';
+      inputSection.style.display = 'none';
+      
     } else if (type === 'actor') {
       challengeText.textContent = `Find a song by:\n${this.currentChallenge.actor}`;
+      challengeSubtext.style.display = 'none';
       challengeHint.textContent = 'This actor/actress sang many famous songs!';
+      nextWordBtn.style.display = 'none';
+      inputSection.style.display = 'block';
+      
     } else if (type === 'classic') {
       challengeText.textContent = `Find a song starting with:\n${this.currentChallenge.letter}`;
+      challengeSubtext.style.display = 'none';
       challengeHint.textContent = 'The song title should start with this letter...';
+      nextWordBtn.style.display = 'none';
+      inputSection.style.display = 'block';
+      
     } else if (type === 'theme') {
       challengeText.textContent = `Find a song from the theme:\n${this.currentChallenge.theme}`;
+      challengeSubtext.style.display = 'none';
       challengeHint.textContent = 'Pick any song from this theme!';
+      nextWordBtn.style.display = 'none';
+      inputSection.style.display = 'block';
+      
     } else if (type === 'speed') {
       challengeText.textContent = `Quick! Find this song:\n${this.currentChallenge.hintText}`;
+      challengeSubtext.style.display = 'none';
       challengeHint.textContent = '⏱️ Speed mode - You have limited time!';
+      nextWordBtn.style.display = 'none';
+      inputSection.style.display = 'block';
     }
+  }
+
+  getEnglishTranslation(word) {
+    // Simple translation map for common Hindi words
+    const translations = {
+      'आज': 'Today',
+      'रात': 'Night',
+      'दिन': 'Day',
+      'प्यार': 'Love',
+      'दिल': 'Heart',
+      'जीवन': 'Life',
+      'गीत': 'Song',
+      'गाना': 'Sing',
+      'चाँद': 'Moon',
+      'तारे': 'Stars',
+      'आ': 'Come',
+      'है': 'Is',
+      'तु': 'You',
+      'मेरा': 'Mine',
+      'तुम्हारा': 'Yours',
+      'साथ': 'Together',
+      'मिलना': 'Meet',
+      'बिछड़ना': 'Separation',
+      'ख़ुशी': 'Happiness',
+      'दुख': 'Sorrow',
+    };
+    
+    // Return translation if available, otherwise return the word as-is
+    return translations[word] || word;
   }
 
   checkAnswer() {

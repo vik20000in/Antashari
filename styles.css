@@ -191,11 +191,19 @@ body {
 }
 
 .challenge-text {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
   color: var(--primary);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   word-break: break-word;
+}
+
+.challenge-subtext {
+  font-size: 1.3rem;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-style: italic;
 }
 
 .challenge-hint {
@@ -235,6 +243,11 @@ body {
 
 .song-input::placeholder {
   color: #bbb;
+}
+
+/* ===== ACTION SECTION ===== */
+.action-section {
+  width: 100%;
 }
 
 /* ===== RESULT SECTION ===== */

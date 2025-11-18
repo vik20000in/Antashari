@@ -49,33 +49,42 @@
         <!-- Challenge Display -->
         <div id="challengeDisplay" class="challenge-display">
           <div id="challengeText" class="challenge-text">Loading...</div>
+          <div id="challengeSubtext" class="challenge-subtext"></div>
           <div id="challengeHint" class="challenge-hint"></div>
         </div>
 
-        <!-- Input Section -->
-        <div class="input-section">
-          <input 
-            id="songInput" 
-            type="text" 
-            class="song-input" 
-            placeholder="Type song title..."
-            onkeypress="handleEnter(event)"
-          >
-          <button class="btn btn-primary btn-check" onclick="checkAnswer()">
-            Check Answer
+        <!-- Action Section (context-aware) -->
+        <div id="actionSection" class="action-section">
+          <!-- For Word Challenge: just show the word -->
+          <button id="nextWordBtn" class="btn btn-primary btn-large" onclick="nextChallenge()" style="display: none;">
+            🎵 Next Word
           </button>
+          
+          <!-- For other modes: show input and check -->
+          <div id="inputSection" class="input-section" style="display: none;">
+            <input 
+              id="songInput" 
+              type="text" 
+              class="song-input" 
+              placeholder="Type song title..."
+              onkeypress="handleEnter(event)"
+            >
+            <button class="btn btn-primary btn-check" onclick="checkAnswer()">
+              Check Answer
+            </button>
+          </div>
+
+          <!-- Result Display -->
+          <div id="resultSection" class="result-section" style="display: none;">
+            <div id="resultMessage" class="result-message"></div>
+            <div id="resultDetails" class="result-details"></div>
+            <button class="btn btn-primary btn-next" onclick="nextChallenge()">
+              Next Challenge
+            </button>
+          </div>
         </div>
 
-        <!-- Result Display -->
-        <div id="resultSection" class="result-section" style="display: none;">
-          <div id="resultMessage" class="result-message"></div>
-          <div id="resultDetails" class="result-details"></div>
-          <button class="btn btn-primary btn-next" onclick="nextChallenge()">
-            Next Challenge
-          </button>
-        </div>
-
-        <!-- Song Info (shown after correct answer) -->
+        <!-- Song Info (shown after verification in non-word modes) -->
         <div id="songInfoDisplay" class="song-info-display" style="display: none;">
           <p class="song-title" id="displayedSongTitle"></p>
           <p class="song-line" id="displayedSongLine"></p>
