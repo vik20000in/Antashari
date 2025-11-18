@@ -101,3 +101,8 @@ function getYouTubeAudioUrl(videoId) {
   // This would be handled by a backend service
   return `https://www.youtube.com/watch?v=${videoId}`;
 }
+
+// Get tune configuration for a specific song ID
+function getTuneForSong(songId) {
+  return tuneConfiguration[songId] || null;
+}
