@@ -441,22 +441,33 @@ class AntakshariGame {
     }
 
     console.log('🎵 Attempting to play:', audioSource.src);
+    console.log('Audio ready state:', audioPlayer.readyState);
+    console.log('Audio network state:', audioPlayer.networkState);
     
     // Reset and play
     audioPlayer.currentTime = 0;
     
-    const playPromise = audioPlayer.play();
-    
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          console.log('✅ Audio playing successfully!');
-        })
-        .catch(error => {
-          console.error('❌ Playback error:', error);
-          alert('❌ Could not play audio: ' + error.message);
-        });
-    }
+    // Wait a moment for the audio element to be ready, then play
+    setTimeout(() => {
+      const playPromise = audioPlayer.play();
+      
+      console.log('Play promise:', playPromise);
+      
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log('✅ Audio playing successfully!');
+          })
+          .catch(error => {
+            console.error('❌ Playback error:', error);
+            console.error('Error name:', error.name);
+            console.error('Error message:', error.message);
+            alert('❌ Could not play audio: ' + error.message);
+          });
+      } else {
+        console.log('⚠️ Play returned undefined (old browser)');
+      }
+    }, 100); // Small delay to ensure audio is ready
     
     // Show notification
     const playBtn = document.getElementById('playTuneBtn');
