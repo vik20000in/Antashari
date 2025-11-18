@@ -286,6 +286,15 @@ body {
   padding: 16px;
 }
 
+#nextTuneBtn {
+  background: linear-gradient(135deg, var(--secondary), #2ec4b6);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 16px;
+  margin-top: 10px;
+}
+
 /* ===== YOUTUBE PLAYER CONTAINER ===== */
 .youtube-player-container {
   width: 100%;
