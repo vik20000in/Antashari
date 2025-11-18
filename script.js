@@ -423,28 +423,27 @@ class AntakshariGame {
       return;
     }
 
+    // Open YouTube video in a new tab
+    const youtubeUrl = getYouTubePlayUrl(
+      challenge.tuneConfig.youtubeId,
+      challenge.tuneConfig.startTime
+    );
+    window.open(youtubeUrl, 'youtube_player', 'width=800,height=600');
+
+    // Also show notification
     const playBtn = document.getElementById('playTuneBtn');
     const originalText = playBtn.textContent;
-    playBtn.textContent = '🎵 Playing...';
+    playBtn.textContent = '✅ Opening YouTube...';
     playBtn.disabled = true;
 
-    // Get the YouTube iframe
-    const iframe = document.getElementById('youtubePlayer');
-    
-    // Calculate duration (in seconds) - typically 90 seconds for tune challenge
-    const duration = challenge.tuneConfig.duration || 90;
-
-    // The YouTube player will handle playback
-    // Re-enable button after duration
     setTimeout(() => {
       playBtn.textContent = originalText;
       playBtn.disabled = false;
-      this.showNotification(`Tune from "${challenge.song.title}" finished!`);
-    }, duration * 1000);
+    }, 2000);
   }
 
   showNotification(message) {
-    // Simple notification display (can be enhanced)
+    // Display notification in result section
     const resultSection = document.getElementById('resultSection');
     const resultMessage = document.getElementById('resultMessage');
     const resultDetails = document.getElementById('resultDetails');

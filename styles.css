@@ -301,6 +301,15 @@ body {
   background: #000;
 }
 
+/* ===== TUNE HINT ===== */
+.tune-hint {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  font-style: italic;
+  margin-top: 12px;
+  text-align: center;
+}
+
 /* ===== RESULT SECTION ===== */
 .result-section {
   background: white;

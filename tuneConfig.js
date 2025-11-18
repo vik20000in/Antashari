@@ -6,15 +6,15 @@ const tuneConfiguration = {
   // Kal Ho Naa Ho (Shah Rukh Khan, Sonu Nigam)
   1: {
     title: 'Kal Ho Naa Ho',
-    youtubeId: 'uAYoLcKPbzU', // Official clip
+    youtubeId: 'uAYoLcKPbzU',
     startTime: 0,
-    duration: 90 // 90 seconds
+    duration: 90
   },
 
   // Awaara Hoon (Raj Kapoor, Rafi)
   2: {
     title: 'Awaara Hoon',
-    youtubeId: 'VvQ_Ky5ixwo', // Official classic
+    youtubeId: 'VvQ_Ky5ixwo',
     startTime: 0,
     duration: 90
   },
@@ -22,126 +22,82 @@ const tuneConfiguration = {
   // Jo Jeeta Wohi Sikandar (Aamir Khan)
   3: {
     title: 'Jo Jeeta Wohi Sikandar',
-    youtubeId: 'Z7dFLjEBsqI', // Title track
+    youtubeId: 'Z7dFLjEBsqI',
     startTime: 0,
     duration: 90
   },
 
-  // Chaiya Chaiya (Shah Rukh Khan, Dancefloor)
+  // Chaiya Chaiya (Shah Rukh Khan)
   4: {
     title: 'Chaiya Chaiya',
-    youtubeId: '0XqMcVHgvOc', // Official video
+    youtubeId: '0XqMcVHgvOc',
     startTime: 0,
     duration: 90
   },
 
-  // Yeh Dil Na Hota Badvaa Hua (Rajesh Khanna, Kishore Kumar)
+  // Yeh Dil Na Hota Badvaa Hua (Rajesh Khanna)
   5: {
     title: 'Yeh Dil Na Hota Badvaa Hua',
-    youtubeId: 'HYWMuYqM83A', // Classic
+    youtubeId: 'HYWMuYqM83A',
     startTime: 0,
     duration: 90
   },
 
-  // Dishoom Dishoom (Amitabh Bachchan, Sholay)
+  // Dishoom Dishoom (Amitabh Bachchan)
   6: {
     title: 'Dishoom Dishoom',
-    youtubeId: 'xMi3dZFiKVE', // From Sholay
+    youtubeId: 'xMi3dZFiKVE',
     startTime: 0,
     duration: 90
   },
 
-  // Main Hoon Don (Amitabh Bachchan, Don)
+  // Main Hoon Don (Amitabh Bachchan)
   7: {
     title: 'Main Hoon Don',
-    youtubeId: 'aQ06Gw7qqzo', // Title track
+    youtubeId: 'aQ06Gw7qqzo',
     startTime: 0,
     duration: 90
   },
 
-  // Yeh Jawani Hai Deewani (Ranbir Kapoor, Deepika Padukone)
+  // Yeh Jawani Hai Deewani (Ranbir Kapoor)
   8: {
     title: 'Yeh Jawani Hai Deewani',
-    youtubeId: 'EYz0VqmKLqQ', // Title track
+    youtubeId: 'EYz0VqmKLqQ',
     startTime: 0,
     duration: 90
   },
 
-  // Dil Cheez Baat Karo (Raj Kapoor, Mukesh)
+  // Dil Cheez Baat Karo (Raj Kapoor)
   9: {
     title: 'Dil Cheez Baat Karo',
-    youtubeId: 'GpJzX9jJrKk', // Classic
+    youtubeId: 'GpJzX9jJrKk',
     startTime: 0,
     duration: 90
   },
 
-  // Lag Ja Gale (Lata Mangeshkar, Mukesh)
+  // Lag Ja Gale (Lata & Mukesh)
   10: {
     title: 'Lag Ja Gale',
-    youtubeId: 'bM8YrxdYvEI', // Classic duet
-    startTime: 0,
-    duration: 90
-  },
-
-  // Tum To Ho Paas Mere (Lata & Rafi, classic)
-  11: {
-    title: 'Tum To Ho Paas Mere',
-    youtubeId: 'QYjxVBjjSdE', // Classic
-    startTime: 0,
-    duration: 90
-  },
-
-  // Abhi Na Jao Chhod Kar (Lata Mangeshkar, Ashok Kumar)
-  12: {
-    title: 'Abhi Na Jao Chhod Kar',
-    youtubeId: 'q5Q0LyPl5yQ', // Classic
-    startTime: 0,
-    duration: 90
-  },
-
-  // Ye Kaali Kaali Aankhein (Bhuvan Bam version - popular)
-  13: {
-    title: 'Ye Kaali Kaali Aankhein',
-    youtubeId: 'o5VCWWNgYPE', // Popular version
-    startTime: 0,
-    duration: 90
-  },
-
-  // Nashe Si Chadh Gayi (Shahid Kapoor, Kaminey)
-  14: {
-    title: 'Nashe Si Chadh Gayi',
-    youtubeId: 'Ygxjf7xFVqE', // Official
-    startTime: 0,
-    duration: 90
-  },
-
-  // Baarish Ban Jaana (Arijit Singh, modern)
-  15: {
-    title: 'Baarish Ban Jaana',
-    youtubeId: 'q0VLmUU8F7U', // Modern classic
+    youtubeId: 'bM8YrxdYvEI',
     startTime: 0,
     duration: 90
   }
 };
 
-// Map song IDs to tune configuration
-function getTuneForSong(songId) {
-  return tuneConfiguration[songId] || null;
-}
-
-// Get random tune from available collection
-function getRandomTune() {
-  const ids = Object.keys(tuneConfiguration);
-  const randomId = ids[Math.floor(Math.random() * ids.length)];
-  return tuneConfiguration[randomId];
-}
-
-// Get YouTube embed URL from video ID
+// Get YouTube embed URL with autoplay disabled (for safety)
 function getYouTubeEmbedUrl(videoId, startTime = 0) {
-  return `https://www.youtube.com/embed/${videoId}?start=${startTime}&controls=0&modestbranding=1&rel=0`;
+  // Using nocookie domain for better privacy and compatibility
+  return `https://www.youtube-nocookie.com/embed/${videoId}?start=${startTime}&autoplay=0&controls=1&modestbranding=1&rel=0`;
 }
 
-// Get YouTube thumbnail URL
-function getYouTubeThumbnail(videoId) {
-  return `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+// Get YouTube direct play URL
+function getYouTubePlayUrl(videoId, startTime = 0) {
+  return `https://www.youtube.com/watch?v=${videoId}&t=${startTime}s`;
+}
+
+// Get direct audio stream from YouTube (using yt-dlp URL format)
+// Note: This requires backend support
+function getYouTubeAudioUrl(videoId) {
+  // This would be handled by a backend service
+  return `https://www.youtube.com/watch?v=${videoId}`;
 }
