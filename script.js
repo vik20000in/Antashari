@@ -390,10 +390,12 @@ class AntakshariGame {
 
   // ===== MODE 3: TUNE CHALLENGE =====
   generateTuneChallenge() {
-    let song;
-    do {
-      song = this.getRandomSong();
-    } while (this.usedSongs.has(song.id));
+    // Get all songs that have tune configurations
+    const tuneSongIds = [5, 14, 26, 31]; // IDs with YouTube tunes
+    const availableSongs = songsData.filter(song => tuneSongIds.includes(song.id));
+    
+    // Pick a random song from available tunes
+    let song = availableSongs[Math.floor(Math.random() * availableSongs.length)];
 
     // Try to get YouTube configuration for this song
     const tuneConfig = getTuneForSong(song.id);
