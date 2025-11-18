@@ -158,10 +158,12 @@ class AntakshariGame {
       
       // Load audio player
       const audioPlayer = document.getElementById('audioPlayer');
-      if (this.currentChallenge.tuneConfig) {
+      if (this.currentChallenge.tuneConfig && this.currentChallenge.tuneConfig.audioUrl) {
         audioPlayer.src = this.currentChallenge.tuneConfig.audioUrl;
+        console.log('🎵 Loaded tune:', this.currentChallenge.song.title, 'URL:', this.currentChallenge.tuneConfig.audioUrl);
         audioPlayer.pause(); // Don't auto-play, wait for user to click button
       } else {
+        console.error('❌ No tune config found for song:', this.currentChallenge.song.title);
         audioPlayer.src = '';
       }
       
@@ -389,7 +391,7 @@ class AntakshariGame {
   // ===== MODE 3: TUNE CHALLENGE =====
   generateTuneChallenge() {
     // Get all songs that have music configurations
-    const tuneSongIds = [5, 14, 26, 31]; // IDs with royalty-free music
+    const tuneSongIds = [5, 14, 26, 31, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61]; // IDs with royalty-free music
     const availableSongs = songsData.filter(song => tuneSongIds.includes(song.id));
     
     // Pick a random song from available tunes
@@ -425,20 +427,38 @@ class AntakshariGame {
 
     // Play the audio
     const audioPlayer = document.getElementById('audioPlayer');
+    if (!audioPlayer) {
+      alert('❌ Audio player not found!');
+      return;
+    }
+    
     if (audioPlayer.src) {
-      audioPlayer.currentTime = 0; // Start from beginning
-      audioPlayer.play();
-      
-      // Show notification
-      const playBtn = document.getElementById('playTuneBtn');
-      const originalText = playBtn.textContent;
-      playBtn.textContent = '🎵 Now Playing...';
-      playBtn.disabled = true;
+      // Check if audio is ready
+      if (audioPlayer.readyState >= 2) {
+        // Audio is ready to play
+        audioPlayer.currentTime = 0;
+        const playPromise = audioPlayer.play();
+        
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.error('Audio playback failed:', error);
+            alert('❌ Could not play audio. Check console for details.');
+          });
+        }
+        
+        // Show notification
+        const playBtn = document.getElementById('playTuneBtn');
+        const originalText = playBtn.textContent;
+        playBtn.textContent = '🎵 Now Playing...';
+        playBtn.disabled = true;
 
-      setTimeout(() => {
-        playBtn.textContent = originalText;
-        playBtn.disabled = false;
-      }, 3000);
+        setTimeout(() => {
+          playBtn.textContent = originalText;
+          playBtn.disabled = false;
+        }, 3000);
+      } else {
+        alert('❌ Audio is loading. Please wait and try again.');
+      }
     } else {
       alert('❌ Tune not loaded yet. Please wait a moment.');
     }
