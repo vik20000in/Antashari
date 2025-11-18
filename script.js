@@ -425,43 +425,45 @@ class AntakshariGame {
       return;
     }
 
-    // Play the audio
     const audioPlayer = document.getElementById('audioPlayer');
     if (!audioPlayer) {
-      alert('❌ Audio player not found!');
+      alert('❌ Audio player element not found!');
       return;
     }
     
-    if (audioPlayer.src) {
-      // Check if audio is ready
-      if (audioPlayer.readyState >= 2) {
-        // Audio is ready to play
-        audioPlayer.currentTime = 0;
-        const playPromise = audioPlayer.play();
-        
-        if (playPromise !== undefined) {
-          playPromise.catch(error => {
-            console.error('Audio playback failed:', error);
-            alert('❌ Could not play audio. Check console for details.');
-          });
-        }
-        
-        // Show notification
-        const playBtn = document.getElementById('playTuneBtn');
-        const originalText = playBtn.textContent;
-        playBtn.textContent = '🎵 Now Playing...';
-        playBtn.disabled = true;
-
-        setTimeout(() => {
-          playBtn.textContent = originalText;
-          playBtn.disabled = false;
-        }, 3000);
-      } else {
-        alert('❌ Audio is loading. Please wait and try again.');
-      }
-    } else {
-      alert('❌ Tune not loaded yet. Please wait a moment.');
+    if (!audioPlayer.src) {
+      alert('❌ No audio URL loaded. Please wait and try again.');
+      return;
     }
+
+    console.log('🎵 Attempting to play:', audioPlayer.src);
+    
+    // Reset and play
+    audioPlayer.currentTime = 0;
+    
+    const playPromise = audioPlayer.play();
+    
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          console.log('✅ Audio playing successfully!');
+        })
+        .catch(error => {
+          console.error('❌ Playback error:', error);
+          alert('❌ Could not play audio: ' + error.message);
+        });
+    }
+    
+    // Show notification
+    const playBtn = document.getElementById('playTuneBtn');
+    const originalText = playBtn.textContent;
+    playBtn.textContent = '🎵 Now Playing...';
+    playBtn.disabled = true;
+
+    setTimeout(() => {
+      playBtn.textContent = originalText;
+      playBtn.disabled = false;
+    }, 3000);
   }
 
   showNotification(message) {

@@ -70,6 +70,8 @@
               width="100%" 
               controls
               crossorigin="anonymous"
+              onloadedmetadata="console.log('✓ Audio metadata loaded')"
+              onerror="console.error('✗ Audio error:', this.error)"
               style="width: 100%; margin: 10px 0;">
               Your browser does not support the audio element.
             </audio>
