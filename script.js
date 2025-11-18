@@ -122,11 +122,23 @@ class AntakshariGame {
       inputSection.style.display = 'none';
       
     } else if (type === 'actor') {
-      challengeText.textContent = `Find a song by:\n${this.currentChallenge.actor}`;
-      challengeSubtext.style.display = 'none';
-      challengeHint.textContent = 'This actor/actress sang many famous songs!';
-      nextWordBtn.style.display = 'none';
-      inputSection.style.display = 'block';
+      // Actor Challenge: Show actor name in both languages, no input needed
+      challengeText.textContent = `${this.currentChallenge.actor}`;
+      
+      // Try to get English version of actor name if available
+      const englishActor = this.getActorEnglishName(this.currentChallenge.actor);
+      if (englishActor !== this.currentChallenge.actor) {
+        challengeSubtext.textContent = `(${englishActor})`;
+        challengeSubtext.style.display = 'block';
+      } else {
+        challengeSubtext.style.display = 'none';
+      }
+      
+      challengeHint.textContent = '🎤 Sing a song by this actor/actress!';
+      
+      // Show next word button, hide input
+      nextWordBtn.style.display = 'block';
+      inputSection.style.display = 'none';
       
     } else if (type === 'classic') {
       challengeText.textContent = `Find a song starting with:\n${this.currentChallenge.letter}`;
@@ -149,6 +161,22 @@ class AntakshariGame {
       nextWordBtn.style.display = 'none';
       inputSection.style.display = 'block';
     }
+  }
+
+  getActorEnglishName(hindiName) {
+    // Map Hindi actor names to English (Devanagari to Roman)
+    const actorNames = {
+      'राज कपूर': 'Raj Kapoor',
+      'राजेश खन्ना': 'Rajesh Khanna',
+      'अमिताभ बच्चन': 'Amitabh Bachchan',
+      'शाहरुख खान': 'Shah Rukh Khan',
+      'आमिर खान': 'Aamir Khan',
+      'अक्षय कुमार': 'Akshay Kumar',
+      'सुनील दत्त': 'Sunil Dutt',
+      'संजय दत्त': 'Sanjay Dutt',
+    };
+    
+    return actorNames[hindiName] || hindiName;
   }
 
   getEnglishTranslation(word) {
