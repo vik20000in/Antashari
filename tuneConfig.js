@@ -7,7 +7,7 @@ const tuneConfiguration = {
   // ID 14 in songsData
   14: {
     title: 'Kal Ho Naa Ho',
-    youtubeId: 'uAYoLcKPbzU',
+    youtubeId: 'ZHd8Z4vxqYw',
     startTime: 0,
     duration: 90
   },
@@ -16,7 +16,7 @@ const tuneConfiguration = {
   // ID 5 in songsData
   5: {
     title: 'Awaara Hoon',
-    youtubeId: 'VvQ_Ky5ixwo',
+    youtubeId: 'nqP1Rf0C1eg',
     startTime: 0,
     duration: 90
   },
@@ -25,7 +25,7 @@ const tuneConfiguration = {
   // ID 31 in songsData
   31: {
     title: 'Jo Jeeta Wohi Sikandar',
-    youtubeId: 'Z7dFLjEBsqI',
+    youtubeId: 'xPuqJcGUoOQ',
     startTime: 0,
     duration: 90
   },
@@ -34,7 +34,7 @@ const tuneConfiguration = {
   // ID 26 in songsData
   26: {
     title: 'Chaiya Chaiya',
-    youtubeId: '0XqMcVHgvOc',
+    youtubeId: 'Hs_9NrQpD5c',
     startTime: 0,
     duration: 90
   }
