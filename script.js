@@ -29,8 +29,7 @@ class AntakshariGame {
       'actor': '🎬 Actor Challenge',
       'tune': '🎵 Tune Challenge',
       'classic': '🔤 Classic Antakshari',
-      'theme': '🎨 Theme Challenge',
-      'speed': '⚡ Speed Round'
+      'theme': '🎨 Theme Challenge'
     };
     document.getElementById('gameModeTitle').textContent = titles[mode] || mode;
   }
@@ -66,8 +65,6 @@ class AntakshariGame {
       this.generateClassicChallenge();
     } else if (this.currentMode === 'theme') {
       this.generateThemeChallenge();
-    } else if (this.currentMode === 'speed') {
-      this.generateSpeedChallenge();
     }
   }
 
@@ -197,13 +194,6 @@ class AntakshariGame {
       challengeHint.textContent = 'Pick any song from this theme!';
       nextWordBtn.style.display = 'none';
       inputSection.style.display = 'block';
-      
-    } else if (type === 'speed') {
-      challengeText.textContent = `Quick! Find this song:\n${this.currentChallenge.hintText}`;
-      challengeSubtext.style.display = 'none';
-      challengeHint.textContent = '⏱️ Speed mode - You have limited time!';
-      nextWordBtn.style.display = 'none';
-      inputSection.style.display = 'block';
     }
   }
 
@@ -304,11 +294,6 @@ class AntakshariGame {
           if (matchedSong.themes && matchedSong.themes.includes(challenge.theme)) {
             isCorrect = true;
           }
-          break;
-          
-        case 'speed':
-          // Any song works in speed mode (basic version)
-          isCorrect = true;
           break;
       }
     }
@@ -513,31 +498,6 @@ class AntakshariGame {
       song: song,
       type: 'theme',
       theme: theme,
-    };
-
-    this.displayChallenge();
-  }
-
-  // ===== MODE 5: SPEED ROUND =====
-  generateSpeedChallenge() {
-    let song;
-    do {
-      song = this.getRandomSong();
-    } while (this.usedSongs.has(song.id));
-
-    const hintTypes = [
-      `From movie: "${song.movie}"`,
-      `Sung by: ${song.actor}`,
-      `Starts with letter: "${song.title.charAt(0)}"`,
-      `Theme: ${song.themes && song.themes.length > 0 ? song.themes[0] : 'Bollywood'}`
-    ];
-
-    const hintText = hintTypes[Math.floor(Math.random() * hintTypes.length)];
-
-    this.currentChallenge = {
-      song: song,
-      type: 'speed',
-      hintText: hintText,
     };
 
     this.displayChallenge();
