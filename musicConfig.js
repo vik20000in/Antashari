@@ -17,7 +17,7 @@ const musicConfiguration = {
   // ID 14 in songsData
   14: {
     title: 'Kal Ho Naa Ho',
-    audioUrl: './audio/kal-ho-naa-ho.mp3',
+    audioUrl: './audio/awaara-hoon.mp3',
     duration: 90,
     credit: 'Bensound - Creative Minds'
   },
