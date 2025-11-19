@@ -161,9 +161,20 @@ class AntakshariGame {
       const audioSource = document.getElementById('audioSource');
       
       if (this.currentChallenge.tuneConfig && this.currentChallenge.tuneConfig.audioUrl) {
-        audioSource.src = this.currentChallenge.tuneConfig.audioUrl;
+        const audioUrl = this.currentChallenge.tuneConfig.audioUrl;
+        audioSource.src = audioUrl;
+        
+        // Set MIME type based on file extension
+        if (audioUrl.includes('.mp3')) {
+          audioSource.type = 'audio/mpeg';
+        } else if (audioUrl.includes('.m4a')) {
+          audioSource.type = 'audio/mp4';
+        } else if (audioUrl.includes('.ogg')) {
+          audioSource.type = 'audio/ogg';
+        }
+        
         audioPlayer.load(); // Force reload of audio element
-        console.log('🎵 Loaded tune:', this.currentChallenge.song.title, 'URL:', this.currentChallenge.tuneConfig.audioUrl);
+        console.log('🎵 Loaded tune:', this.currentChallenge.song.title, 'URL:', audioUrl);
       } else {
         console.error('❌ No tune config found for song:', this.currentChallenge.song.title);
         audioSource.src = '';
@@ -496,14 +507,14 @@ class AntakshariGame {
       
       audioPlayer.addEventListener('canplay', onCanPlay);
       
-      // Timeout after 5 seconds
+      // Timeout after 10 seconds (increased from 5)
       setTimeout(() => {
         if (audioPlayer.readyState < 2) {
           audioPlayer.removeEventListener('canplay', onCanPlay);
           console.error('❌ Audio took too long to load');
           alert('❌ Audio is taking too long to load. Check your internet connection.');
         }
-      }, 5000);
+      }, 10000);
     }
 
     setTimeout(() => {
