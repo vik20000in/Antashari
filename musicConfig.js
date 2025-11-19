@@ -1,196 +1,196 @@
-// ===== ROYALTY-FREE MUSIC CONFIGURATION =====
-// Bollywood instrumental tracks for Tune Challenge
-// All music is royalty-free or Creative Commons licensed
-// Using online royalty-free sources
+// ===== LOCAL MUSIC CONFIGURATION =====
+// Using local MP3 files from the audio/ folder
+// Download audio files using: .\download_sample_audio.ps1
+// Or manually add MP3 files to audio/ folder with these exact names
 
 const musicConfiguration = {
   // Awaara Hoon (Raj Kapoor)
   // ID 5 in songsData
   5: {
     title: 'Awaara Hoon',
-    audioUrl: 'https://ia802606.us.archive.org/35/items/FREE_Background_Music_Collection/Topher%20Mohr%20and%20Alex%20Elena%20-%20Funky%20Chunk.mp3',
+    audioUrl: './audio/awaara-hoon.mp3',
     duration: 90,
-    credit: 'Royalty-free background music'
+    credit: 'Bensound - Ukulele'
   },
 
   // Kal Ho Naa Ho (Shah Rukh Khan)
   // ID 14 in songsData
   14: {
     title: 'Kal Ho Naa Ho',
-    audioUrl: 'https://ia802508.us.archive.org/5/items/testmp3testfile/mpthreetest.mp3',
+    audioUrl: './audio/kal-ho-naa-ho.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Creative Minds'
   },
 
   // Chaiya Chaiya (Shah Rukh Khan)
   // ID 26 in songsData
   26: {
     title: 'Chaiya Chaiya',
-    audioUrl: 'https://file-examples.com/storage/fe783634c66d3d9328768a2/2017/11/file_example_MP3_700KB.mp3',
+    audioUrl: './audio/chaiya-chaiya.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Sunny'
   },
 
   // Jo Jeeta Wohi Sikandar (Aamir Khan)
   // ID 31 in songsData
   31: {
     title: 'Jo Jeeta Wohi Sikandar',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-ukulele.mp3',
+    audioUrl: './audio/jo-jeeta-wohi-sikandar.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Happy Rock'
   },
 
   // Aashiqui Aa Gai (Various)
   // ID 45 in songsData
   45: {
     title: 'Aashiqui Aa Gai',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-creativeminds.mp3',
+    audioUrl: './audio/aashiqui-aa-gai.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Jazzy Frenchy'
   },
 
   // Baarish Ban Jaana (Various)
   // ID 46 in songsData
   46: {
     title: 'Baarish Ban Jaana',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-littleidea.mp3',
+    audioUrl: './audio/baarish-ban-jaana.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Little Idea'
   },
 
   // Chandni O Meri Chandni (Various)
   // ID 47 in songsData
   47: {
     title: 'Chandni O Meri Chandni',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-slowmotion.mp3',
+    audioUrl: './audio/chandni-o-meri-chandni.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Memories'
   },
 
   // Dil Diwana (Various)
   // ID 48 in songsData
   48: {
     title: 'Dil Diwana',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-sunny.mp3',
+    audioUrl: './audio/dil-diwana.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Slow Motion'
   },
 
   // Ek Haseena Thi (Various)
   // ID 49 in songsData
   49: {
     title: 'Ek Haseena Thi',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-memories.mp3',
+    audioUrl: './audio/ek-haseena-thi.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Tenderness'
   },
 
   // Faisal Khan (Various)
   // ID 50 in songsData
   50: {
     title: 'Faisal Khan',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-jazzyfrenchy.mp3',
+    audioUrl: './audio/faisal-khan.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Energy'
   },
 
   // Gaata Rahe Mera Dil (Various)
   // ID 51 in songsData
   51: {
     title: 'Gaata Rahe Mera Dil',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-happyrock.mp3',
+    audioUrl: './audio/gaata-rahe-mera-dil.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - A New Beginning'
   },
 
   // Haan Main Tumhara (Various)
   // ID 52 in songsData
   52: {
     title: 'Haan Main Tumhara',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-actionable.mp3',
+    audioUrl: './audio/haan-main-tumhara.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Buddy'
   },
 
   // Itna Toh Mujhe Khud Pe Yakeen Hai (Various)
   // ID 53 in songsData
   53: {
     title: 'Itna Toh Mujhe Khud Pe Yakeen Hai',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-energy.mp3',
+    audioUrl: './audio/itna-toh-mujhe.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Cute'
   },
 
   // Jaadu Teri Nazar (Various)
   // ID 54 in songsData
   54: {
     title: 'Jaadu Teri Nazar',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-tenderness.mp3',
+    audioUrl: './audio/jaadu-teri-nazar.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Sweet'
   },
 
   // Kambal Leke Udta Hoon (Various)
   // ID 55 in songsData
   55: {
     title: 'Kambal Leke Udta Hoon',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-anewbeginning.mp3',
+    audioUrl: './audio/kambal-leke-udta.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Actionable'
   },
 
   // Lag Ja Gale (Various)
   // ID 56 in songsData
   56: {
     title: 'Lag Ja Gale',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-buddy.mp3',
+    audioUrl: './audio/lag-ja-gale.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - The Elevator Bossa Nova'
   },
 
   // Madhuban Madhuban (Various)
   // ID 57 in songsData
   57: {
     title: 'Madhuban Madhuban',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-theelevatorbossanova.mp3',
+    audioUrl: './audio/madhuban-madhuban.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Going Higher'
   },
 
   // Naina Bhar Gaye (Various)
   // ID 58 in songsData
   58: {
     title: 'Naina Bhar Gaye',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-cute.mp3',
+    audioUrl: './audio/naina-bhar-gaye.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Hey'
   },
 
   // Om Shanti Om (Various)
   // ID 59 in songsData
   59: {
     title: 'Om Shanti Om',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-sweet.mp3',
+    audioUrl: './audio/om-shanti-om.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Dubstep'
   },
 
   // Pyar Ka Rog (Various)
   // ID 60 in songsData
   60: {
     title: 'Pyar Ka Rog',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-goinghigher.mp3',
+    audioUrl: './audio/pyar-ka-rog.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Funky Suspense'
   },
 
   // Raaz Ki Baat (Various)
   // ID 61 in songsData
   61: {
     title: 'Raaz Ki Baat',
-    audioUrl: 'https://www.bensound.com/bensound-music/bensound-hey.mp3',
+    audioUrl: './audio/raaz-ki-baat.mp3',
     duration: 90,
-    credit: 'Royalty-free instrumental'
+    credit: 'Bensound - Better Days'
   },
 
 };
@@ -200,13 +200,22 @@ function getMusicForSong(songId) {
   return musicConfiguration[songId] || null;
 }
 
-// INSTRUCTIONS FOR ADDING REAL ROYALTY-FREE MUSIC:
-// 1. Visit Free Music Archive: https://freemusicarchive.org/
-// 2. Search for Bollywood or Indian instrumental music
-// 3. Download tracks and add to /audio folder
-// 4. Update audioUrl with: './audio/song-name.mp3'
+// ===== SETUP INSTRUCTIONS =====
+// 
+// OPTION 1: Automatic Download (Recommended)
+// Run in PowerShell: .\download_sample_audio.ps1
 //
-// ALTERNATIVE SOURCES:
-// - Pixabay Music: https://pixabay.com/music/ (CC0 - no attribution needed)
-// - Freepd: https://www.freepd.com/ (Creative Commons)
-// - YouTube Audio Library: In YouTube Studio > Audio Library
+// OPTION 2: Manual Setup
+// 1. Download 21 MP3 files from:
+//    - Bensound: https://www.bensound.com/royalty-free-music
+//    - Free Music Archive: https://freemusicarchive.org/
+//    - YouTube Audio Library: https://studio.youtube.com
+//
+// 2. Rename files to match the exact names in this config
+//    (e.g., awaara-hoon.mp3, kal-ho-naa-ho.mp3, etc.)
+//
+// 3. Place all files in: audio/ folder
+//
+// 4. Refresh browser - Tune Challenge will work!
+//
+// Note: Music by Bensound.com - Attribution required
