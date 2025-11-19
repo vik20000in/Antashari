@@ -17,7 +17,7 @@ const musicConfiguration = {
   // ID 14 in songsData
   14: {
     title: 'Kal Ho Naa Ho',
-    audioUrl: './audio/awaara-hoon.mp3',
+    audioUrl: './audio/kal-ho-naa-ho.mp3',
     duration: 90,
     credit: 'Bensound - Creative Minds'
   },
@@ -200,22 +200,13 @@ function getMusicForSong(songId) {
   return musicConfiguration[songId] || null;
 }
 
-// ===== SETUP INSTRUCTIONS =====
-// 
-// OPTION 1: Automatic Download (Recommended)
-// Run in PowerShell: .\download_sample_audio.ps1
+// INSTRUCTIONS FOR ADDING REAL ROYALTY-FREE MUSIC:
+// 1. Visit Free Music Archive: https://freemusicarchive.org/
+// 2. Search for Bollywood or Indian instrumental music
+// 3. Download tracks and add to /audio folder
+// 4. Update audioUrl with: './audio/song-name.mp3'
 //
-// OPTION 2: Manual Setup
-// 1. Download 21 MP3 files from:
-//    - Bensound: https://www.bensound.com/royalty-free-music
-//    - Free Music Archive: https://freemusicarchive.org/
-//    - YouTube Audio Library: https://studio.youtube.com
-//
-// 2. Rename files to match the exact names in this config
-//    (e.g., awaara-hoon.mp3, kal-ho-naa-ho.mp3, etc.)
-//
-// 3. Place all files in: audio/ folder
-//
-// 4. Refresh browser - Tune Challenge will work!
-//
-// Note: Music by Bensound.com - Attribution required
+// ALTERNATIVE SOURCES:
+// - Pixabay Music: https://pixabay.com/music/ (CC0 - no attribution needed)
+// - Freepd: https://www.freepd.com/ (Creative Commons)
+// - YouTube Audio Library: In YouTube Studio > Audio Library

@@ -1,0 +1,113 @@
+========================================
+YouTube Download Commands - Ready to Use
+========================================
+
+🎯 NEW AUTO-SEARCH MODE! Just run with filename, script will search YouTube automatically!
+
+ALREADY DOWNLOADED:
+✅ awaara-hoon.mp3
+✅ kal-ho-naa-ho.mp3
+
+DOWNLOAD THESE 19 SONGS - AUTO-SEARCH MODE:
+========================================
+Just copy and run - the script will search YouTube automatically!
+
+1. Chaiya Chaiya
+python simple_download.py chaiya-chaiya.mp3
+
+2. Jo Jeeta Wohi Sikandar
+python simple_download.py jo-jeeta-wohi-sikandar.mp3
+
+3. Aashiqui Aa Gai
+python simple_download.py aashiqui-aa-gai.mp3
+
+4. Baarish Ban Jaana
+python simple_download.py baarish-ban-jaana.mp3
+
+5. Chandni O Meri Chandni
+python simple_download.py chandni-o-meri-chandni.mp3
+
+6. Dil Diwana
+python simple_download.py dil-diwana.mp3
+
+7. Ek Haseena Thi
+python simple_download.py ek-haseena-thi.mp3
+
+
+
+9. Gaata Rahe Mera Dil
+python simple_download.py gaata-rahe-mera-dil.mp3
+
+10. Haan Main Tumhara
+python simple_download.py haan-main-tumhara.mp3
+
+11. Itna Toh Mujhe Khud Pe Yakeen Hai
+python simple_download.py itna-toh-mujhe.mp3
+
+12. Jaadu Teri Nazar
+python simple_download.py jaadu-teri-nazar.mp3
+
+13. Kambal Leke Udta Hoon
+python simple_download.py kambal-leke-udta.mp3
+
+14. Lag Ja Gale
+python simple_download.py lag-ja-gale.mp3
+
+15. Madhuban Madhuban
+python simple_download.py madhuban-madhuban.mp3
+
+16. Naina Bhar Gaye
+python simple_download.py naina-bhar-gaye.mp3
+
+17. Om Shanti Om
+python simple_download.py om-shanti-om.mp3
+
+18. Pyar Ka Rog
+python simple_download.py pyar-ka-rog.mp3
+
+19. Raaz Ki Baat
+python simple_download.py raaz-ki-baat.mp3
+
+========================================
+HOW AUTO-SEARCH WORKS:
+========================================
+
+1. Run command (e.g., python simple_download.py chaiya-chaiya.mp3)
+2. Script searches YouTube automatically
+3. Shows you the first result with duration
+4. If under 10 minutes, asks: "Download this video? (Y/n)"
+5. Press Enter or type 'y' to download
+6. If over 10 minutes or you say 'n', it asks for a URL
+
+========================================
+MANUAL URL MODE (if auto-search fails):
+========================================
+
+python simple_download.py chaiya-chaiya.mp3 "PASTE_YOUTUBE_URL_HERE"
+
+========================================
+CHECK PROGRESS:
+========================================
+
+Run this to see downloaded songs:
+Get-ChildItem audio\*.mp3 | Select-Object Name, @{Name="Size (MB)";Expression={[math]::Round($_.Length/1MB, 2)}}
+
+Progress: 2/21 complete ✅✅
+
+========================================
+TIPS:
+========================================
+
+✅ Auto-search converts filename to search query
+   (e.g., "chaiya-chaiya.mp3" → searches "chaiya chaiya")
+
+✅ Only downloads videos under 10 minutes
+   (filters out long videos, compilations)
+
+✅ Shows video title and duration before downloading
+   (you can confirm or reject)
+
+✅ If auto-search fails, you can provide URL manually
+
+✅ Still works with manual URLs:
+   python simple_download.py song.mp3 "https://youtube.com/watch?v=..."
