@@ -49,15 +49,6 @@ const musicConfiguration = {
     credit: 'Downloaded from YouTube'
   },
 
-  // Prem Se Bhara Hai
-  // ID 46 in songsData
-  46: {
-    title: 'Prem Se Bhara Hai',
-    audioUrl: './audio/prem-se-bhara-hai.mp3',
-    duration: 90,
-    credit: 'Downloaded from YouTube'
-  },
-
   // Funtoosh Banaya Tune
   // ID 47 in songsData
   47: {

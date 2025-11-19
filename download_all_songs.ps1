@@ -13,7 +13,6 @@ $songs = @(
     "chaiya-chaiya.mp3",
     "jo-jeeta-wohi-sikandar.mp3",
     "piya-tu-ab-to-aaja.mp3",
-    "prem-se-bhara-hai.mp3",
     "funtoosh-banaya-tune.mp3",
     "baarish-mein-tume-dekha.mp3",
     "badi-mushkil-hai.mp3",
