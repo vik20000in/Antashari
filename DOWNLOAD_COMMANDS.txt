@@ -20,8 +20,8 @@ python simple_download.py om-shanti-om.mp3
 18. Pyar Ka Rog
 python simple_download.py pyar-ka-rog.mp3
 
-19. Raaz Ki Baat
-python simple_download.py raaz-ki-baat.mp3
+19. Laila O Laila
+python simple_download.py laila-o-laila.mp3
 
 ========================================
 HOW AUTO-SEARCH WORKS:

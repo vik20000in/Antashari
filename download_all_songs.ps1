@@ -26,7 +26,7 @@ $songs = @(
     "naina-bhar-gaye.mp3",
     "om-shanti-om.mp3",
     "pyar-ka-rog.mp3",
-    "raaz-ki-baat.mp3"
+    "laila-o-laila.mp3"
 )
 
 $total = $songs.Count

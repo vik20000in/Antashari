@@ -40,157 +40,157 @@ const musicConfiguration = {
     credit: 'Bensound - Happy Rock'
   },
 
-  // Aashiqui Aa Gai (Various)
+  // Piya Tu Ab To Aaja
   // ID 45 in songsData
   45: {
-    title: 'Aashiqui Aa Gai',
-    audioUrl: './audio/aashiqui-aa-gai.mp3',
+    title: 'Piya Tu Ab To Aaja',
+    audioUrl: './audio/piya-tu-ab-to-aaja.mp3',
     duration: 90,
-    credit: 'Bensound - Jazzy Frenchy'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Baarish Ban Jaana (Various)
+  // Prem Se Bhara Hai
   // ID 46 in songsData
   46: {
-    title: 'Baarish Ban Jaana',
-    audioUrl: './audio/baarish-ban-jaana.mp3',
+    title: 'Prem Se Bhara Hai',
+    audioUrl: './audio/prem-se-bhara-hai.mp3',
     duration: 90,
-    credit: 'Bensound - Little Idea'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Chandni O Meri Chandni (Various)
+  // Funtoosh Banaya Tune
   // ID 47 in songsData
   47: {
-    title: 'Chandni O Meri Chandni',
-    audioUrl: './audio/chandni-o-meri-chandni.mp3',
+    title: 'Funtoosh Banaya Tune',
+    audioUrl: './audio/funtoosh-banaya-tune.mp3',
     duration: 90,
-    credit: 'Bensound - Memories'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Dil Diwana (Various)
+  // Baarish Mein Tume Dekha
   // ID 48 in songsData
   48: {
-    title: 'Dil Diwana',
-    audioUrl: './audio/dil-diwana.mp3',
+    title: 'Baarish Mein Tume Dekha',
+    audioUrl: './audio/baarish-mein-tume-dekha.mp3',
     duration: 90,
-    credit: 'Bensound - Slow Motion'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Ek Haseena Thi (Various)
+  // Badi Mushkil Hai
   // ID 49 in songsData
   49: {
-    title: 'Ek Haseena Thi',
-    audioUrl: './audio/ek-haseena-thi.mp3',
+    title: 'Badi Mushkil Hai',
+    audioUrl: './audio/badi-mushkil-hai.mp3',
     duration: 90,
-    credit: 'Bensound - Tenderness'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Faisal Khan (Various)
+  // Barso Re Megha
   // ID 50 in songsData
   50: {
-    title: 'Faisal Khan',
-    audioUrl: './audio/faisal-khan.mp3',
+    title: 'Barso Re Megha',
+    audioUrl: './audio/barso-re-megha.mp3',
     duration: 90,
-    credit: 'Bensound - Energy'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Gaata Rahe Mera Dil (Various)
+  // Bhole Shankara
   // ID 51 in songsData
   51: {
-    title: 'Gaata Rahe Mera Dil',
-    audioUrl: './audio/gaata-rahe-mera-dil.mp3',
+    title: 'Bhole Shankara',
+    audioUrl: './audio/bhole-shankara.mp3',
     duration: 90,
-    credit: 'Bensound - A New Beginning'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Haan Main Tumhara (Various)
+  // Maa Tujhe Salaam
   // ID 52 in songsData
   52: {
-    title: 'Haan Main Tumhara',
-    audioUrl: './audio/haan-main-tumhara.mp3',
+    title: 'Maa Tujhe Salaam',
+    audioUrl: './audio/maa-tujhe-salaam.mp3',
     duration: 90,
-    credit: 'Bensound - Buddy'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Itna Toh Mujhe Khud Pe Yakeen Hai (Various)
+  // Mere Haath Mein Teri Bansuri
   // ID 53 in songsData
   53: {
-    title: 'Itna Toh Mujhe Khud Pe Yakeen Hai',
-    audioUrl: './audio/itna-toh-mujhe.mp3',
+    title: 'Mere Haath Mein Teri Bansuri',
+    audioUrl: './audio/mere-haath-mein-teri-bansuri.mp3',
     duration: 90,
-    credit: 'Bensound - Cute'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Jaadu Teri Nazar (Various)
+  // Mere Sapno Ki Rani
   // ID 54 in songsData
   54: {
-    title: 'Jaadu Teri Nazar',
-    audioUrl: './audio/jaadu-teri-nazar.mp3',
+    title: 'Mere Sapno Ki Rani',
+    audioUrl: './audio/mere-sapno-ki-rani.mp3',
     duration: 90,
-    credit: 'Bensound - Sweet'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Kambal Leke Udta Hoon (Various)
+  // Mohabbat Barsa Dena Tu
   // ID 55 in songsData
   55: {
-    title: 'Kambal Leke Udta Hoon',
-    audioUrl: './audio/kambal-leke-udta.mp3',
+    title: 'Mohabbat Barsa Dena Tu',
+    audioUrl: './audio/mohabbat-barsa-dena-tu.mp3',
     duration: 90,
-    credit: 'Bensound - Actionable'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Lag Ja Gale (Various)
+  // Yeh Kya Hua
   // ID 56 in songsData
   56: {
-    title: 'Lag Ja Gale',
-    audioUrl: './audio/lag-ja-gale.mp3',
+    title: 'Yeh Kya Hua',
+    audioUrl: './audio/yeh-kya-hua.mp3',
     duration: 90,
-    credit: 'Bensound - The Elevator Bossa Nova'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Madhuban Madhuban (Various)
+  // Yeh Dua Hai Meri
   // ID 57 in songsData
   57: {
-    title: 'Madhuban Madhuban',
-    audioUrl: './audio/madhuban-madhuban.mp3',
+    title: 'Yeh Dua Hai Meri',
+    audioUrl: './audio/yeh-dua-hai-meri.mp3',
     duration: 90,
-    credit: 'Bensound - Going Higher'
+    credit: 'Downloaded from YouTube'
   },
 
-  // Naina Bhar Gaye (Various)
+  // Raaz Ki Baat
   // ID 58 in songsData
   58: {
-    title: 'Naina Bhar Gaye',
-    audioUrl: './audio/naina-bhar-gaye.mp3',
-    duration: 90,
-    credit: 'Bensound - Hey'
-  },
-
-  // Om Shanti Om (Various)
-  // ID 59 in songsData
-  59: {
-    title: 'Om Shanti Om',
-    audioUrl: './audio/om-shanti-om.mp3',
-    duration: 90,
-    credit: 'Bensound - Dubstep'
-  },
-
-  // Pyar Ka Rog (Various)
-  // ID 60 in songsData
-  60: {
-    title: 'Pyar Ka Rog',
-    audioUrl: './audio/pyar-ka-rog.mp3',
-    duration: 90,
-    credit: 'Bensound - Funky Suspense'
-  },
-
-  // Raaz Ki Baat (Various)
-  // ID 61 in songsData
-  61: {
     title: 'Raaz Ki Baat',
     audioUrl: './audio/raaz-ki-baat.mp3',
     duration: 90,
-    credit: 'Bensound - Better Days'
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Raat Bhar Jaagta Hoon Main
+  // ID 59 in songsData
+  59: {
+    title: 'Raat Bhar Jaagta Hoon Main',
+    audioUrl: './audio/raat-bhar-jaagta-hoon-main.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Roli Roli Gulal Khelo
+  // ID 60 in songsData
+  60: {
+    title: 'Roli Roli Gulal Khelo',
+    audioUrl: './audio/roli-roli-gulal-khelo.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Laila O Laila (Rishi Kapoor - Prem Rog)
+  // ID 61 in songsData
+  61: {
+    title: 'Laila O Laila',
+    audioUrl: './audio/laila-o-laila.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
   },
 
 };
