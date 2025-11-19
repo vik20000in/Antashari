@@ -404,7 +404,10 @@ class AntakshariGame {
   // ===== MODE 3: TUNE CHALLENGE =====
   generateTuneChallenge() {
     // Get all songs that have music configurations
-    const tuneSongIds = [5, 14, 26, 31, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61]; // IDs with royalty-free music
+    const tuneSongIds = [
+      5, 14, 26, 31, 45, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61,  // Original 20 songs
+      17, 18, 30, 32, 36, 44, 2, 62, 15, 21, 29, 37, 42, 39, 66, 10, 20, 27, 23, 64   // New 20 songs
+    ];
     const availableSongs = songsData.filter(song => tuneSongIds.includes(song.id));
     
     // Pick a random song from available tunes
