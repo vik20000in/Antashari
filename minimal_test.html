@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Audio Test</title>
+</head>
+<body>
+  <h1>Minimal Audio Test</h1>
+  
+  <h3>Test 1: Direct Play</h3>
+  <button onclick="test1()">Click to Play Mixkit Audio</button>
+  <p id="status1">Not started</p>
+
+  <h3>Test 2: Audio Element</h3>
+  <audio id="player" controls>
+    <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
+  </audio>
+  <p id="status2">Audio element above</p>
+
+  <script>
+    function test1() {
+      document.getElementById('status1').textContent = 'Attempting to play...';
+      
+      const audio = new Audio('https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3');
+      
+      audio.play()
+        .then(() => {
+          document.getElementById('status1').textContent = '✓ SUCCESS! Audio is playing!';
+          document.getElementById('status1').style.color = 'green';
+        })
+        .catch(err => {
+          document.getElementById('status1').textContent = '✗ FAILED: ' + err.message;
+          document.getElementById('status1').style.color = 'red';
+          console.error('Error:', err);
+        });
+    }
+
+    // Test audio element on load
+    window.addEventListener('load', () => {
+      const player = document.getElementById('player');
+      
+      player.addEventListener('loadeddata', () => {
+        document.getElementById('status2').textContent = '✓ Audio element loaded successfully';
+        document.getElementById('status2').style.color = 'green';
+      });
+      
+      player.addEventListener('error', (e) => {
+        document.getElementById('status2').textContent = '✗ Audio element error: ' + player.error.message;
+        document.getElementById('status2').style.color = 'red';
+      });
+    });
+  </script>
+</body>
+</html>

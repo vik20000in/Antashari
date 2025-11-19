@@ -8,7 +8,7 @@ const musicConfiguration = {
   // ID 5 in songsData
   5: {
     title: 'Awaara Hoon',
-    audioUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3',
     duration: 90,
     credit: 'Royalty-free background music'
   },
@@ -17,7 +17,7 @@ const musicConfiguration = {
   // ID 14 in songsData
   14: {
     title: 'Kal Ho Naa Ho',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-dreaming-big-31.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -26,7 +26,7 @@ const musicConfiguration = {
   // ID 26 in songsData
   26: {
     title: 'Chaiya Chaiya',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-a-very-happy-christmas-897.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -35,7 +35,7 @@ const musicConfiguration = {
   // ID 31 in songsData
   31: {
     title: 'Jo Jeeta Wohi Sikandar',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-piano-reflections-12.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -44,7 +44,7 @@ const musicConfiguration = {
   // ID 45 in songsData
   45: {
     title: 'Aashiqui Aa Gai',
-    audioUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-feeling-happy-5.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -53,7 +53,7 @@ const musicConfiguration = {
   // ID 46 in songsData
   46: {
     title: 'Baarish Ban Jaana',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-hip-hop-02-738.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -62,7 +62,7 @@ const musicConfiguration = {
   // ID 47 in songsData
   47: {
     title: 'Chandni O Meri Chandni',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-just-chill-20.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -71,7 +71,7 @@ const musicConfiguration = {
   // ID 48 in songsData
   48: {
     title: 'Dil Diwana',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -80,7 +80,7 @@ const musicConfiguration = {
   // ID 49 in songsData
   49: {
     title: 'Ek Haseena Thi',
-    audioUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-summer-fun-13.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -89,7 +89,7 @@ const musicConfiguration = {
   // ID 50 in songsData
   50: {
     title: 'Faisal Khan',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-relaxing-walk-in-the-forest-stuttered-10.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -98,7 +98,7 @@ const musicConfiguration = {
   // ID 51 in songsData
   51: {
     title: 'Gaata Rahe Mera Dil',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-20.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -107,7 +107,7 @@ const musicConfiguration = {
   // ID 52 in songsData
   52: {
     title: 'Haan Main Tumhara',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-in-the-forest-22.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -116,7 +116,7 @@ const musicConfiguration = {
   // ID 53 in songsData
   53: {
     title: 'Itna Toh Mujhe Khud Pe Yakeen Hai',
-    audioUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-sun-and-his-daughter-25.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -125,7 +125,7 @@ const musicConfiguration = {
   // ID 54 in songsData
   54: {
     title: 'Jaadu Teri Nazar',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-games-worldbeat-466.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -134,7 +134,7 @@ const musicConfiguration = {
   // ID 55 in songsData
   55: {
     title: 'Kambal Leke Udta Hoon',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-the-cradle-of-love-23.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -143,7 +143,7 @@ const musicConfiguration = {
   // ID 56 in songsData
   56: {
     title: 'Lag Ja Gale',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-happy-whistling-ukulele-93.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -152,7 +152,7 @@ const musicConfiguration = {
   // ID 57 in songsData
   57: {
     title: 'Madhuban Madhuban',
-    audioUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-love-is-on-19.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -161,7 +161,7 @@ const musicConfiguration = {
   // ID 58 in songsData
   58: {
     title: 'Naina Bhar Gaye',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-lonely-492.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -170,7 +170,7 @@ const musicConfiguration = {
   // ID 59 in songsData
   59: {
     title: 'Om Shanti Om',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-deep-urban-623.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -179,7 +179,7 @@ const musicConfiguration = {
   // ID 60 in songsData
   60: {
     title: 'Pyar Ka Rog',
-    audioUrl: 'https://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-smoke-506.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },
@@ -188,7 +188,7 @@ const musicConfiguration = {
   // ID 61 in songsData
   61: {
     title: 'Raaz Ki Baat',
-    audioUrl: 'https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp3',
+    audioUrl: 'https://assets.mixkit.co/music/preview/mixkit-clear-and-severe-195.mp3',
     duration: 90,
     credit: 'Royalty-free instrumental'
   },

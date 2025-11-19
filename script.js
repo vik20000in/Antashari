@@ -452,75 +452,18 @@ class AntakshariGame {
     }
 
     console.log('🎵 Attempting to play:', audioSource.src);
-    console.log('Audio ready state:', audioPlayer.readyState);
-    console.log('Audio network state:', audioPlayer.networkState);
     
-    // Show notification
-    const playBtn = document.getElementById('playTuneBtn');
-    const originalText = playBtn.textContent;
-    playBtn.textContent = '🎵 Now Playing...';
-    playBtn.disabled = true;
-
-    // Reset to beginning
+    // Reset to beginning and play directly
     audioPlayer.currentTime = 0;
     
-    // Function to attempt playing
-    const attemptPlay = () => {
-      const playPromise = audioPlayer.play();
-      
-      console.log('Play promise:', playPromise);
-      
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            console.log('✅ Audio playing successfully!');
-          })
-          .catch(error => {
-            console.error('❌ Playback error:', error.name, error.message);
-            
-            // If still loading, wait a bit more
-            if (error.name === 'NotAllowedError' || audioPlayer.readyState < 2) {
-              console.log('⏳ Audio still loading, retrying in 500ms...');
-              setTimeout(attemptPlay, 500);
-            } else {
-              alert('❌ Could not play audio: ' + error.message);
-            }
-          });
-      } else {
-        console.log('⚠️ Play returned undefined (old browser)');
-      }
-    };
-    
-    // Wait for audio to be loadable, then play
-    if (audioPlayer.readyState >= 2) {
-      // Audio is already ready
-      console.log('✓ Audio ready, playing now...');
-      attemptPlay();
-    } else {
-      // Wait for canplay event
-      console.log('⏳ Waiting for audio to be ready...');
-      const onCanPlay = () => {
-        console.log('✓ Audio ready event fired');
-        audioPlayer.removeEventListener('canplay', onCanPlay);
-        attemptPlay();
-      };
-      
-      audioPlayer.addEventListener('canplay', onCanPlay);
-      
-      // Timeout after 10 seconds (increased from 5)
-      setTimeout(() => {
-        if (audioPlayer.readyState < 2) {
-          audioPlayer.removeEventListener('canplay', onCanPlay);
-          console.error('❌ Audio took too long to load');
-          alert('❌ Audio is taking too long to load. Check your internet connection.');
-        }
-      }, 10000);
-    }
-
-    setTimeout(() => {
-      playBtn.textContent = originalText;
-      playBtn.disabled = false;
-    }, 3000);
+    audioPlayer.play()
+      .then(() => {
+        console.log('✅ Audio playing successfully!');
+      })
+      .catch(error => {
+        console.error('❌ Playback error:', error);
+        alert('❌ Could not play audio: ' + error.message + '\n\nTip: Use the audio player controls below to play manually.');
+      });
   }
 
   showNotification(message) {

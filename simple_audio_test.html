@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Audio Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .test {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover { background: #0056b3; }
+    .log {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-top: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎵 Direct Audio Test</h1>
+  
+  <div class="test">
+    <h3>Test 1: Direct Audio Object</h3>
+    <button onclick="test1()">Test Google MP3 #1</button>
+    <button onclick="test2()">Test Google MP3 #2</button>
+    <button onclick="test3()">Test M4A</button>
+  </div>
+
+  <div class="test">
+    <h3>Test 2: HTML Audio Element</h3>
+    <audio id="testAudio" controls style="width: 100%;">
+      <source id="testSource">
+    </audio>
+    <br>
+    <button onclick="loadAndPlay('https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp3', 'audio/mpeg')">Load MP3 #1</button>
+    <button onclick="loadAndPlay('https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3', 'audio/mpeg')">Load MP3 #2</button>
+  </div>
+
+  <div class="log" id="log"></div>
+
+  <script>
+    function log(msg) {
+      const logDiv = document.getElementById('log');
+      const time = new Date().toLocaleTimeString();
+      logDiv.innerHTML += `[${time}] ${msg}<br>`;
+      logDiv.scrollTop = logDiv.scrollHeight;
+      console.log(msg);
+    }
+
+    // Test 1: Direct Audio() object
+    function test1() {
+      log('Testing: https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp3');
+      const audio = new Audio('https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.mp3');
+      
+      audio.addEventListener('loadedmetadata', () => log('✓ Metadata loaded'));
+      audio.addEventListener('canplay', () => log('✓ Can play'));
+      audio.addEventListener('error', (e) => log('✗ Error: ' + audio.error.message));
+      
+      audio.play()
+        .then(() => log('✓ Playing!'))
+        .catch(err => log('✗ Play failed: ' + err.message));
+    }
+
+    function test2() {
+      log('Testing: Kangaroo MusiQue MP3');
+      const audio = new Audio('https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3');
+      
+      audio.addEventListener('canplay', () => log('✓ Can play'));
+      audio.addEventListener('error', (e) => log('✗ Error: ' + (audio.error ? audio.error.message : 'Unknown')));
+      
+      audio.play()
+        .then(() => log('✓ Playing!'))
+        .catch(err => log('✗ Play failed: ' + err.message));
+    }
+
+    function test3() {
+      log('Testing: M4A file');
+      const audio = new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a');
+      
+      audio.addEventListener('canplay', () => log('✓ Can play'));
+      audio.addEventListener('error', (e) => log('✗ Error: ' + (audio.error ? audio.error.message : 'Unknown')));
+      
+      audio.play()
+        .then(() => log('✓ Playing!'))
+        .catch(err => log('✗ Play failed: ' + err.message));
+    }
+
+    // Test 2: HTML element
+    function loadAndPlay(url, type) {
+      log('Loading into element: ' + url);
+      const audio = document.getElementById('testAudio');
+      const source = document.getElementById('testSource');
+      
+      source.src = url;
+      source.type = type;
+      audio.load();
+      
+      audio.addEventListener('canplay', function onCanPlay() {
+        log('✓ Element ready, playing...');
+        audio.removeEventListener('canplay', onCanPlay);
+        audio.play()
+          .then(() => log('✓ Element playing!'))
+          .catch(err => log('✗ Element play failed: ' + err.message));
+      });
+      
+      audio.addEventListener('error', function onError(e) {
+        log('✗ Element error: ' + (audio.error ? audio.error.message : 'Unknown'));
+      });
+    }
+
+    log('Page loaded. Ready to test.');
+  </script>
+</body>
+</html>
