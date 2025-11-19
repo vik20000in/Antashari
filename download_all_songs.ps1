@@ -47,7 +47,26 @@ $songs = @(
     "khwaab-ho-tum-ya-koi-khyal.mp3",
     "chod-de-saari-duniya.mp3",
     "gulab-bahar.mp3",
-    "vaada-raha-sanam.mp3"
+    "vaada-raha-sanam.mp3",
+    "tujhe-dekha-to.mp3",
+    "koi-mil-gaya.mp3",
+    "dil-chahta-hai.mp3",
+    "tere-liye.mp3",
+    "main-hoon-na.mp3",
+    "tumhi-dekho-na.mp3",
+    "kajra-re.mp3",
+    "rang-de-basanti.mp3",
+    "desi-girl.mp3",
+    "jai-ho.mp3",
+    "rock-on.mp3",
+    "tum-se-hi.mp3",
+    "mauja-hi-mauja.mp3",
+    "om-shanti-om.mp3",
+    "kaho-naa-pyaar-hai.mp3",
+    "aaj-ki-raat.mp3",
+    "pehli-nazar-mein.mp3",
+    "maahi-ve.mp3",
+    "mitwa.mp3"
 )
 
 $total = $songs.Count

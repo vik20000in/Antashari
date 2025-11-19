@@ -406,7 +406,8 @@ class AntakshariGame {
     // Get all songs that have music configurations
     const tuneSongIds = [
       5, 14, 26, 31, 45, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61,  // Original 20 songs
-      17, 18, 30, 32, 36, 44, 2, 62, 15, 21, 29, 37, 42, 39, 66, 10, 20, 27, 23, 64   // New 20 songs
+      17, 18, 30, 32, 36, 44, 2, 62, 15, 21, 29, 37, 42, 39, 66, 10, 20, 27, 23, 64,  // Next 20 songs
+      81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99      // 2000s era songs (19)
     ];
     const availableSongs = songsData.filter(song => tuneSongIds.includes(song.id));
     

@@ -942,5 +942,216 @@ const songsData = [
     singerType: "Female Solo",
     year: 1990,
     movie: "Prem Rog"
+  },
+
+  // 2000s Era Songs
+  {
+    id: 81,
+    title: "Tujhe Dekha To",
+    firstLine: "Tujhe dekha to yeh jaana sanam",
+    lastWord: "Sanam",
+    lastConsonant: "म",
+    themes: ["Love", "Romance"],
+    singerType: "Male Solo",
+    year: 1995,
+    movie: "Dilwale Dulhania Le Jayenge"
+  },
+  {
+    id: 82,
+    title: "Koi Mil Gaya",
+    firstLine: "Koi mil gaya koi mil gaya",
+    lastWord: "Gaya",
+    lastConsonant: "य",
+    themes: ["Love", "Discovery"],
+    singerType: "Male Solo",
+    year: 2003,
+    movie: "Koi Mil Gaya"
+  },
+  {
+    id: 83,
+    title: "Dil Chahta Hai",
+    firstLine: "Dil chahta hai",
+    lastWord: "Hai",
+    lastConsonant: "य",
+    themes: ["Freedom", "Youth"],
+    singerType: "Male Solo",
+    year: 2001,
+    movie: "Dil Chahta Hai"
+  },
+  {
+    id: 84,
+    title: "Tere Liye",
+    firstLine: "Tere liye hum hai jiye",
+    lastWord: "Jiye",
+    lastConsonant: "य",
+    themes: ["Love", "Devotion"],
+    singerType: "Male Solo",
+    year: 2004,
+    movie: "Veer-Zaara"
+  },
+  {
+    id: 85,
+    title: "Main Hoon Na",
+    firstLine: "Main hoon na",
+    lastWord: "Na",
+    lastConsonant: "न",
+    themes: ["Protection", "Love"],
+    singerType: "Male Solo",
+    year: 2004,
+    movie: "Main Hoon Na"
+  },
+  {
+    id: 86,
+    title: "Tumhi Dekho Na",
+    firstLine: "Tumhi dekho na",
+    lastWord: "Na",
+    lastConsonant: "न",
+    themes: ["Love", "Longing"],
+    singerType: "Male Solo",
+    year: 2006,
+    movie: "Kabhi Alvida Naa Kehna"
+  },
+  {
+    id: 87,
+    title: "Kajra Re",
+    firstLine: "Kajra re kajra re",
+    lastWord: "Re",
+    lastConsonant: "र",
+    themes: ["Dance", "Celebration"],
+    singerType: "Duet",
+    year: 2005,
+    movie: "Bunty Aur Babli"
+  },
+  {
+    id: 88,
+    title: "Rang De Basanti",
+    firstLine: "Rang de basanti",
+    lastWord: "Basanti",
+    lastConsonant: "त",
+    themes: ["Patriotic", "Revolution"],
+    singerType: "Male Solo",
+    year: 2006,
+    movie: "Rang De Basanti"
+  },
+  {
+    id: 89,
+    title: "Desi Girl",
+    firstLine: "Desi girl desi girl",
+    lastWord: "Girl",
+    lastConsonant: "ल",
+    themes: ["Dance", "Celebration"],
+    singerType: "Male Solo",
+    year: 2008,
+    movie: "Dostana"
+  },
+  {
+    id: 90,
+    title: "Jai Ho",
+    firstLine: "Jai ho jai ho",
+    lastWord: "Ho",
+    lastConsonant: "ह",
+    themes: ["Victory", "Celebration"],
+    singerType: "Male Solo",
+    year: 2008,
+    movie: "Slumdog Millionaire"
+  },
+  {
+    id: 91,
+    title: "Rock On",
+    firstLine: "Rock on rock on",
+    lastWord: "On",
+    lastConsonant: "न",
+    themes: ["Rock", "Music"],
+    singerType: "Male Solo",
+    year: 2008,
+    movie: "Rock On"
+  },
+  {
+    id: 92,
+    title: "Tum Se Hi",
+    firstLine: "Tum se hi din hota hai",
+    lastWord: "Hai",
+    lastConsonant: "य",
+    themes: ["Love", "Romance"],
+    singerType: "Male Solo",
+    year: 2007,
+    movie: "Jab We Met"
+  },
+  {
+    id: 93,
+    title: "Mauja Hi Mauja",
+    firstLine: "Mauja hi mauja",
+    lastWord: "Mauja",
+    lastConsonant: "ज",
+    themes: ["Celebration", "Joy"],
+    singerType: "Male Solo",
+    year: 2007,
+    movie: "Jab We Met"
+  },
+  {
+    id: 94,
+    title: "Om Shanti Om",
+    firstLine: "Om shanti om",
+    lastWord: "Om",
+    lastConsonant: "म",
+    themes: ["Dance", "Celebration"],
+    singerType: "Male Solo",
+    year: 2007,
+    movie: "Om Shanti Om"
+  },
+  {
+    id: 95,
+    title: "Kaho Naa Pyaar Hai",
+    firstLine: "Kaho naa pyaar hai",
+    lastWord: "Hai",
+    lastConsonant: "य",
+    themes: ["Love", "Romance"],
+    singerType: "Male Solo",
+    year: 2000,
+    movie: "Kaho Naa Pyaar Hai"
+  },
+  {
+    id: 96,
+    title: "Aaj Ki Raat",
+    firstLine: "Aaj ki raat hai zindagi",
+    lastWord: "Zindagi",
+    lastConsonant: "ग",
+    themes: ["Night", "Dance"],
+    singerType: "Female Solo",
+    year: 2006,
+    movie: "Don"
+  },
+  {
+    id: 97,
+    title: "Pehli Nazar Mein",
+    firstLine: "Pehli nazar mein",
+    lastWord: "Mein",
+    lastConsonant: "न",
+    themes: ["Love", "First Sight"],
+    singerType: "Duet",
+    year: 2008,
+    movie: "Race"
+  },
+  {
+    id: 98,
+    title: "Maahi Ve",
+    firstLine: "Maahi ve maahi ve",
+    lastWord: "Ve",
+    lastConsonant: "व",
+    themes: ["Love", "Longing"],
+    singerType: "Male Solo",
+    year: 2002,
+    movie: "Kal Ho Naa Ho"
+  },
+  {
+    id: 99,
+    title: "Mitwa",
+    firstLine: "Mitwa kahaan hai tu",
+    lastWord: "Tu",
+    lastConsonant: "त",
+    themes: ["Longing", "Love"],
+    singerType: "Male Solo",
+    year: 2006,
+    movie: "Kabhi Alvida Naa Kehna"
   }
 ];

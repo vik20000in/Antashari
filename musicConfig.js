@@ -364,6 +364,177 @@ const musicConfiguration = {
     credit: 'Downloaded from YouTube'
   },
 
+  // Tujhe Dekha To
+  // ID 81 in songsData
+  81: {
+    title: 'Tujhe Dekha To',
+    audioUrl: './audio/tujhe-dekha-to.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Koi Mil Gaya
+  // ID 82 in songsData
+  82: {
+    title: 'Koi Mil Gaya',
+    audioUrl: './audio/koi-mil-gaya.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Dil Chahta Hai
+  // ID 83 in songsData
+  83: {
+    title: 'Dil Chahta Hai',
+    audioUrl: './audio/dil-chahta-hai.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Tere Liye
+  // ID 84 in songsData
+  84: {
+    title: 'Tere Liye',
+    audioUrl: './audio/tere-liye.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Main Hoon Na
+  // ID 85 in songsData
+  85: {
+    title: 'Main Hoon Na',
+    audioUrl: './audio/main-hoon-na.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Tumhi Dekho Na
+  // ID 86 in songsData
+  86: {
+    title: 'Tumhi Dekho Na',
+    audioUrl: './audio/tumhi-dekho-na.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Kajra Re
+  // ID 87 in songsData
+  87: {
+    title: 'Kajra Re',
+    audioUrl: './audio/kajra-re.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Rang De Basanti
+  // ID 88 in songsData
+  88: {
+    title: 'Rang De Basanti',
+    audioUrl: './audio/rang-de-basanti.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Desi Girl
+  // ID 89 in songsData
+  89: {
+    title: 'Desi Girl',
+    audioUrl: './audio/desi-girl.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Jai Ho
+  // ID 90 in songsData
+  90: {
+    title: 'Jai Ho',
+    audioUrl: './audio/jai-ho.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Rock On
+  // ID 91 in songsData
+  91: {
+    title: 'Rock On',
+    audioUrl: './audio/rock-on.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Tum Se Hi
+  // ID 92 in songsData
+  92: {
+    title: 'Tum Se Hi',
+    audioUrl: './audio/tum-se-hi.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Mauja Hi Mauja
+  // ID 93 in songsData
+  93: {
+    title: 'Mauja Hi Mauja',
+    audioUrl: './audio/mauja-hi-mauja.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Om Shanti Om
+  // ID 94 in songsData
+  94: {
+    title: 'Om Shanti Om',
+    audioUrl: './audio/om-shanti-om.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Kaho Naa Pyaar Hai
+  // ID 95 in songsData
+  95: {
+    title: 'Kaho Naa Pyaar Hai',
+    audioUrl: './audio/kaho-naa-pyaar-hai.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Aaj Ki Raat
+  // ID 96 in songsData
+  96: {
+    title: 'Aaj Ki Raat',
+    audioUrl: './audio/aaj-ki-raat.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Pehli Nazar Mein
+  // ID 97 in songsData
+  97: {
+    title: 'Pehli Nazar Mein',
+    audioUrl: './audio/pehli-nazar-mein.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Maahi Ve
+  // ID 98 in songsData
+  98: {
+    title: 'Maahi Ve',
+    audioUrl: './audio/maahi-ve.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Mitwa
+  // ID 99 in songsData
+  99: {
+    title: 'Mitwa',
+    audioUrl: './audio/mitwa.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
 };
 
 // Get music configuration for a specific song ID
