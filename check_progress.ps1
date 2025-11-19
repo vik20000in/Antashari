@@ -10,7 +10,7 @@ while ($true) {
     $count = ($downloaded | Measure-Object).Count
     $totalSize = ($downloaded | Measure-Object -Property Length -Sum).Sum / 1MB
     
-    Write-Host "Downloaded: $count / 21 songs" -ForegroundColor Yellow
+    Write-Host "Downloaded: $count / 40 songs" -ForegroundColor Yellow
     Write-Host "Total size: $([math]::Round($totalSize, 2)) MB" -ForegroundColor Cyan
     Write-Host ""
     
@@ -21,8 +21,8 @@ while ($true) {
             Format-Table -AutoSize
     }
     
-    if ($count -ge 21) {
-        Write-Host "✅ ALL 21 SONGS DOWNLOADED!" -ForegroundColor Green
+    if ($count -ge 40) {
+        Write-Host "✅ ALL 40 SONGS DOWNLOADED!" -ForegroundColor Green
         break
     }
     

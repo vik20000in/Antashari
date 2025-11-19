@@ -184,6 +184,186 @@ const musicConfiguration = {
     credit: 'Downloaded from YouTube'
   },
 
+  // Kuch Kuch Hota Hai
+  // ID 17 in songsData
+  17: {
+    title: 'Kuch Kuch Hota Hai',
+    audioUrl: './audio/kuch-kuch-hota-hai.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Kabhi Kabhi Mere Dil Mein
+  // ID 18 in songsData
+  18: {
+    title: 'Kabhi Kabhi Mere Dil Mein',
+    audioUrl: './audio/kabhi-kabhi-mere-dil-mein.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Jab Tak Hai Jaan
+  // ID 30 in songsData
+  30: {
+    title: 'Jab Tak Hai Jaan',
+    audioUrl: './audio/jab-tak-hai-jaan.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Jaadu Teri Nazar
+  // ID 32 in songsData
+  32: {
+    title: 'Jaadu Teri Nazar',
+    audioUrl: './audio/jaadu-teri-nazar.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Dilbar Dilbar
+  // ID 36 in songsData
+  36: {
+    title: 'Dilbar Dilbar',
+    audioUrl: './audio/dilbar-dilbar.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Pehla Nasha
+  // ID 44 in songsData
+  44: {
+    title: 'Pehla Nasha',
+    audioUrl: './audio/pehla-nasha.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Arre Dekhega India (Chak De! India)
+  // ID 2 in songsData
+  2: {
+    title: 'Arre Dekhega India',
+    audioUrl: './audio/arre-dekhega-india.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Likhe Jo Khat Tumhe
+  // ID 62 in songsData
+  62: {
+    title: 'Likhe Jo Khat Tumhe',
+    audioUrl: './audio/likhe-jo-khat-tumhe.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Kahe Toh Pardes
+  // ID 15 in songsData
+  15: {
+    title: 'Kahe Toh Pardes',
+    audioUrl: './audio/kahe-toh-pardes.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Geet Gata Hoon Main
+  // ID 21 in songsData
+  21: {
+    title: 'Geet Gata Hoon Main',
+    audioUrl: './audio/geet-gata-hoon-main.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Jaane Bhi Do Yaaro
+  // ID 29 in songsData
+  29: {
+    title: 'Jaane Bhi Do Yaaro',
+    audioUrl: './audio/jaane-bhi-do-yaaro.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Dil Dhoondta Hai
+  // ID 37 in songsData
+  37: {
+    title: 'Dil Dhoondta Hai',
+    audioUrl: './audio/dil-dhoondta-hai.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Na Jane Kyon
+  // ID 42 in songsData
+  42: {
+    title: 'Na Jane Kyon',
+    audioUrl: './audio/na-jane-kyon.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Tere Haath Mein
+  // ID 39 in songsData
+  39: {
+    title: 'Tere Haath Mein',
+    audioUrl: './audio/tere-haath-mein.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Soni Soni Ankh Marey
+  // ID 66 in songsData
+  66: {
+    title: 'Soni Soni Ankh Marey',
+    audioUrl: './audio/soni-soni-ankh-marey.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Ik Teri Muskarahat
+  // ID 10 in songsData
+  10: {
+    title: 'Ik Teri Muskarahat',
+    audioUrl: './audio/ik-teri-muskarahat.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Khwaab Ho Tum Ya Koi Khyal
+  // ID 20 in songsData
+  20: {
+    title: 'Khwaab Ho Tum Ya Koi Khyal',
+    audioUrl: './audio/khwaab-ho-tum-ya-koi-khyal.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Chod De Saari Duniya
+  // ID 27 in songsData
+  27: {
+    title: 'Chod De Saari Duniya',
+    audioUrl: './audio/chod-de-saari-duniya.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Gulab Bahar
+  // ID 23 in songsData
+  23: {
+    title: 'Gulab Bahar',
+    audioUrl: './audio/gulab-bahar.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Vaada Raha Sanam
+  // ID 64 in songsData
+  64: {
+    title: 'Vaada Raha Sanam',
+    audioUrl: './audio/vaada-raha-sanam.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
 };
 
 // Get music configuration for a specific song ID

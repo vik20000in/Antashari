@@ -27,7 +27,27 @@ $songs = @(
     "raaz-ki-baat.mp3",
     "raat-bhar-jaagta-hoon-main.mp3",
     "roli-roli-gulal-khelo.mp3",
-    "laila-o-laila.mp3"
+    "laila-o-laila.mp3",
+    "kuch-kuch-hota-hai.mp3",
+    "kabhi-kabhi-mere-dil-mein.mp3",
+    "jab-tak-hai-jaan.mp3",
+    "jaadu-teri-nazar.mp3",
+    "dilbar-dilbar.mp3",
+    "pehla-nasha.mp3",
+    "arre-dekhega-india.mp3",
+    "likhe-jo-khat-tumhe.mp3",
+    "kahe-toh-pardes.mp3",
+    "geet-gata-hoon-main.mp3",
+    "jaane-bhi-do-yaaro.mp3",
+    "dil-dhoondta-hai.mp3",
+    "na-jane-kyon.mp3",
+    "tere-haath-mein.mp3",
+    "soni-soni-ankh-marey.mp3",
+    "ik-teri-muskarahat.mp3",
+    "khwaab-ho-tum-ya-koi-khyal.mp3",
+    "chod-de-saari-duniya.mp3",
+    "gulab-bahar.mp3",
+    "vaada-raha-sanam.mp3"
 )
 
 $total = $songs.Count
