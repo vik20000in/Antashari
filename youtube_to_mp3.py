@@ -1,9 +1,12 @@
 """
-YouTube to MP3 Converter - First 2 Minutes Only
-Downloads YouTube video and converts first 2 minutes to MP3
+YouTube to MP3 Converter - Full Audio Download
+Downloads full YouTube audio and converts to MP3
 
 Requirements:
     pip install yt-dlp
+
+Note: This downloads the full audio (not trimmed to 2 minutes)
+You can manually trim the MP3 files later if needed.
 
 Usage:
     python youtube_to_mp3.py
@@ -26,7 +29,7 @@ def check_dependencies():
 
 def download_and_convert(youtube_url, output_filename):
     """
-    Download YouTube video and convert first 2 minutes to MP3
+    Download YouTube video and convert to MP3 (full audio)
     
     Args:
         youtube_url: YouTube video URL
@@ -38,7 +41,7 @@ def download_and_convert(youtube_url, output_filename):
         # Create output path in audio folder
         output_path = os.path.join('audio', output_filename)
         
-        # yt-dlp options
+        # yt-dlp options - simple download without trimming
         ydl_opts = {
             'format': 'bestaudio/best',
             'outtmpl': output_path.replace('.mp3', '.%(ext)s'),
@@ -47,20 +50,17 @@ def download_and_convert(youtube_url, output_filename):
                 'preferredcodec': 'mp3',
                 'preferredquality': '192',
             }],
-            # Extract only first 2 minutes (120 seconds)
-            'download_ranges': lambda info, _: [{'start_time': 0, 'end_time': 120}],
-            'force_keyframes_at_cuts': True,
         }
         
         print(f"\n🎵 Downloading: {youtube_url}")
         print(f"📁 Saving to: {output_path}")
-        print(f"⏱️  Duration: First 2 minutes only")
         print("\nDownloading...")
         
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([youtube_url])
         
         print(f"\n✅ Success! Saved as: {output_path}")
+        print("💡 Note: This is the full audio. You can trim it manually if needed.")
         return True
         
     except Exception as e:
@@ -70,7 +70,7 @@ def download_and_convert(youtube_url, output_filename):
 def main():
     """Main function - interactive mode"""
     print("=" * 60)
-    print("🎵 YouTube to MP3 Converter (First 2 Minutes)")
+    print("🎵 YouTube to MP3 Converter")
     print("=" * 60)
     
     # Check dependencies
@@ -119,6 +119,8 @@ def main():
     print(f"✅ Successful: {successful}")
     print(f"❌ Failed: {failed}")
     print(f"📁 Files saved in: audio/")
+    print("\n💡 Tip: Full audio was downloaded. You can use Audacity or")
+    print("   online tools to trim to 2 minutes if files are too large.")
     print("\nYou can now use these files in the Tune Challenge!")
 
 if __name__ == "__main__":
