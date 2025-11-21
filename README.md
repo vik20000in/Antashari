@@ -1,374 +1,430 @@
-# 🎵 Antakshari: Sur Sanchalak (Host Mode)
+# 🎵 Antakshari Game Platform
 
-**A comprehensive web-based Antakshari game application designed for the host to manage the game efficiently.**
+**A modern, comprehensive web-based Antakshari (Hindi song game) application with multiple game modes, audio playback, and an extensive song library.**
 
 ## 📋 Overview
 
-This application serves as the central display and reference tool for Antakshari game hosts. The host manages teams and scores manually while using the app for:
-- 📍 **Letter Management**: Displaying the required starting letter
-- ✅ **Verification**: Quickly checking if a song is valid and new
-- ⏱️ **Time Management**: Enforcing turn limits with a timer
-- 🎭 **Round Structuring**: Support for 5 different game modes
+Antakshari is an interactive game platform featuring 89+ curated Hindi songs spanning from classics to 2025 hits. The application offers:
+- 🎮 **Multiple Game Modes**: Word Challenge, Actor Challenge, Tune Challenge, Classic Antakshari, Theme Challenge
+- 🎵 **Audio Playback**: Built-in MP3 player for Tune Challenge mode
+- 📱 **Mobile-Friendly**: Responsive design works on desktop and mobile browsers
+- 🎯 **Interactive Gameplay**: Real-time verification, scoring, and song management
+- 🗃️ **Rich Database**: 129+ songs with full metadata (themes, actors, years, movies)
 
 ---
 
-## 🎮 Core Features
-
-### 1. **Main Display (Audience-Facing)**
-The left panel shows what the audience/teams see when the game is projected:
-- **Current Required Letter**: Large, pulsing display of the starting letter (Devanagari script)
-- **Active Timer**: 60-second countdown clock with golden styling
-- **Last Valid Song**: Shows the song title and first line that set the current letter
-- **Round Mode Indicator**: Displays which game mode is active
-- **Special Challenge Info**: For theme, word, or actor challenges
-
-### 2. **Host Control Panel (Host-Only)**
-The right panel contains all host controls, hidden from the audience:
-
-#### **Song Verification Section**
-- Input field to enter the first two words of the song
-- "Verify" button to search the database
-- Results show:
-  - ✅ Valid Song! (with next consonant)
-  - ❌ Song not found
-  - ❌ Letter mismatch
-  - ❌ Already played
-
-#### **Timer Controls**
-- Start/Pause/Reset buttons
-- Customizable duration (default 60 seconds)
-- Auto-resets after confirming a song
-
-#### **Action Buttons**
-- "Confirm & Next": Accept the verified song and calculate next letter
-- "Skip/Pass": Skip current song and reset timer
-- Manual letter override for round changes
-
-#### **Round Modes** (5 Different Formats)
-1. **Akshar-Gyan**: Classic last-consonant rule
-2. **Bhaav-Ras**: Theme-based round (rain songs, patriotic, etc.)
-3. **Shabd-Bandh**: Must include specific words
-4. **Sitaron Ke Naam**: Rapid-fire naming songs of specific actors
-5. **Jodi-Daar**: Must be duet songs only
-
-#### **Game Statistics**
-- Total songs in database
-- Songs already played
-- Recent songs list
-- Full stats modal with detailed breakdown
-
----
-
-## 📁 Project Structure
-
-```
-Antashari/
-├── index.html        # Main HTML structure with display and controls
-├── styles.css        # Complete styling and responsive design
-├── script.js         # Game logic, verification, and event handlers
-├── songsData.js      # Hindi song database with metadata
-└── README.md         # This file
-```
-
----
-
-## 🎯 How to Use
-
-### Starting the Game
-
-1. **Open** `index.html` in any modern web browser
-2. The application will initialize with:
-   - Required letter: 'क' (Ka)
-   - Timer: 60 seconds
-   - Database: 80 curated Hindi songs
-   - Round Mode: Classic Akshar-Gyan
-
-### Game Flow
-
-1. **Select Round Mode** (optional):
-   - Click one of the 5 mode buttons to change rules
-   - For special modes, set theme/word/actor
-
-2. **Start Timer**:
-   - Click "टाइमर शुरू करें" (Start Timer)
-   - Audience sees countdown on main display
-
-3. **Team Sings**:
-   - Team sings a song starting with current letter
-   - Host listens and prepares to verify
-
-4. **Verify Song**:
-   - Host types first 2 words of song into verification field
-   - Click "सत्यापित करें" (Verify) or press Enter
-   - App checks:
-     - ✅ Song exists in database
-     - ✅ Starts with required letter
-     - ✅ Not already played this game
-
-5. **Accept or Skip**:
-   - **Valid**: Click "पुष्टि और अगला अक्षर" to confirm
-     - Next letter calculated from last consonant
-     - Main display updates for audience
-   - **Invalid**: Click "गीत छोड़ें" to skip
-     - Timer resets, team gets another chance or pass
-
-6. **Manual Adjustments** (if needed):
-   - Use "अक्षर ओवरराइड" to manually set next letter
-   - Use "Round Modes" to switch game format mid-game
-
----
-
-## 🎵 Song Database
-
-**80 curated Hindi songs** with metadata:
-- **Title**: Song name in English transliteration
-- **First Line**: Opening lyric for reference
-- **Last Word**: Final word of the song
-- **Last Consonant**: Hindi consonant to be used as next letter
-- **Themes**: Category tags (Love, Patriotic, Dance, etc.)
-- **Singer Type**: Solo, Male Solo, Female Solo, Duet
-- **Year**: Release year
-- **Movie**: Film name
-
-### Example Entries:
-```javascript
-{
-  id: 14,
-  title: "Kal Ho Naa Ho",
-  firstLine: "Kal ho naa ho kal ho naa ho",
-  lastWord: "Ho",
-  lastConsonant: "ह",
-  themes: ["Love", "Tomorrow", "Romance"],
-  singerType: "Male Solo",
-  year: 2003,
-  movie: "Kal Ho Naa Ho"
-}
-```
-
----
-
-## 🎭 Round Modes Explained
-
-### 1. **Akshar-Gyan** (Classic)
-- **Rule**: Song must start with required letter; next letter is last consonant
-- **Host Action**: Use standard verification
-- **Difficulty**: Medium
-
-### 2. **Bhaav-Ras** (Theme Round)
-- **Rule**: Song must start with letter AND fit the theme
-- **Host Action**: Set theme (e.g., "Rain Songs"), listen for thematic relevance
-- **Examples**: "Baarish", "Kishore Kumar", "Devotion"
-- **Difficulty**: Hard
-
-### 3. **Shabd-Bandh** (Word Challenge)
-- **Rule**: Song must contain a specific difficult word
-- **Host Action**: Display word, listen if it's sung
-- **Word List**: पर्दा, दास्तान, मुसाफिर, फ़रक़, etc.
-- **Difficulty**: Very Hard
-
-### 4. **Sitaron Ke Naam** (Rapid Fire)
-- **Rule**: Team sings max songs from an actor's filmography
-- **Host Action**: Select actor, start timer, count valid songs
-- **Time Limit**: 60 seconds
-- **Scoring**: Points per song completed
-- **Difficulty**: Hard
-
-### 5. **Jodi-Daar** (Duet Round)
-- **Rule**: Must be a duet (male + female singers)
-- **Host Action**: Database filters for duets only during verification
-- **Difficulty**: Hard
-
----
-
-## 🎨 UI/UX Design
-
-### Color Scheme
-- **Primary Red**: #d63031 (Antakshari spirit)
-- **Secondary Orange**: #ff6348 (Energy)
-- **Success Green**: #27ae60 (Valid)
-- **Danger Red**: #e74c3c (Invalid)
-- **Gold Accent**: #f1c40f (Timer & highlights)
-
-### Responsive Design
-- **Desktop (>1400px)**: Side-by-side display
-- **Tablet/Laptop (768px-1400px)**: Stacked layout
-- **Mobile (<768px)**: Full-width with reduced font sizes
-
-### Keyboard Shortcuts
-- **Enter key**: Submit song verification
-- **Enter key**: Set manual letter
-
----
-
-## ⚙️ Technical Details
-
-### JavaScript Game Logic (`script.js`)
-
-**Main Class**: `AntakshariGame`
-
-**Key Methods**:
-- `verifySong()`: Search and validate song
-- `startTimer()`, `pauseTimer()`, `resetTimer()`: Timer management
-- `confirmAndNext()`: Accept song and calculate next letter
-- `setRoundMode()`: Switch between 5 game modes
-- `resetGame()`: Full game reset
-- `showStats()`: Display game statistics
-
-**Game State Variables**:
-- `requiredLetter`: Current starting letter
-- `songsPlayed[]`: Array of played songs
-- `currentRoundMode`: Active round type
-- `isTimerRunning`: Timer status
-- `lastVerifiedSong`: Recently verified song object
-
-### Song Search Algorithm
-- Matches first 1-2 words of input
-- Case-insensitive search
-- Supports partial word matching
-- Checks both title and first line
-
-### Letter Calculation
-- Extracts last word of song
-- Identifies last consonant (Devanagari)
-- Updates required letter for next turn
-
----
-
-## 🚀 Getting Started
-
-### Requirements
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- No server required (fully client-side)
-- No dependencies or external libraries
+## 🚀 Quick Start
 
 ### Installation
-1. Extract all files to a folder
-2. Open `index.html` in browser
-3. Start playing!
 
-### Optional: Local Server (recommended for projection)
+1. **Clone or Download**
+   ```bash
+   git clone https://github.com/vik20000in/Antashari.git
+   cd Antashari
+   ```
+
+2. **Open in Browser**
+   ```bash
+   # Simply open index.html in your browser, or use a local server:
+   
+   # Python 3
+   python -m http.server 8000
+   
+   # Node.js
+   npx http-server
+   
+   # Then navigate to: http://localhost:8000
+   ```
+
+3. **Start Playing!**
+   - Select a game mode from the home screen
+   - Follow on-screen instructions
+   - Enjoy the game!
+
+### Requirements
+
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- JavaScript enabled
+- Audio files downloaded (for Tune Challenge mode)
+- No external dependencies required
+
+---
+
+## 🎮 Game Modes
+
+### 1. 🎯 Word Challenge
+- A Hindi word is displayed
+- Player must sing a song containing that word
+- Tests vocabulary and song knowledge
+
+### 2. 🎬 Actor Challenge
+- An actor/actress name is shown
+- Player must sing a song from their movie
+- Database includes Bollywood legends and modern stars
+
+### 3. 🎵 Tune Challenge (Featured!)
+- **89 songs available** with audio playback
+- Host plays a tune snippet (3 minutes max)
+- Players guess the song title
+- Perfect for party mode!
+
+### 4. 🔤 Classic Antakshari
+- Traditional letter-based gameplay
+- Sing a song starting with given letter
+- Next letter determined by last consonant
+
+### 5. 🎨 Theme Challenge
+- Songs must match a specific theme
+- Themes: Love, Patriotic, Dance, Rain, etc.
+- Tests thematic knowledge
+
+---
+
+## 📁 Project Architecture
+
+### Directory Structure
+```
+Antashari/
+├── index.html              # Main game interface
+├── styles.css              # Responsive styling
+├── script.js               # Game engine & logic
+├── songsData.js            # Song database (129 songs)
+├── musicConfig.js          # Audio file mappings (89 songs)
+├── audio/                  # MP3 files for Tune Challenge
+│   ├── tum-hi-ho.mp3
+│   ├── kesariya.mp3
+│   └── ... (89 total)
+├── download_all_songs.ps1  # Batch download script
+├── trim_audio_files.ps1    # Audio trimming utility
+├── simple_download.py      # YouTube downloader helper
+├── youtube_to_mp3.py       # Interactive YouTube to MP3 tool
+└── README.md               # This file
+```
+
+### Technology Stack
+- **Frontend**: Pure HTML5, CSS3, JavaScript (ES6+)
+- **Audio**: HTML5 Audio API with MP3 support
+- **Design**: Responsive CSS Grid and Flexbox
+- **Database**: JSON-based song metadata
+- **Tools**: PowerShell (downloads), Python (yt-dlp), FFmpeg (trimming)
+
+---
+
+## 💡 Usage Examples
+
+### Basic Gameplay
+
+1. **Start Word Challenge**
+   ```
+   Home Screen → Click "🎯 Word Challenge"
+   → Word appears (e.g., "प्यार")
+   → Sing a song with that word
+   → Enter song title to verify
+   ```
+
+2. **Play Tune Challenge**
+   ```
+   Home Screen → Click "🎵 Tune Challenge"
+   → Host sees song name (hidden from players)
+   → Click "▶️ Play Tune"
+   → Players listen and guess
+   → Reveal answer with "Show Answer"
+   ```
+
+3. **Classic Antakshari**
+   ```
+   Home Screen → Click "🔤 Classic Antakshari"
+   → Starting letter shown (e.g., "क")
+   → Sing song starting with that letter
+   → Next letter calculated automatically
+   ```
+
+### Adding New Songs
+
+**Method 1: Using YouTube Downloader**
 ```bash
-# Using Python 3
-python -m http.server 8000
+# Interactive mode
+python youtube_to_mp3.py
 
-# Using Node.js
-npx http-server
+# Enter YouTube URL or video ID
+# Song downloads as MP3 automatically
+```
 
-# Then open: http://localhost:8000
+**Method 2: Batch Download**
+```powershell
+# Edit download_all_songs.ps1 to add song filenames
+# Then run:
+.\download_all_songs.ps1
+```
+
+**Method 3: Manual Addition**
+1. Add song to `songsData.js`:
+   ```javascript
+   {
+     id: 130,
+     title: "New Song Title",
+     firstLine: "Opening lyrics",
+     lastWord: "LastWord",
+     lastConsonant: "त",
+     themes: ["Love", "Romance"],
+     singerType: "Male Solo",
+     year: 2025,
+     movie: "Movie Name"
+   }
+   ```
+
+2. Add audio config to `musicConfig.js`:
+   ```javascript
+   130: {
+     title: 'New Song Title',
+     audioUrl: './audio/new-song.mp3',
+     duration: 90,
+     credit: 'Downloaded from YouTube'
+   }
+   ```
+
+3. Update `script.js` tuneSongIds array:
+   ```javascript
+   const tuneSongIds = [
+     // ... existing IDs
+     130  // Add new ID
+   ];
+   ```
+
+---
+
+## 🛠️ Tools & Utilities
+
+### YouTube to MP3 Downloader
+Interactive tool for downloading songs:
+```bash
+python youtube_to_mp3.py
+# Enter URLs one by one
+# Press Ctrl+C to exit
+```
+
+### Batch Song Downloader
+Download all configured songs:
+```powershell
+.\download_all_songs.ps1
+# Downloads missing songs
+# Skips existing files
+# Shows progress
+```
+
+### Audio Trimmer
+Trim all songs to 3 minutes:
+```powershell
+.\trim_audio_files.ps1
+# Processes all MP3s in audio/
+# Converts AAC to MP3
+# Preserves files ≤3 minutes
 ```
 
 ---
 
-## 💡 Tips for Hosts
+## 🎨 Customization
 
-1. **Before Starting**: Test verification with a few songs
-2. **During Game**: 
-   - Keep timer visible to audience
-   - Clear verification messages before next turn
-   - Note which songs are frequently sung
-3. **Difficult Songs**: Use "गीत छोड़ें" if database doesn't have the song
-4. **Round Changes**: Use "अक्षर ओवरराइड" to force letter changes for special rules
-5. **Theme Rounds**: Set theme clearly before starting; you judge thematic relevance
-
----
-
-## 🔧 Customization
-
-### Adding More Songs
-Edit `songsData.js` and add objects to the array:
-```javascript
-{
-  id: 81,
-  title: "Your Song Title",
-  firstLine: "First line lyrics",
-  lastWord: "LastWord",
-  lastConsonant: "ल",
-  themes: ["Category1", "Category2"],
-  singerType: "Solo/Duet",
-  year: 2024,
-  movie: "Movie Name"
+### Changing Colors
+Edit `styles.css`:
+```css
+:root {
+  --primary-color: #d63031;    /* Main red */
+  --secondary-color: #ff6348;  /* Orange accent */
+  --success-color: #27ae60;    /* Valid/correct */
+  --danger-color: #e74c3c;     /* Invalid/wrong */
 }
 ```
 
-### Modifying Themes
-Edit theme list in `word-input` dropdown (HTML) for Shabd-Bandh round
+### Modifying Game Modes
+Edit `script.js` to add/remove modes in `updateModeTitle()` function.
 
-### Changing Timer Duration
-Modify the default in HTML: `<input type="number" id="timer-duration" value="60">`
-
-### Styling Changes
-Edit `styles.css` for colors, fonts, and layout
-
----
-
-## 📱 Responsive Layout
-
-The app uses CSS Grid and Flexbox for responsive design:
-- **Main Display**: Takes full-width on mobile, 50% on desktop
-- **Host Panel**: Scrollable with all controls accessible
-- **Font Sizes**: Scale down on smaller screens
-- **Buttons**: Touch-friendly on mobile
-
----
-
-## ⚠️ Known Limitations
-
-1. **Song Database**: 80 songs (can be easily expanded)
-2. **Letter Calculation**: Uses last consonant only
-3. **Hindi Script**: Phonetic transliteration for search
-4. **No Multiplayer Sync**: Single-host interface
-5. **No Sound**: Host must manually listen to teams
-
----
-
-## 🎯 Future Enhancement Ideas
-
-- [ ] Add 100+ more songs to database
-- [ ] Search by actor/actress filters
-- [ ] Score tracking for multiple teams
-- [ ] Audio/video playback of songs
-- [ ] Network sync for team displays
-- [ ] Hindi keyboard input support
-- [ ] Export game statistics
-- [ ] Theme/dark mode toggle
-- [ ] Difficulty levels
-- [ ] Multiplayer scoring dashboard
-
----
-
-## 📄 License
-
-This application is created for entertainment purposes. Songs and data are for educational use in the Antakshari game context.
+### Database Expansion
+- Current: 129 songs total
+- Tune Challenge: 89 songs with audio
+- Easy to add more via `songsData.js`
 
 ---
 
 ## 🤝 Contributing
 
-To improve this application:
-1. Add more songs to `songsData.js`
-2. Suggest new round modes
-3. Improve UI/UX design
-4. Report bugs or issues
+We welcome contributions! Here's how you can help:
+
+### Adding Songs
+1. Fork the repository
+2. Add song metadata to `songsData.js`
+3. Add music config to `musicConfig.js`
+4. Download and add MP3 to `audio/` folder
+5. Update `download_all_songs.ps1`
+6. Submit pull request
+
+### Reporting Issues
+- Use GitHub Issues
+- Include browser/device info
+- Describe steps to reproduce
+- Screenshots help!
+
+### Code Contributions
+1. **Fork & Clone**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/Antashari.git
+   ```
+
+2. **Create Branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **Make Changes**
+   - Follow existing code style
+   - Test on multiple browsers
+   - Update README if needed
+
+4. **Commit & Push**
+   ```bash
+   git add .
+   git commit -m "Add: your feature description"
+   git push origin feature/your-feature-name
+   ```
+
+5. **Submit PR**
+   - Describe changes clearly
+   - Reference any related issues
+   - Wait for review
+
+### Development Guidelines
+- **Code Style**: Use consistent indentation (2 spaces)
+- **Comments**: Add comments for complex logic
+- **Testing**: Test on Chrome, Firefox, Safari
+- **Mobile**: Verify responsive design
+- **Audio**: Ensure MP3 compatibility
 
 ---
 
-## 📞 Support
+## 📱 Mobile Support
 
-For issues or questions:
-1. Check the browser console (F12) for errors
-2. Verify all files are in the same directory
-3. Ensure JavaScript is enabled
-4. Try a different browser
+The application is fully responsive:
+- **Touch-friendly** buttons and controls
+- **Auto-scaling** fonts and layouts
+- **Mobile audio** playback with `playsinline` attribute
+- **Portrait mode** optimized for phones
+- **Landscape mode** for tablets
+
+### Known Mobile Issues
+- iOS Safari may require user tap before audio plays
+- Background audio may pause on iOS lock screen
+- Use Chrome/Firefox on Android for best experience
 
 ---
 
-## 🎊 Enjoy Your Antakshari Game!
+## 🐛 Troubleshooting
 
-**Remember**: The app is just a tool. The real fun comes from the team spirit, quick thinking, and love for Hindi cinema music! 🎵
+### Audio Not Playing
+1. Check browser console (F12) for errors
+2. Verify MP3 file exists in `audio/` folder
+3. Try using built-in player controls
+4. On mobile: tap the audio player first
+
+### Songs Not Verifying
+1. Ensure `songsData.js` is loaded
+2. Check browser console for JavaScript errors
+3. Try entering first 2-3 words only
+4. Check for typos in song title
+
+### Performance Issues
+1. Clear browser cache
+2. Reduce number of songs in database
+3. Compress/trim audio files
+4. Use local server instead of file://
 
 ---
 
-**Version**: 1.0  
-**Last Updated**: 2025  
-**Language**: Hindi + English  
-**Status**: ✅ Full Production Ready
+## 📄 License
+
+This project is created for educational and entertainment purposes.
+
+**Audio Content**: Songs downloaded from YouTube are for personal use only. Respect copyright laws.
+
+**Code**: Open source - feel free to modify and distribute with attribution.
+
+---
+
+## 🙏 Acknowledgments
+
+- Song database curated from popular Bollywood hits
+- Built with vanilla JavaScript (no frameworks)
+- Audio processing powered by FFmpeg
+- Downloads powered by yt-dlp
+
+---
+
+## 📞 Support & Contact
+
+- **GitHub Issues**: [Report bugs or request features](https://github.com/vik20000in/Antashari/issues)
+- **Repository**: https://github.com/vik20000in/Antashari
+- **Version**: 2.0
+- **Last Updated**: November 2025
+
+---
+
+## 🎊 Have Fun!
+
+Antakshari is all about enjoying Hindi music together. Whether you're hosting a party, playing with family, or just testing your Bollywood knowledge - have a great time! 🎵
+
+**Pro Tip**: Use Tune Challenge mode for the most engaging experience with built-in audio playback!
+
+---
+
+---
+
+## 🎮 Core Features (Detailed)
+
+### Song Database
+- **129 total songs** with comprehensive metadata
+- **89 songs** with audio files for Tune Challenge
+- Songs span from classics (1950s) to latest hits (2025)
+- Each song includes: title, lyrics, themes, actors, year, movie
+
+### Game Modes
+- **5 distinct modes** for varied gameplay
+- Real-time song verification
+- Score tracking per session
+- Prevent duplicate songs
+
+### Audio Playback
+- HTML5 Audio with MP3 support
+- Mobile-friendly with `playsinline` attribute  
+- 3-minute trimmed clips for optimal gameplay
+- Built-in player controls for manual playback
+
+### User Interface
+- Clean, modern design
+- Responsive layout (desktop + mobile)
+- Intuitive navigation
+- Visual feedback for all actions
+
+---
+
+## 📊 Song Statistics
+
+**By Era:**
+- 1950s-1990s: 40 songs (Classics)
+- 2000s: 19 songs
+- 2010-2020: 14 songs
+- 2020-2025: 16 songs (Latest hits)
+
+**By Category:**
+- Love/Romance: ~60%
+- Dance/Party: ~15%
+- Patriotic: ~5%
+- Devotional: ~5%
+- Others: ~15%
+
+**Audio Coverage:**
+- Total songs with audio: 89/129 (69%)
+- All audio files trimmed to 3 minutes max
+- Average file size: 2.5-3 MB per song
+
+---
+
+**🎉 Ready to play? Open `index.html` and start your Antakshari journey!**
