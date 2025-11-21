@@ -442,17 +442,21 @@ class AntakshariGame {
 
     console.log('🎵 Attempting to play:', audioSource.src);
     
-    // Reset to beginning and play directly
+    // For mobile browsers: reload and reset before playing
+    audioPlayer.load();
     audioPlayer.currentTime = 0;
     
-    audioPlayer.play()
-      .then(() => {
-        console.log('✅ Audio playing successfully!');
-      })
-      .catch(error => {
-        console.error('❌ Playback error:', error);
-        alert('❌ Could not play audio: ' + error.message + '\n\nTip: Use the audio player controls below to play manually.');
-      });
+    // Small delay to ensure load completes on mobile
+    setTimeout(() => {
+      audioPlayer.play()
+        .then(() => {
+          console.log('✅ Audio playing successfully!');
+        })
+        .catch(error => {
+          console.error('❌ Playback error:', error);
+          alert('❌ Could not play audio: ' + error.message + '\n\nTip: Use the audio player controls below to play manually.');
+        });
+    }, 100);
   }
 
   showNotification(message) {

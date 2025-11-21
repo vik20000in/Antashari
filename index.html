@@ -67,7 +67,8 @@
               id="audioPlayer"
               width="100%" 
               controls
-              preload="auto"
+              preload="metadata"
+              playsinline
               crossorigin="anonymous"
               onloadedmetadata="console.log('✓ Audio metadata loaded')"
               onerror="console.error('✗ Audio error:', this.error)"
