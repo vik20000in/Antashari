@@ -1153,5 +1153,159 @@ const songsData = [
     singerType: "Male Solo",
     year: 2006,
     movie: "Kabhi Alvida Naa Kehna"
+  },
+  {
+    id: 100,
+    title: "Tum Hi Ho",
+    firstLine: "Tum hi ho",
+    lastWord: "Ho",
+    lastConsonant: "ह",
+    themes: ["Love", "Romance"],
+    singerType: "Male Solo",
+    year: 2013,
+    movie: "Aashiqui 2"
+  },
+  {
+    id: 101,
+    title: "Badtameez Dil",
+    firstLine: "Badtameez dil maane na",
+    lastWord: "Na",
+    lastConsonant: "न",
+    themes: ["Youth", "Love"],
+    singerType: "Male Solo",
+    year: 2013,
+    movie: "Yeh Jawaani Hai Deewani"
+  },
+  {
+    id: 102,
+    title: "Naina",
+    firstLine: "Naina jo saanjhe khwaab dekhte the",
+    lastWord: "The",
+    lastConsonant: "थ",
+    themes: ["Inspiration", "Dreams"],
+    singerType: "Male Solo",
+    year: 2016,
+    movie: "Dangal"
+  },
+  {
+    id: 103,
+    title: "Galliyan",
+    firstLine: "Galliyan teri galliyan",
+    lastWord: "Galliyan",
+    lastConsonant: "य",
+    themes: ["Love", "Romance"],
+    singerType: "Male Solo",
+    year: 2014,
+    movie: "Ek Villain"
+  },
+  {
+    id: 104,
+    title: "Gerua",
+    firstLine: "Gerua tera gerua rang",
+    lastWord: "Rang",
+    lastConsonant: "ग",
+    themes: ["Romance", "Love"],
+    singerType: "Duet",
+    year: 2015,
+    movie: "Dilwale"
+  },
+  {
+    id: 105,
+    title: "Channa Mereya",
+    firstLine: "Channa mereya mereya",
+    lastWord: "Mereya",
+    lastConsonant: "य",
+    themes: ["Heartbreak", "Sadness"],
+    singerType: "Male Solo",
+    year: 2016,
+    movie: "Ae Dil Hai Mushkil"
+  },
+  {
+    id: 106,
+    title: "Bulleya",
+    firstLine: "Bulleya ki jaana main kaun",
+    lastWord: "Kaun",
+    lastConsonant: "न",
+    themes: ["Spiritual", "Love"],
+    singerType: "Male Solo",
+    year: 2016,
+    movie: "Ae Dil Hai Mushkil"
+  },
+  {
+    id: 107,
+    title: "Ae Watan",
+    firstLine: "Ae watan watan mere aabad rahe tu",
+    lastWord: "Tu",
+    lastConsonant: "त",
+    themes: ["Patriotic", "Devotion"],
+    singerType: "Female Solo",
+    year: 2018,
+    movie: "Raazi"
+  },
+  {
+    id: 108,
+    title: "Pehli Dafa",
+    firstLine: "Pehli dafa hai shayad",
+    lastWord: "Shayad",
+    lastConsonant: "द",
+    themes: ["Love", "Romance"],
+    singerType: "Male Solo",
+    year: 2017,
+    movie: "Ileana D'Cruz"
+  },
+  {
+    id: 109,
+    title: "Tere Sang Yaara",
+    firstLine: "Tere sang yaara",
+    lastWord: "Yaara",
+    lastConsonant: "र",
+    themes: ["Love", "Devotion"],
+    singerType: "Male Solo",
+    year: 2016,
+    movie: "Rustom"
+  },
+  {
+    id: 110,
+    title: "Agar Tum Saath Ho",
+    firstLine: "Agar tum saath ho",
+    lastWord: "Ho",
+    lastConsonant: "ह",
+    themes: ["Love", "Longing"],
+    singerType: "Duet",
+    year: 2015,
+    movie: "Tamasha"
+  },
+  {
+    id: 111,
+    title: "Bekhayali",
+    firstLine: "Bekhayali mein bhi tera",
+    lastWord: "Tera",
+    lastConsonant: "र",
+    themes: ["Heartbreak", "Longing"],
+    singerType: "Male Solo",
+    year: 2019,
+    movie: "Kabir Singh"
+  },
+  {
+    id: 112,
+    title: "Mere Naam Tu",
+    firstLine: "Mere naam tu",
+    lastWord: "Tu",
+    lastConsonant: "त",
+    themes: ["Love", "Romance"],
+    singerType: "Male Solo",
+    year: 2018,
+    movie: "Zero"
+  },
+  {
+    id: 113,
+    title: "Sanam Re",
+    firstLine: "Sanam re sanam re",
+    lastWord: "Re",
+    lastConsonant: "र",
+    themes: ["Romance", "Love"],
+    singerType: "Male Solo",
+    year: 2016,
+    movie: "Sanam Re"
   }
 ];

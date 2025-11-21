@@ -535,6 +535,132 @@ const musicConfiguration = {
     credit: 'Downloaded from YouTube'
   },
 
+  // Tum Hi Ho
+  // ID 100 in songsData
+  100: {
+    title: 'Tum Hi Ho',
+    audioUrl: './audio/tum-hi-ho.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Badtameez Dil
+  // ID 101 in songsData
+  101: {
+    title: 'Badtameez Dil',
+    audioUrl: './audio/badtameez-dil.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Naina
+  // ID 102 in songsData
+  102: {
+    title: 'Naina',
+    audioUrl: './audio/naina.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Galliyan
+  // ID 103 in songsData
+  103: {
+    title: 'Galliyan',
+    audioUrl: './audio/galliyan.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Gerua
+  // ID 104 in songsData
+  104: {
+    title: 'Gerua',
+    audioUrl: './audio/gerua.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Channa Mereya
+  // ID 105 in songsData
+  105: {
+    title: 'Channa Mereya',
+    audioUrl: './audio/channa-mereya.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Bulleya
+  // ID 106 in songsData
+  106: {
+    title: 'Bulleya',
+    audioUrl: './audio/bulleya.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Ae Watan
+  // ID 107 in songsData
+  107: {
+    title: 'Ae Watan',
+    audioUrl: './audio/ae-watan.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Pehli Dafa
+  // ID 108 in songsData
+  108: {
+    title: 'Pehli Dafa',
+    audioUrl: './audio/pehli-dafa.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Tere Sang Yaara
+  // ID 109 in songsData
+  109: {
+    title: 'Tere Sang Yaara',
+    audioUrl: './audio/tere-sang-yaara.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Agar Tum Saath Ho
+  // ID 110 in songsData
+  110: {
+    title: 'Agar Tum Saath Ho',
+    audioUrl: './audio/agar-tum-saath-ho.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Bekhayali
+  // ID 111 in songsData
+  111: {
+    title: 'Bekhayali',
+    audioUrl: './audio/bekhayali.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Mere Naam Tu
+  // ID 112 in songsData
+  112: {
+    title: 'Mere Naam Tu',
+    audioUrl: './audio/mere-naam-tu.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Sanam Re
+  // ID 113 in songsData
+  113: {
+    title: 'Sanam Re',
+    audioUrl: './audio/sanam-re.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
 };
 
 // Get music configuration for a specific song ID
