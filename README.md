@@ -86,24 +86,37 @@ Antakshari is an interactive game platform featuring 89+ curated Hindi songs spa
 ```
 Antashari/
 ├── index.html              # Main game interface
-├── styles.css              # Responsive styling
-├── script.js               # Game engine & logic
-├── songsData.js            # Song database (129 songs)
-├── musicConfig.js          # Audio file mappings (89 songs)
-├── audio/                  # MP3 files for Tune Challenge
-│   ├── tum-hi-ho.mp3
-│   ├── kesariya.mp3
-│   └── ... (89 total)
-├── download_all_songs.ps1  # Batch download script
-├── trim_audio_files.ps1    # Audio trimming utility
-├── simple_download.py      # YouTube downloader helper
-├── youtube_to_mp3.py       # Interactive YouTube to MP3 tool
-└── README.md               # This file
+├── README.md               # Documentation
+├── .gitignore              # Git ignore rules
+│
+├── src/                    # Frontend source files
+│   ├── script.js           # Game engine & logic
+│   └── styles.css          # Responsive styling
+│
+├── config/                 # Configuration files
+│   ├── songsData.js        # Song database (129 songs)
+│   ├── musicConfig.js      # Audio file mappings (89 songs)
+│   └── tuneConfig.js       # Tune Challenge configuration
+│
+├── assets/                 # Static assets
+│   ├── favicon.svg         # App icon
+│   └── audio/              # MP3 files for Tune Challenge
+│       ├── tum-hi-ho.mp3
+│       ├── kesariya.mp3
+│       └── ... (89 total)
+│
+└── scripts/                # Utility scripts
+    ├── download_all_songs.ps1      # Sequential batch downloader
+    ├── parallel_download.ps1       # Parallel batch downloader (3x faster)
+    ├── trim_audio_files.ps1        # Audio trimming utility
+    ├── simple_download.py          # YouTube downloader helper
+    ├── youtube_to_mp3.py           # Interactive YouTube to MP3 tool
+    └── check_progress.ps1          # Download progress checker
 ```
 
 ### Technology Stack
 - **Frontend**: Pure HTML5, CSS3, JavaScript (ES6+)
-- **Audio**: HTML5 Audio API with MP3 support
+- **Audio**: HTML5 Audio API with MP3 support, mobile-optimized
 - **Design**: Responsive CSS Grid and Flexbox
 - **Database**: JSON-based song metadata
 - **Tools**: PowerShell (downloads), Python (yt-dlp), FFmpeg (trimming)
@@ -144,7 +157,7 @@ Antashari/
 **Method 1: Using YouTube Downloader**
 ```bash
 # Interactive mode
-python youtube_to_mp3.py
+python scripts/youtube_to_mp3.py
 
 # Enter YouTube URL or video ID
 # Song downloads as MP3 automatically
@@ -152,13 +165,13 @@ python youtube_to_mp3.py
 
 **Method 2: Batch Download**
 ```powershell
-# Edit download_all_songs.ps1 to add song filenames
+# Edit scripts/download_all_songs.ps1 to add song filenames
 # Then run:
-.\download_all_songs.ps1
+.\scripts\download_all_songs.ps1
 ```
 
 **Method 3: Manual Addition**
-1. Add song to `songsData.js`:
+1. Add song to `config/songsData.js`:
    ```javascript
    {
      id: 130,
@@ -173,17 +186,17 @@ python youtube_to_mp3.py
    }
    ```
 
-2. Add audio config to `musicConfig.js`:
+2. Add audio config to `config/musicConfig.js`:
    ```javascript
    130: {
      title: 'New Song Title',
-     audioUrl: './audio/new-song.mp3',
+     audioUrl: './assets/audio/new-song.mp3',
      duration: 90,
      credit: 'Downloaded from YouTube'
    }
    ```
 
-3. Update `script.js` tuneSongIds array:
+3. Update `src/script.js` tuneSongIds array:
    ```javascript
    const tuneSongIds = [
      // ... existing IDs
@@ -198,25 +211,48 @@ python youtube_to_mp3.py
 ### YouTube to MP3 Downloader
 Interactive tool for downloading songs:
 ```bash
-python youtube_to_mp3.py
+python scripts/youtube_to_mp3.py
 # Enter URLs one by one
 # Press Ctrl+C to exit
 ```
 
 ### Batch Song Downloader
-Download all configured songs:
+
+**Sequential Downloader** (Original):
 ```powershell
-.\download_all_songs.ps1
-# Downloads missing songs
+.\scripts\download_all_songs.ps1
+# Downloads missing songs sequentially
 # Skips existing files
 # Shows progress
+# Time: ~30-45 minutes for all songs
 ```
+
+**Parallel Downloader** (Recommended - 3x faster):
+```powershell
+.\scripts\parallel_download.ps1
+# Downloads 3 songs simultaneously
+# Real-time progress tracking
+# Time: ~10-15 minutes for all songs
+
+# Advanced options:
+.\scripts\parallel_download.ps1 -MaxParallelJobs 5    # 5 concurrent downloads
+.\scripts\parallel_download.ps1 -Force                # Re-download all files
+.\scripts\parallel_download.ps1 -MaxParallelJobs 8 -Force  # Fast mode
+```
+
+**Features:**
+- ⚡ **3x faster** than sequential downloads
+- 📊 Real-time progress with percentage and time
+- 🔄 Configurable parallelism (1-10 concurrent downloads)
+- 💾 Smart skip logic for existing files
+- ✅ Detailed success/failure reporting
+- 📦 Audio folder statistics on completion
 
 ### Audio Trimmer
 Trim all songs to 3 minutes:
 ```powershell
-.\trim_audio_files.ps1
-# Processes all MP3s in audio/
+.\scripts\trim_audio_files.ps1
+# Processes all MP3s in assets/audio/
 # Converts AAC to MP3
 # Preserves files ≤3 minutes
 ```
@@ -226,7 +262,7 @@ Trim all songs to 3 minutes:
 ## 🎨 Customization
 
 ### Changing Colors
-Edit `styles.css`:
+Edit `src/styles.css`:
 ```css
 :root {
   --primary-color: #d63031;    /* Main red */
@@ -237,7 +273,7 @@ Edit `styles.css`:
 ```
 
 ### Modifying Game Modes
-Edit `script.js` to add/remove modes in `updateModeTitle()` function.
+Edit `src/script.js` to add/remove modes in `updateModeTitle()` function.
 
 ### Database Expansion
 - Current: 129 songs total

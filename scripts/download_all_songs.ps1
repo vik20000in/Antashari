@@ -125,10 +125,10 @@ foreach ($song in $songs) {
     }
     
     # Run download command
-    Write-Host "Running: python simple_download.py $song" -ForegroundColor Cyan
+    Write-Host "Running: python scripts\simple_download.py $song" -ForegroundColor Cyan
     
     try {
-        python simple_download.py $song
+        python scripts\simple_download.py $song
         
         if ($LASTEXITCODE -eq 0) {
             Write-Host "✅ SUCCESS - $song downloaded!" -ForegroundColor Green

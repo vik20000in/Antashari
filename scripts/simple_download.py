@@ -106,8 +106,8 @@ def download_audio(youtube_url, output_filename):
     try:
         import yt_dlp
         
-        # Create output path in audio folder
-        output_path = os.path.join('audio', output_filename)
+        # Create output path in assets/audio folder
+        output_path = os.path.join('assets', 'audio', output_filename)
         base_path = output_path.rsplit('.', 1)[0]  # Remove extension
         
         # Simple options - just download best audio, no conversion
@@ -122,7 +122,7 @@ def download_audio(youtube_url, output_filename):
         }
         
         print(f"\n🎵 Downloading: {youtube_url}")
-        print(f"📁 Saving to: audio/")
+        print(f"📁 Saving to: assets/audio/")
         print("⏳ Downloading audio (first 3 min will be trimmed after)...\n")
         
         # Suppress stderr to hide urllib errors
@@ -174,9 +174,9 @@ def main():
         sys.exit(1)
     
     # Create audio directory
-    if not os.path.exists('audio'):
-        os.makedirs('audio')
-        print("\n✓ Created 'audio' directory")
+    if not os.path.exists('assets/audio'):
+        os.makedirs('assets/audio')
+        print("\n✓ Created 'assets/audio' directory")
     
     # Check for command-line arguments
     if len(sys.argv) >= 2:
@@ -268,7 +268,7 @@ def main():
         print("=" * 60)
         print(f"✅ Successful: {successful}")
         print(f"❌ Failed: {failed}")
-        print(f"📁 Location: audio/")
+        print(f"📁 Location: assets/audio/")
         print("\n✨ Files are ready to use in Tune Challenge!")
 
 if __name__ == "__main__":
