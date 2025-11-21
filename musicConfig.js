@@ -661,6 +661,150 @@ const musicConfiguration = {
     credit: 'Downloaded from YouTube'
   },
 
+  // Kesariya
+  // ID 114 in songsData
+  114: {
+    title: 'Kesariya',
+    audioUrl: './audio/kesariya.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Apna Bana Le
+  // ID 115 in songsData
+  115: {
+    title: 'Apna Bana Le',
+    audioUrl: './audio/apna-bana-le.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Srivalli
+  // ID 116 in songsData
+  116: {
+    title: 'Srivalli',
+    audioUrl: './audio/srivalli.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Raataan Lambiyan
+  // ID 117 in songsData
+  117: {
+    title: 'Raataan Lambiyan',
+    audioUrl: './audio/raataan-lambiyan.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Ranjha
+  // ID 118 in songsData
+  118: {
+    title: 'Ranjha',
+    audioUrl: './audio/ranjha.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Vai Vai
+  // ID 119 in songsData
+  119: {
+    title: 'Vai Vai',
+    audioUrl: './audio/vai-vai.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Chaleya
+  // ID 120 in songsData
+  120: {
+    title: 'Chaleya',
+    audioUrl: './audio/chaleya.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Tere Vaaste
+  // ID 121 in songsData
+  121: {
+    title: 'Tere Vaaste',
+    audioUrl: './audio/tere-vaaste.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Maan Meri Jaan
+  // ID 122 in songsData
+  122: {
+    title: 'Maan Meri Jaan',
+    audioUrl: './audio/maan-meri-jaan.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Oo Antava
+  // ID 123 in songsData
+  123: {
+    title: 'Oo Antava',
+    audioUrl: './audio/oo-antava.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Besharam Rang
+  // ID 124 in songsData
+  124: {
+    title: 'Besharam Rang',
+    audioUrl: './audio/besharam-rang.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Jhoome Jo Pathaan
+  // ID 125 in songsData
+  125: {
+    title: 'Jhoome Jo Pathaan',
+    audioUrl: './audio/jhoome-jo-pathaan.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Tum Kya Mile
+  // ID 126 in songsData
+  126: {
+    title: 'Tum Kya Mile',
+    audioUrl: './audio/tum-kya-mile.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // What Jhumka
+  // ID 127 in songsData
+  127: {
+    title: 'What Jhumka',
+    audioUrl: './audio/what-jhumka.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Ve Kamleya
+  // ID 128 in songsData
+  128: {
+    title: 'Ve Kamleya',
+    audioUrl: './audio/ve-kamleya.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Arjan Vailly
+  // ID 129 in songsData
+  129: {
+    title: 'Arjan Vailly',
+    audioUrl: './audio/arjan-vailly.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
 };
 
 // Get music configuration for a specific song ID

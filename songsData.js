@@ -1307,5 +1307,181 @@ const songsData = [
     singerType: "Male Solo",
     year: 2016,
     movie: "Sanam Re"
+  },
+  {
+    id: 114,
+    title: "Kesariya",
+    firstLine: "Kesariya tera ishq hai piya",
+    lastWord: "Piya",
+    lastConsonant: "य",
+    themes: ["Love", "Romance"],
+    singerType: "Male Solo",
+    year: 2022,
+    movie: "Brahmastra"
+  },
+  {
+    id: 115,
+    title: "Apna Bana Le",
+    firstLine: "Apna bana le piya",
+    lastWord: "Piya",
+    lastConsonant: "य",
+    themes: ["Love", "Longing"],
+    singerType: "Male Solo",
+    year: 2022,
+    movie: "Bhediya"
+  },
+  {
+    id: 116,
+    title: "Srivalli",
+    firstLine: "Srivalli kannulatho",
+    lastWord: "Kannulatho",
+    lastConsonant: "थ",
+    themes: ["Romance", "Dance"],
+    singerType: "Male Solo",
+    year: 2021,
+    movie: "Pushpa"
+  },
+  {
+    id: 117,
+    title: "Raataan Lambiyan",
+    firstLine: "Raataan lambiyan",
+    lastWord: "Lambiyan",
+    lastConsonant: "य",
+    themes: ["Love", "Romance"],
+    singerType: "Duet",
+    year: 2021,
+    movie: "Shershaah"
+  },
+  {
+    id: 118,
+    title: "Ranjha",
+    firstLine: "Ranjha ranjha kardi ni",
+    lastWord: "Ni",
+    lastConsonant: "न",
+    themes: ["Love", "Romance"],
+    singerType: "Duet",
+    year: 2021,
+    movie: "Shershaah"
+  },
+  {
+    id: 119,
+    title: "Vai Vai",
+    firstLine: "Vai vai vai vai",
+    lastWord: "Vai",
+    lastConsonant: "व",
+    themes: ["Dance", "Party"],
+    singerType: "Male Solo",
+    year: 2023,
+    movie: "Jawan"
+  },
+  {
+    id: 120,
+    title: "Chaleya",
+    firstLine: "Chaleya chaleya",
+    lastWord: "Chaleya",
+    lastConsonant: "य",
+    themes: ["Love", "Romance"],
+    singerType: "Duet",
+    year: 2023,
+    movie: "Jawan"
+  },
+  {
+    id: 121,
+    title: "Tere Vaaste",
+    firstLine: "Tere vaaste falak se main chand launga",
+    lastWord: "Launga",
+    lastConsonant: "ग",
+    themes: ["Love", "Devotion"],
+    singerType: "Male Solo",
+    year: 2023,
+    movie: "Zara Hatke Zara Bachke"
+  },
+  {
+    id: 122,
+    title: "Maan Meri Jaan",
+    firstLine: "Maan meri jaan",
+    lastWord: "Jaan",
+    lastConsonant: "न",
+    themes: ["Love", "Romance"],
+    singerType: "Male Solo",
+    year: 2022,
+    movie: "King"
+  },
+  {
+    id: 123,
+    title: "Oo Antava",
+    firstLine: "Oo antava oo oo antava",
+    lastWord: "Antava",
+    lastConsonant: "व",
+    themes: ["Dance", "Item Song"],
+    singerType: "Female Solo",
+    year: 2021,
+    movie: "Pushpa"
+  },
+  {
+    id: 124,
+    title: "Besharam Rang",
+    firstLine: "Besharam rang",
+    lastWord: "Rang",
+    lastConsonant: "ग",
+    themes: ["Dance", "Romance"],
+    singerType: "Duet",
+    year: 2023,
+    movie: "Pathaan"
+  },
+  {
+    id: 125,
+    title: "Jhoome Jo Pathaan",
+    firstLine: "Jhoome jo pathaan",
+    lastWord: "Pathaan",
+    lastConsonant: "न",
+    themes: ["Dance", "Party"],
+    singerType: "Male Solo",
+    year: 2023,
+    movie: "Pathaan"
+  },
+  {
+    id: 126,
+    title: "Tum Kya Mile",
+    firstLine: "Tum kya mile",
+    lastWord: "Mile",
+    lastConsonant: "ल",
+    themes: ["Love", "Romance"],
+    singerType: "Duet",
+    year: 2023,
+    movie: "Rocky Aur Rani"
+  },
+  {
+    id: 127,
+    title: "What Jhumka",
+    firstLine: "What jhumka",
+    lastWord: "Jhumka",
+    lastConsonant: "क",
+    themes: ["Dance", "Party"],
+    singerType: "Duet",
+    year: 2023,
+    movie: "Rocky Aur Rani"
+  },
+  {
+    id: 128,
+    title: "Ve Kamleya",
+    firstLine: "Ve kamleya mere naina",
+    lastWord: "Naina",
+    lastConsonant: "न",
+    themes: ["Love", "Romance"],
+    singerType: "Duet",
+    year: 2023,
+    movie: "Rocky Aur Rani"
+  },
+  {
+    id: 129,
+    title: "Arjan Vailly",
+    firstLine: "Arjan vailly ni o yaar bolde",
+    lastWord: "Bolde",
+    lastConsonant: "द",
+    themes: ["Action", "Power"],
+    singerType: "Male Solo",
+    year: 2023,
+    movie: "Animal"
   }
 ];
