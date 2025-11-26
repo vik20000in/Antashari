@@ -53,10 +53,10 @@ if (-not (Test-Path $ffprobePath)) {
 }
 
 # Get all MP3 files
-$audioFiles = Get-ChildItem audio\*.mp3 -ErrorAction SilentlyContinue
+$audioFiles = Get-ChildItem assets\audio\*.mp3 -ErrorAction SilentlyContinue
 
 if ($audioFiles.Count -eq 0) {
-    Write-Host "No MP3 files found in audio folder!" -ForegroundColor Yellow
+    Write-Host "No MP3 files found in assets/audio folder!" -ForegroundColor Yellow
     exit 0
 }
 
@@ -70,7 +70,7 @@ $skipped = 0
 $failed = 0
 
 # Create temp folder for processing
-$tempFolder = "audio\temp_trim"
+$tempFolder = "assets\audio\temp_trim"
 if (-not (Test-Path $tempFolder)) {
     New-Item -ItemType Directory -Path $tempFolder | Out-Null
 }
@@ -159,6 +159,6 @@ Write-Host ""
 
 # Show final file list
 Write-Host "Final audio files:" -ForegroundColor Cyan
-Get-ChildItem audio\*.mp3 | Select-Object Name, @{Name="Size (MB)";Expression={[math]::Round($_.Length/1MB, 2)}} | Format-Table -AutoSize
+Get-ChildItem assets\audio\*.mp3 | Select-Object Name, @{Name="Size (MB)";Expression={[math]::Round($_.Length/1MB, 2)}} | Format-Table -AutoSize
 
 Write-Host "Trim process complete!" -ForegroundColor Green

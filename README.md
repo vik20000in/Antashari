@@ -4,12 +4,13 @@
 
 ## 📋 Overview
 
-Antakshari is an interactive game platform featuring 89+ curated Hindi songs spanning from classics to 2025 hits. The application offers:
+Antakshari is an interactive game platform featuring 119+ curated Hindi songs spanning from classics to 2025 hits. The application offers:
 - 🎮 **Multiple Game Modes**: Word Challenge, Actor Challenge, Tune Challenge, Classic Antakshari, Theme Challenge
 - 🎵 **Audio Playback**: Built-in MP3 player for Tune Challenge mode
+- 🎤 **Karaoke Ready**: Perfect platform for Bollywood karaoke sessions
 - 📱 **Mobile-Friendly**: Responsive design works on desktop and mobile browsers
 - 🎯 **Interactive Gameplay**: Real-time verification, scoring, and song management
-- 🗃️ **Rich Database**: 129+ songs with full metadata (themes, actors, years, movies)
+- 🗃️ **Rich Database**: 159 songs with full metadata (themes, actors, years, movies)
 
 ---
 
@@ -63,7 +64,7 @@ Antakshari is an interactive game platform featuring 89+ curated Hindi songs spa
 - Database includes Bollywood legends and modern stars
 
 ### 3. 🎵 Tune Challenge (Featured!)
-- **89 songs available** with audio playback
+- **119 songs available** with audio playback
 - Host plays a tune snippet (3 minutes max)
 - Players guess the song title
 - Perfect for party mode!
@@ -94,8 +95,8 @@ Antashari/
 │   └── styles.css          # Responsive styling
 │
 ├── config/                 # Configuration files
-│   ├── songsData.js        # Song database (129 songs)
-│   ├── musicConfig.js      # Audio file mappings (89 songs)
+│   ├── songsData.js        # Song database (159 songs)
+│   ├── musicConfig.js      # Audio file mappings (119 songs)
 │   └── tuneConfig.js       # Tune Challenge configuration
 │
 ├── assets/                 # Static assets
@@ -103,7 +104,7 @@ Antashari/
 │   └── audio/              # MP3 files for Tune Challenge
 │       ├── tum-hi-ho.mp3
 │       ├── kesariya.mp3
-│       └── ... (89 total)
+│       └── ... (119 total)
 │
 └── scripts/                # Utility scripts
     ├── download_all_songs.ps1      # Sequential batch downloader
@@ -276,9 +277,127 @@ Edit `src/styles.css`:
 Edit `src/script.js` to add/remove modes in `updateModeTitle()` function.
 
 ### Database Expansion
-- Current: 129 songs total
-- Tune Challenge: 89 songs with audio
-- Easy to add more via `songsData.js`
+- Current: 159 songs total
+- Tune Challenge: 119 songs with audio
+- Easy to add more via `config/songsData.js`
+
+---
+
+## 🎤 Karaoke Mode for Hindi Bollywood Songs
+
+Transform your Antakshari experience into a full karaoke session! While the game focuses on song recognition and memory, you can enhance it with karaoke features.
+
+### Using Antakshari for Karaoke
+
+**Built-in Audio Playback:**
+- The Tune Challenge mode already provides instrumental/vocal audio
+- Use the built-in player controls to pause, replay, and control volume
+- Perfect for sing-along sessions at parties
+
+**Tips for Karaoke Sessions:**
+1. **Connect to External Speakers**
+   - Use Bluetooth speakers for better audio quality
+   - HDMI to TV for room-filling sound
+   - Audio jack to home theater systems
+
+2. **Display Setup**
+   - Project browser on large screen/TV
+   - Show song titles and actor names for context
+   - Use fullscreen mode (F11) for immersive experience
+
+3. **Microphone Setup**
+   - Connect external mic to your device
+   - Use karaoke apps alongside for vocal recording
+   - Bluetooth microphones work great with mobile devices
+
+### Finding Karaoke Tracks
+
+**Online Resources:**
+- Search for "Hindi karaoke tracks" on YouTube
+- Look for "minus one" or "instrumental" versions
+- Many Bollywood songs have official karaoke releases
+
+**Download Karaoke Versions:**
+```bash
+# Use the existing download scripts with karaoke track URLs
+python scripts/youtube_to_mp3.py
+# Enter karaoke version URL instead of original
+```
+
+**Creating Your Own Karaoke Tracks:**
+1. Use vocal removal software (e.g., Audacity, Moises.ai)
+2. Download instrumental versions from music platforms
+3. Add to `assets/audio/` folder with "karaoke-" prefix
+4. Update `musicConfig.js` to include karaoke versions
+
+### Karaoke Party Ideas
+
+**Themed Karaoke Nights:**
+- **90s Bollywood Night**: Classic songs from the golden era
+- **Romantic Songs**: Love songs for couples/friends
+- **Dance Numbers**: High-energy party songs
+- **Retro Classics**: 50s-80s evergreen hits
+
+**Game + Karaoke Combo:**
+1. Play Tune Challenge to pick random song
+2. Winner gets to perform karaoke version
+3. Others guess the song before performer reveals
+4. Rotate performers each round
+
+**Scoring System:**
+- Use existing game scoring
+- Add performance points for karaoke
+- Judge on enthusiasm, accuracy, entertainment
+
+### Technical Setup for Karaoke
+
+**Recommended Equipment:**
+- 🎤 USB or Bluetooth microphone
+- 🔊 Quality speakers or sound system
+- 📺 Large display (TV/projector)
+- 🎧 Headphones for solo practice
+
+**Software Suggestions:**
+- Use Antakshari for song selection and audio
+- Pair with karaoke apps for vocal effects
+- Screen mirroring apps for wireless display
+
+### Karaoke Track Configuration
+
+Add karaoke versions alongside regular tracks:
+
+```javascript
+// In config/musicConfig.js
+130: {
+  title: 'Tum Hi Ho (Karaoke)',
+  audioUrl: './assets/audio/karaoke-tum-hi-ho.mp3',
+  duration: 90,
+  credit: 'Karaoke Version'
+}
+```
+
+### Creating Karaoke Playlists
+
+**By Difficulty:**
+- **Beginner**: Slow songs with clear pronunciation
+- **Intermediate**: Moderate tempo songs
+- **Advanced**: Fast songs with complex melodies
+
+**By Singer Type:**
+- Male Solo: Shah Rukh Khan, Amitabh Bachchan songs
+- Female Solo: Lata Mangeshkar, Shreya Ghoshal songs
+- Duets: Romantic duets for pairs
+- Group: Party songs for multiple singers
+
+### Mobile Karaoke Experience
+
+The responsive design works great for mobile karaoke:
+- Use phone/tablet as controller
+- Cast audio to smart speakers
+- Display mode on large screen
+- Touch controls for easy navigation
+
+**Pro Tip**: Download karaoke backing tracks and add them as alternate versions in the song database for a complete karaoke experience!
 
 ---
 
@@ -447,17 +566,18 @@ Antakshari is all about enjoying Hindi music together. Whether you're hosting a 
 - 1950s-1990s: 40 songs (Classics)
 - 2000s: 19 songs
 - 2010-2020: 14 songs
-- 2020-2025: 16 songs (Latest hits)
+- 2020-2025: 16 songs
+- 2023-2025: 30 songs (Latest hits)
 
 **By Category:**
 - Love/Romance: ~60%
-- Dance/Party: ~15%
+- Dance/Party: ~20%
 - Patriotic: ~5%
-- Devotional: ~5%
-- Others: ~15%
+- Devotional: ~3%
+- Others: ~12%
 
 **Audio Coverage:**
-- Total songs with audio: 89/129 (69%)
+- Total songs with audio: 119/159 (75%)
 - All audio files trimmed to 3 minutes max
 - Average file size: 2.5-3 MB per song
 

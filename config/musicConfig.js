@@ -805,6 +805,276 @@ const musicConfiguration = {
     credit: 'Downloaded from YouTube'
   },
 
+  // Satranga (Animal 2023)
+  // ID 130 in songsData
+  130: {
+    title: 'Satranga',
+    audioUrl: './assets/audio/satranga.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Pehle Bhi Main (Animal 2023)
+  // ID 131 in songsData
+  131: {
+    title: 'Pehle Bhi Main',
+    audioUrl: './assets/audio/pehle-bhi-main.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // O Maahi (Dunki 2023)
+  // ID 132 in songsData
+  132: {
+    title: 'O Maahi',
+    audioUrl: './assets/audio/o-maahi.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Lutt Putt Gaya (Dunki 2023)
+  // ID 133 in songsData
+  133: {
+    title: 'Lutt Putt Gaya',
+    audioUrl: './assets/audio/lutt-putt-gaya.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Jamal Kudu (Animal 2023)
+  // ID 134 in songsData
+  134: {
+    title: 'Jamal Kudu',
+    audioUrl: './assets/audio/jamal-kudu.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Ajaa Sajna Milke (Satyaprem Ki Katha 2023)
+  // ID 135 in songsData
+  135: {
+    title: 'Ajaa Sajna Milke',
+    audioUrl: './assets/audio/ajaa-sajna-milke.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Naseeb Se (Satyaprem Ki Katha 2023)
+  // ID 136 in songsData
+  136: {
+    title: 'Naseeb Se',
+    audioUrl: './assets/audio/naseeb-se.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Aaj Ki Raat (Stree 2, 2024)
+  // ID 137 in songsData
+  137: {
+    title: 'Aaj Ki Raat (Stree 2)',
+    audioUrl: './assets/audio/aaj-ki-raat-stree2.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Tauba Tauba (Bad Newz 2024)
+  // ID 138 in songsData
+  138: {
+    title: 'Tauba Tauba',
+    audioUrl: './assets/audio/tauba-tauba.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Husn Tera Tauba Tauba (Bad Newz 2024)
+  // ID 139 in songsData
+  139: {
+    title: 'Husn Tera Tauba Tauba',
+    audioUrl: './assets/audio/husn-tera-tauba-tauba.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Akhiyaan Gulaab (Teri Baaton Mein 2024)
+  // ID 140 in songsData
+  140: {
+    title: 'Akhiyaan Gulaab',
+    audioUrl: './assets/audio/akhiyaan-gulaab.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Laal Peeli Akhiyaan (Teri Baaton Mein 2024)
+  // ID 141 in songsData
+  141: {
+    title: 'Laal Peeli Akhiyaan',
+    audioUrl: './assets/audio/laal-peeli-akhiyaan.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // O Sajni Re (Laapataa Ladies 2024)
+  // ID 142 in songsData
+  142: {
+    title: 'O Sajni Re',
+    audioUrl: './assets/audio/o-sajni-re.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Angaaron (Pushpa 2, 2024)
+  // ID 143 in songsData
+  143: {
+    title: 'Angaaron',
+    audioUrl: './assets/audio/angaaron.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Peelings (Pushpa 2, 2024)
+  // ID 144 in songsData
+  144: {
+    title: 'Peelings',
+    audioUrl: './assets/audio/peelings.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Sooseki (Pushpa 2, 2024)
+  // ID 145 in songsData
+  145: {
+    title: 'Sooseki',
+    audioUrl: './assets/audio/sooseki.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Saami Saami (Pushpa 2023)
+  // ID 146 in songsData
+  146: {
+    title: 'Saami Saami (Pushpa)',
+    audioUrl: './assets/audio/saami-saami-pushpa.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Kasam Se (Animal 2024)
+  // ID 147 in songsData
+  147: {
+    title: 'Kasam Se',
+    audioUrl: './assets/audio/kasam-se.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Chal Kudiye (Jigra 2024)
+  // ID 148 in songsData
+  148: {
+    title: 'Chal Kudiye',
+    audioUrl: './assets/audio/chal-kudiye.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Phoolon Ka Taaron Ka (Khel Khel Mein 2024)
+  // ID 149 in songsData
+  149: {
+    title: 'Phoolon Ka Taaron Ka',
+    audioUrl: './assets/audio/phoolon-ka-taaron-ka.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Hauli Hauli (Khel Khel Mein 2024)
+  // ID 150 in songsData
+  150: {
+    title: 'Hauli Hauli',
+    audioUrl: './assets/audio/hauli-hauli.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Tu Hai Kahan (Yodha 2024)
+  // ID 151 in songsData
+  151: {
+    title: 'Tu Hai Kahan',
+    audioUrl: './assets/audio/tu-hai-kahan.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Arjan Vailly Reprise (Animal 2023)
+  // ID 152 in songsData
+  152: {
+    title: 'Arjan Vailly (Reprise)',
+    audioUrl: './assets/audio/arjan-vailly-reprise.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Deva Deva (Brahmāstra 2024)
+  // ID 153 in songsData
+  153: {
+    title: 'Deva Deva',
+    audioUrl: './assets/audio/deva-deva.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Sun Sajni (Maidaan 2024)
+  // ID 154 in songsData
+  154: {
+    title: 'Sun Sajni',
+    audioUrl: './assets/audio/sun-sajni.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Khudaya Ve (Satyaprem Ki Katha 2023)
+  // ID 155 in songsData
+  155: {
+    title: 'Khudaya Ve',
+    audioUrl: './assets/audio/khudaya-ve.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Chaleya Reprise (Jawan 2023)
+  // ID 156 in songsData
+  156: {
+    title: 'Chaleya (Reprise)',
+    audioUrl: './assets/audio/chaleya-reprise.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Sajni (Laapataa Ladies 2024)
+  // ID 157 in songsData
+  157: {
+    title: 'Sajni (Laapataa)',
+    audioUrl: './assets/audio/sajni-laapataa.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Tere Pyaar Mein (Tu Jhoothi Main Makkaar 2024)
+  // ID 158 in songsData
+  158: {
+    title: 'Tere Pyaar Mein',
+    audioUrl: './assets/audio/tere-pyaar-mein.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
+  // Pyaar Hota Kayi Baar Hai (Tu Jhoothi Main Makkaar 2024)
+  // ID 159 in songsData
+  159: {
+    title: 'Pyaar Hota Kayi Baar Hai',
+    audioUrl: './assets/audio/pyaar-hota-kayi-baar-hai.mp3',
+    duration: 90,
+    credit: 'Downloaded from YouTube'
+  },
+
 };
 
 // Get music configuration for a specific song ID

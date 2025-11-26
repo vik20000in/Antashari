@@ -36,7 +36,15 @@ $songs = @(
     "srivalli.mp3", "raataan-lambiyan.mp3", "ranjha.mp3", "vai-vai.mp3", "chaleya.mp3",
     "tere-vaaste.mp3", "maan-meri-jaan.mp3", "oo-antava.mp3", "besharam-rang.mp3",
     "jhoome-jo-pathaan.mp3", "tum-kya-mile.mp3", "what-jhumka.mp3", "ve-kamleya.mp3",
-    "arjan-vailly.mp3"
+    "arjan-vailly.mp3", "satranga.mp3", "pehle-bhi-main.mp3", "o-maahi.mp3",
+    "lutt-putt-gaya.mp3", "jamal-kudu.mp3", "ajaa-sajna-milke.mp3", "naseeb-se.mp3",
+    "aaj-ki-raat-stree2.mp3", "tauba-tauba.mp3", "husn-tera-tauba-tauba.mp3",
+    "akhiyaan-gulaab.mp3", "laal-peeli-akhiyaan.mp3", "o-sajni-re.mp3", "angaaron.mp3",
+    "peelings.mp3", "sooseki.mp3", "saami-saami-pushpa.mp3", "kasam-se.mp3",
+    "chal-kudiye.mp3", "phoolon-ka-taaron-ka.mp3", "hauli-hauli.mp3", "tu-hai-kahan.mp3",
+    "arjan-vailly-reprise.mp3", "deva-deva.mp3", "sun-sajni.mp3", "khudaya-ve.mp3",
+    "chaleya-reprise.mp3", "sajni-laapataa.mp3", "tere-pyaar-mein.mp3",
+    "pyaar-hota-kayi-baar-hai.mp3"
 )
 
 # Filter out existing files unless Force is specified
